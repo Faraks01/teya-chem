@@ -2,9 +2,14 @@ import {createTheme} from "@mui/system";
 
 export const mainTheme = createTheme({
   palette: {
-    purple: "#C67EFE",
-    blurple: "#3D3AD1",
-    gray93: "#EDEDED",
-    white: "#FFFFFF"
+    colors: {
+      purple: "#C67EFE",
+      blurple: "#3D3AD1",
+      gray93: "#EDEDED",
+      gray33: "#545454",
+      lightGray: "#E2E2E2",
+      nero: "#1E1E1E",
+      white: "#FFFFFF"
+    }
   },
 });
