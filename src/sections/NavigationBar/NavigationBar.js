@@ -1,7 +1,7 @@
 import React from "react";
 import {Box} from "@mui/system";
-import teyaLogoSrc from "../../assets/teya-logo.png";
-import lightningIcon from "../../assets/lightning_icon.svg";
+import teyaLogoSrc from "../../assets/images/teya-logo.png";
+import lightningIcon from "../../assets/vectors/lightning_icon.svg";
 
 const NavigationBar = () => {
   return (
