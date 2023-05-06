@@ -15,11 +15,15 @@ const NavigationBar = () => {
         maxWidth="1233px"
         height="106px"
         alignItems="center">
-        <img
+        <Box
+          component="img"
           alt={"Teya logo"}
           src={teyaLogoSrc}
           width="auto"
           height={39}
+          sx={{
+            mixBlendMode: "darken"
+          }}
         />
 
         <Box ml="26px">
