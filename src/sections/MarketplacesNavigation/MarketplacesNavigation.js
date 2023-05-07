@@ -45,19 +45,28 @@ const MarketplacesNavigation = () => {
         display="flex"
         flexDirection="column"
         width="100%"
-        maxWidth="1233px">
+        maxWidth="1294.96px">
         <Box
-          component="span"
-          fontFamily="RoadRadio"
-          fontWeight={500}
-          fontSize={45}
-          lineHeight="45px"
-          color="colors.nero"
+          pr="30.98px"
+          pl="30.98px"
         >
-          Покупай онлайн со скидками!
+          <Box
+            component="span"
+            fontFamily="RoadRadio"
+            fontWeight={500}
+            fontSize={45}
+            lineHeight="45px"
+            color="colors.nero"
+          >
+            Покупай онлайн со скидками!
+          </Box>
         </Box>
 
-        <Box mt="10px">
+        <Box
+          mt="10px"
+          pr="30.98px"
+          pl="30.98px"
+        >
           <Box
             component="span"
             fontWeight={500}
