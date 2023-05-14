@@ -3,6 +3,7 @@ import NavigationBar from "./sections/NavigationBar";
 import HeaderSlider from "./sections/HeaderSlider";
 import MarketplacesNavigation from "./sections/MarketplacesNavigation";
 import AboutUs from "./sections/AboutUs";
+import ProductEffectExplanation from "./sections/ProductEffectExplanation";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <HeaderSlider/>
       <MarketplacesNavigation/>
       <AboutUs/>
+      <ProductEffectExplanation/>
     </div>
   );
 }
