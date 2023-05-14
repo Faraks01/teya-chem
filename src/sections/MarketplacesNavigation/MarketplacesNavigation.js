@@ -9,24 +9,28 @@ import Grid from "@mui/system/Unstable_Grid";
 
 const marketplacesCardsPayload = [
   {
+    key: "Wildberries card",
     iconSrc: wildberriesLogoSrc,
     iconAltText: "Wildberries logo",
     description: <>Перейти <br/>в Wildberries</>,
     discount: 0
   },
   {
+    key: "Yandex Market card",
     iconSrc: yandexMarketLogoSrc,
     iconAltText: "Yandex Market logo",
     description: <>Перейти <br/>в Яндекс Маркет</>,
     discount: 20
   },
   {
+    key: "Ozon card",
     iconSrc: ozonLogoSrc,
     iconAltText: "Ozon logo",
     description: <>Перейти <br/>в Ozon</>,
     discount: 0
   },
   {
+    key: "SberMarket card",
     iconSrc: sberMarketLogoSrc,
     iconAltText: "SberMarket logo",
     description: <>Перейти <br/>в СберМаркет</>,
@@ -84,10 +88,9 @@ const MarketplacesNavigation = () => {
           <Grid container>
             {marketplacesCardsPayload.map(p => (
               <Grid
-                item
                 xs={12}
                 md={6}
-                key={p.description}
+                key={p.key}
               >
                 <MarketplaceCard
                   iconSrc={p.iconSrc}
