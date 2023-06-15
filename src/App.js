@@ -4,6 +4,7 @@ import HeaderSlider from "./sections/HeaderSlider";
 import MarketplacesNavigation from "./sections/MarketplacesNavigation";
 import AboutUs from "./sections/AboutUs";
 import ProductEffectExplanation from "./sections/ProductEffectExplanation";
+import ProductUsageInstruction from "./sections/ProductUsageInstruction";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <MarketplacesNavigation/>
       <AboutUs/>
       <ProductEffectExplanation/>
+      <ProductUsageInstruction/>
     </div>
   );
 }
