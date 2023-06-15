@@ -5,6 +5,7 @@ import MarketplacesNavigation from "./sections/MarketplacesNavigation";
 import AboutUs from "./sections/AboutUs";
 import ProductEffectExplanation from "./sections/ProductEffectExplanation";
 import ProductUsageInstruction from "./sections/ProductUsageInstruction";
+import ProductDocumentationAndCertification from "./sections/ProductDocumentationAndCertification";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <AboutUs/>
       <ProductEffectExplanation/>
       <ProductUsageInstruction/>
+      <ProductDocumentationAndCertification/>
     </div>
   );
 }
