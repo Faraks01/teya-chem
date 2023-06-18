@@ -20,7 +20,6 @@ const ProductDocumentationAndCertification = () => {
         pb='60px'
         width="100%"
         borderRadius='22px'
-        backgroundColor="grey"
         maxWidth="1354px">
 
         <Box
