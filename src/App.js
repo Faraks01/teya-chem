@@ -7,6 +7,7 @@ import ProductEffectExplanation from "./sections/ProductEffectExplanation";
 import ProductUsageInstruction from "./sections/ProductUsageInstruction";
 import ProductDocumentationAndCertification from "./sections/ProductDocumentationAndCertification";
 import ProductTesting from "./sections/ProductTesting";
+import BuyOnThisSite from "./sections/BuyOnThisSite";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <ProductUsageInstruction/>
       <ProductDocumentationAndCertification/>
       <ProductTesting/>
+      <BuyOnThisSite/>
     </div>
   );
 }
