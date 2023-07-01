@@ -3,9 +3,12 @@ import {Box} from "@mui/system";
 import Grid from "@mui/system/Unstable_Grid";
 import ProductCard from "./ProductCard";
 
+export const BUY_ON_THIS_SITE_SECTION_ID = 'buy_here';
+
 const BuyOnThisSite = () => {
   return (
     <Box
+      id={BUY_ON_THIS_SITE_SECTION_ID}
       mt='122px'
       display='flex'
       justifyContent='center'

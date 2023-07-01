@@ -5,9 +5,12 @@ import TextAreaInput from "../Feedbacks/TextAreaInput";
 import FileInput from "../Feedbacks/FileInput";
 import {Formik} from "formik";
 
+export const FEEDBACK_FORM_SECTION_ID = 'feedback_form';
+
 const FeedbackForm = () => {
   return (
     <Box
+      id={FEEDBACK_FORM_SECTION_ID}
       mt='122px'
       display='flex'
       justifyContent='center'

@@ -8,6 +8,10 @@ import documentVector from "../../assets/vectors/document_icon.svg";
 import telegramVector from "../../assets/vectors/telegram_icon.svg";
 import vkVector from "../../assets/vectors/vk_icon.svg";
 import whatsappVector from "../../assets/vectors/whats_app_icon.svg";
+import {BUY_ON_THIS_SITE_SECTION_ID} from "../BuyOnThisSite/BuyOnThisSite";
+import {ABOUT_US_SECTION_ID} from "../AboutUs/AboutUs";
+import {FEEDBACKS_SECTION_ID} from "../Feedbacks/Feedbacks";
+import {FEEDBACK_FORM_SECTION_ID} from "../FeedbackForm/FeedbackForm";
 
 const Footer = () => {
   return (
@@ -28,15 +32,23 @@ const Footer = () => {
         height="106px"
         alignItems="center">
         <Box
-          component="img"
-          alt={"Teya logo"}
-          src={teyaLogoSrc}
-          width="auto"
-          height={39}
-          sx={{
-            mixBlendMode: "darken"
-          }}
-        />
+          component="a"
+          href={'#'}
+          display="flex"
+          height="fit-content"
+          width='fit-content'
+        >
+          <Box
+            component="img"
+            alt={"Teya logo"}
+            src={teyaLogoSrc}
+            width="auto"
+            height={39}
+            sx={{
+              mixBlendMode: "darken"
+            }}
+          />
+        </Box>
 
         <Box ml="30px">
           <Box
@@ -52,7 +64,8 @@ const Footer = () => {
 
         <Box ml="77px">
           <Box
-            component="button"
+            component="a"
+            href={'#' + BUY_ON_THIS_SITE_SECTION_ID}
             display="flex"
             alignItems="center"
             backgroundColor="colors.blurple"
@@ -82,7 +95,8 @@ const Footer = () => {
 
         <Box ml="28px">
           <Box
-            component="span"
+            component="a"
+            href={'#' + ABOUT_US_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -94,7 +108,8 @@ const Footer = () => {
 
         <Box ml="47px">
           <Box
-            component="span"
+            component="a"
+            href={'#' + FEEDBACKS_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -106,7 +121,8 @@ const Footer = () => {
 
         <Box ml="47px">
           <Box
-            component="span"
+            component="a"
+            href={'#' + FEEDBACK_FORM_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -118,7 +134,8 @@ const Footer = () => {
 
         <Box ml="70px">
           <Box
-            component="button"
+            component="a"
+            href={'#' + FEEDBACK_FORM_SECTION_ID}
             display="flex"
             alignItems="center"
             backgroundColor="colors.lightGray"

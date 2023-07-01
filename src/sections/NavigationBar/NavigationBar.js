@@ -2,6 +2,10 @@ import React from "react";
 import {Box} from "@mui/system";
 import teyaLogoSrc from "../../assets/images/teya-logo.png";
 import lightningIcon from "../../assets/vectors/lightning_icon.svg";
+import {ABOUT_US_SECTION_ID} from "../AboutUs/AboutUs";
+import {FEEDBACKS_SECTION_ID} from "../Feedbacks/Feedbacks";
+import {FEEDBACK_FORM_SECTION_ID} from "../FeedbackForm/FeedbackForm";
+import {BUY_ON_THIS_SITE_SECTION_ID} from "../BuyOnThisSite/BuyOnThisSite";
 
 const NavigationBar = () => {
   return (
@@ -16,15 +20,23 @@ const NavigationBar = () => {
         height="106px"
         alignItems="center">
         <Box
-          component="img"
-          alt={"Teya logo"}
-          src={teyaLogoSrc}
-          width="auto"
-          height={39}
-          sx={{
-            mixBlendMode: "darken"
-          }}
-        />
+          component="a"
+          href={'#'}
+          display="flex"
+          height="fit-content"
+          width='fit-content'
+        >
+          <Box
+            component="img"
+            alt={"Teya logo"}
+            src={teyaLogoSrc}
+            width="auto"
+            height={39}
+            sx={{
+              mixBlendMode: "darken"
+            }}
+          />
+        </Box>
 
         <Box ml="26px">
           <Box
@@ -40,7 +52,8 @@ const NavigationBar = () => {
 
         <Box ml="53px">
           <Box
-            component="button"
+            component="a"
+            href={'#' + BUY_ON_THIS_SITE_SECTION_ID}
             display="flex"
             alignItems="center"
             backgroundColor="colors.blurple"
@@ -70,7 +83,8 @@ const NavigationBar = () => {
 
         <Box ml="52px">
           <Box
-            component="span"
+            component="a"
+            href={'#' + ABOUT_US_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -82,7 +96,8 @@ const NavigationBar = () => {
 
         <Box ml="47px">
           <Box
-            component="span"
+            component="a"
+            href={'#' + FEEDBACKS_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -94,7 +109,8 @@ const NavigationBar = () => {
 
         <Box ml="47px">
           <Box
-            component="span"
+            component="a"
+            href={'#' + FEEDBACK_FORM_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -106,7 +122,8 @@ const NavigationBar = () => {
 
         <Box ml="70px">
           <Box
-            component="button"
+            component="a"
+            href={'#' + FEEDBACK_FORM_SECTION_ID}
             display="flex"
             alignItems="center"
             backgroundColor="colors.lightGray"

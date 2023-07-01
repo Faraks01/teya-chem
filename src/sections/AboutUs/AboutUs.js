@@ -3,9 +3,12 @@ import {Box} from "@mui/system";
 import springPicSrc from "../../assets/images/spring_picture.png";
 import dodecahedronPicSrc from "../../assets/images/dodecahedron_picture.png";
 
+export const ABOUT_US_SECTION_ID = 'about_us';
+
 const AboutUs = () => {
     return (
       <Box
+        id={ABOUT_US_SECTION_ID}
         pt="122px"
         pb="201.43px"
         display="flex"
