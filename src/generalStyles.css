@@ -20,6 +20,12 @@ button {
     background: unset;
 }
 
+a {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
 .use-slider-mask-clip {
     /*noinspection CssInvalidPropertyValue*/
     clip-path: path('M0 374V22.4996C0 10.3566 9.83832 0.509944 21.9813 0.499601L608.5 0H1198.07C1204.96 0 1211.44 3.22087 1215.6 8.70425L1228.53 25.7434C1231.43 29.5686 1233 34.238 1233 39.0392V76.1937V292.335V374C1233 386.15 1223.15 396 1211 396H951H763H22C9.84974 396 0 386.15 0 374Z');

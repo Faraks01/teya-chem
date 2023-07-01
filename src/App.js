@@ -10,6 +10,7 @@ import ProductTesting from "./sections/ProductTesting";
 import BuyOnThisSite from "./sections/BuyOnThisSite";
 import Feedbacks from "./sections/Feedbacks";
 import FeedbackForm from "./sections/FeedbackForm";
+import Footer from "./sections/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <BuyOnThisSite/>
       <Feedbacks/>
       <FeedbackForm/>
+      <Footer/>
     </div>
   );
 }
