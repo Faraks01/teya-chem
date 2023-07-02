@@ -10,6 +10,7 @@ const BuyOnThisSite = () => {
     <Box
       id={BUY_ON_THIS_SITE_SECTION_ID}
       mt='122px'
+      component='section'
       display='flex'
       justifyContent='center'
       width='100%'>

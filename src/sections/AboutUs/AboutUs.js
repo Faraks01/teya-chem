@@ -9,6 +9,7 @@ const AboutUs = () => {
     return (
       <Box
         id={ABOUT_US_SECTION_ID}
+        component='section'
         pt="122px"
         pb="201.43px"
         display="flex"

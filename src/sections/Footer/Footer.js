@@ -26,6 +26,7 @@ const Footer = () => {
       backgroundColor='#EFEFEF'
       justifyContent="center">
       <Box
+        className='footer-content-body'
         display="flex"
         width="100%"
         maxWidth="1237px"
@@ -167,6 +168,7 @@ const Footer = () => {
       />
 
       <Box
+        className='footer-content-body'
         mt='25px'
         display="flex"
         width="100%"

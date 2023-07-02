@@ -26,6 +26,10 @@ a {
   text-decoration: none;
 }
 
+section, .footer-content-body {
+  transform: scale(0.9);
+}
+
 * {
   scroll-behavior: smooth !important;
 }

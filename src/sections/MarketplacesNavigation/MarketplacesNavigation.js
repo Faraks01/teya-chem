@@ -41,6 +41,7 @@ const marketplacesCardsPayload = [
 const MarketplacesNavigation = () => {
   return (
     <Box
+      component='section'
       display="flex"
       justifyContent="center"
       width="100%"

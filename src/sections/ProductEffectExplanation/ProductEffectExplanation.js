@@ -6,6 +6,7 @@ import sectionBgPicSrc from "../../assets/images/product_effect_explanation_bg.p
 const ProductEffectExplanation = () => {
     return (
       <Box
+        component='section'
         display="flex"
         justifyContent="center"
         width="100%"

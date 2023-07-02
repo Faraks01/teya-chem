@@ -12,6 +12,7 @@ const FeedbackForm = () => {
     <Box
       id={FEEDBACK_FORM_SECTION_ID}
       mt='122px'
+      component='section'
       display='flex'
       justifyContent='center'
       width='100%'>

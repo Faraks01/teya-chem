@@ -13,6 +13,7 @@ const HeaderSlider = () => {
 
   return (
     <Box
+      component='section'
       display="flex"
       justifyContent="center"
       width="100%"

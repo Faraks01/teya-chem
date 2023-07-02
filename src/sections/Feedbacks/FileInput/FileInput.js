@@ -81,8 +81,8 @@ const FileInput = (props) => {
           component='input'
           type='file'
           name={name}
-          accept='.png, .jpg, .jpeg, .doc, .docx'
           {...restInputProps}
+          accept='.png, .jpg, .jpeg, .doc, .docx, .xlsx, .pdf'
         />
       </Box>
     </Box>

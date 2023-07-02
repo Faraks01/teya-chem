@@ -11,6 +11,7 @@ const Feedbacks = () => {
     <Box
       id={FEEDBACKS_SECTION_ID}
       mt='122px'
+      component='section'
       display='flex'
       justifyContent='center'
       width='100%'>

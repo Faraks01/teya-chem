@@ -8,6 +8,7 @@ const ProductUsageInstruction = () => {
   return (
     <Box
       pt="122px"
+      component='section'
       display="flex"
       justifyContent="center"
       width="100%">

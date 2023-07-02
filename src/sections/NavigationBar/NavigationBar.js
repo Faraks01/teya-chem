@@ -10,6 +10,7 @@ import {BUY_ON_THIS_SITE_SECTION_ID} from "../BuyOnThisSite/BuyOnThisSite";
 const NavigationBar = () => {
   return (
     <Box
+      component='section'
       display="flex"
       width="100%"
       justifyContent="center">

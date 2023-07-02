@@ -7,6 +7,7 @@ const ProductTesting = () => {
   return (
     <Box
       mt='122px'
+      component='section'
       display='flex'
       justifyContent='center'
       width='100%'>
