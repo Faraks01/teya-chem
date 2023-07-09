@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Box} from "@mui/system";
 import Grid from "@mui/system/Unstable_Grid";
 import {stepCardsData} from "./stepCardsData";
 import InstructionStepCard from "./InstructionStepCard";
+import {PriceCalculatorContext} from "../../components/PriceCalculator/PriceCalculator";
 
 const ProductUsageInstruction = () => {
+
+  const {
+    changeDialogState
+  } = useContext(PriceCalculatorContext);
+
+  const openCalculatorDialog = () => changeDialogState(true);
+
   return (
     <Box
       pt="122px"
@@ -151,6 +159,7 @@ const ProductUsageInstruction = () => {
             borderRadius='17.7px'
             height='69px'
             width='100%'
+            onClick={openCalculatorDialog}
           >
             <Box
               component="span"

@@ -1,4 +1,4 @@
-import React, {Children, cloneElement, createContext, useContext, useEffect, useState} from "react";
+import React, {Children, cloneElement, createContext, useContext, useEffect, useMemo, useState} from "react";
 import {Box, Stack} from "@mui/system";
 import styled from "@emotion/styled/macro";
 import Modal from '@mui/base/Modal';
@@ -82,163 +82,180 @@ const PriceCalculator = () => {
       per_product_discount: 1625,
       per_month_during_product_usage_discount: 1300,
       amount_of_common_product_packs: 1,
-      amount_of_large_product_packs: 1,
+      amount_of_large_product_packs: 0,
     },
     onSubmit: () => null,
   });
 
+  const {
+    tank_volume,
+    fuel_price,
+    full_charge_price,
+    average_consumption,
+    amount_of_common_product_packs,
+    amount_of_large_product_packs,
+    average_mileage_per_month,
+    mileage_per_hundred_kilometers_discount
+  } = formik.values;
+
+  const {
+    setFieldValue,
+    resetForm
+  } = formik;
+
   useEffect(() => {
     if (
-      formik.values.tank_volume !== undefined &&
-      formik.values.fuel_price !== undefined
+      tank_volume !== undefined &&
+      fuel_price !== undefined
     ) {
-      formik.setFieldValue(
+      setFieldValue(
         'full_charge_price',
-        formik.values.tank_volume * formik.values.fuel_price
+        tank_volume * fuel_price
       )
     }
 
   }, [
-    formik.values.tank_volume,
-    formik.values.fuel_price,
-    formik.setFieldValue
+    tank_volume,
+    fuel_price,
+    setFieldValue
   ]);
 
   useEffect(() => {
     if (
-      formik.values.tank_volume !== undefined
+      tank_volume !== undefined
     ) {
       const productVolume = PRODUCT_VARIANTS['COMMON']['volume'];
 
-      formik.setFieldValue(
+      setFieldValue(
         'amount_of_common_product_packs',
         Math.ceil(
-          formik.values.tank_volume / productVolume
+          tank_volume / productVolume
         )
       )
     }
   }, [
-    formik.values.tank_volume,
-    formik.setFieldValue
+    tank_volume,
+    setFieldValue
   ]);
 
   useEffect(() => {
     if (
-      formik.values.tank_volume !== undefined
+      tank_volume !== undefined
     ) {
       const productVolume = PRODUCT_VARIANTS['LARGE']['volume'];
 
-      formik.setFieldValue(
+      setFieldValue(
         'amount_of_large_product_packs',
         Math.ceil(
-          formik.values.tank_volume / productVolume
+          tank_volume / productVolume
         )
       )
     }
   }, [
-    formik.values.tank_volume,
-    formik.setFieldValue
+    tank_volume,
+    setFieldValue
   ]);
 
   useEffect(() => {
     if (
-      formik.values.full_charge_price !== undefined &&
-      formik.values.tank_volume !== undefined
+      full_charge_price !== undefined &&
+      tank_volume !== undefined
     ) {
       const productHalfDiscount = PRODUCT_VARIANTS['COMMON']['price'] / 2;
       const productVolume = PRODUCT_VARIANTS['COMMON']['volume'];
 
-      formik.setFieldValue(
+      setFieldValue(
         'full_charge_discount',
         (
-          formik.values.full_charge_price * COST_REDUCTION / 100 -
-          formik.values.tank_volume * productHalfDiscount / productVolume
+          full_charge_price * COST_REDUCTION / 100 -
+          tank_volume * productHalfDiscount / productVolume
         )
       )
     }
 
   }, [
-    formik.values.full_charge_price,
-    formik.values.tank_volume,
-    formik.setFieldValue
+    full_charge_price,
+    tank_volume,
+    setFieldValue
   ]);
 
   useEffect(() => {
     if (
-      formik.values.average_consumption !== undefined &&
-      formik.values.fuel_price !== undefined
+      average_consumption !== undefined &&
+      fuel_price !== undefined
     ) {
       const productHalfDiscount = PRODUCT_VARIANTS['COMMON']['price'] / 2;
       const productVolume = PRODUCT_VARIANTS['COMMON']['volume'];
 
-      formik.setFieldValue(
+      setFieldValue(
         'mileage_per_hundred_kilometers_discount',
         (
-          formik.values.average_consumption * formik.values.fuel_price * COST_REDUCTION / 100 -
-          formik.values.average_consumption * productHalfDiscount / productVolume
+          average_consumption * fuel_price * COST_REDUCTION / 100 -
+          average_consumption * productHalfDiscount / productVolume
         )
       )
     }
 
   }, [
-    formik.values.average_consumption,
-    formik.values.fuel_price,
-    formik.setFieldValue
+    average_consumption,
+    fuel_price,
+    setFieldValue
   ]);
 
   useEffect(() => {
     if (
-      formik.values.amount_of_common_product_packs !== undefined &&
-      formik.values.fuel_price !== undefined
+      amount_of_common_product_packs !== undefined &&
+      fuel_price !== undefined
     ) {
       const productHalfDiscount = PRODUCT_VARIANTS['COMMON']['price'] / 2;
 
-      formik.setFieldValue(
+      setFieldValue(
         'per_product_discount',
         (
-          formik.values.amount_of_common_product_packs * productHalfDiscount * COST_REDUCTION / 100 * formik.values.fuel_price -
-          formik.values.amount_of_common_product_packs * productHalfDiscount
+          amount_of_common_product_packs * productHalfDiscount * COST_REDUCTION / 100 * fuel_price -
+          amount_of_common_product_packs * productHalfDiscount
         )
       )
     }
 
   }, [
-    formik.values.amount_of_common_product_packs,
-    formik.values.fuel_price,
-    formik.setFieldValue
+    amount_of_common_product_packs,
+    fuel_price,
+    setFieldValue
   ]);
 
   useEffect(() => {
     if (
-      formik.values.average_mileage_per_month !== undefined &&
-      formik.values.mileage_per_hundred_kilometers_discount !== undefined
+      average_mileage_per_month !== undefined &&
+      mileage_per_hundred_kilometers_discount !== undefined
     ) {
-      formik.setFieldValue(
+      setFieldValue(
         'per_month_during_product_usage_discount',
         (
-          formik.values.average_mileage_per_month / 100 * formik.values.mileage_per_hundred_kilometers_discount
+          average_mileage_per_month / 100 * mileage_per_hundred_kilometers_discount
         )
       )
     }
 
   }, [
-    formik.values.average_mileage_per_month,
-    formik.values.mileage_per_hundred_kilometers_discount,
-    formik.setFieldValue
+    average_mileage_per_month,
+    mileage_per_hundred_kilometers_discount,
+    setFieldValue
   ]);
 
   useEffect(() => {
     if (!dialogOpen) {
-      formik.resetForm();
+      resetForm();
     }
   }, [
-    dialogOpen
+    dialogOpen,
+    resetForm
   ]);
 
   const handleInputChange = (field) => (evt) => {
     const {value} = evt.target;
 
-    formik.setFieldValue(
+    setFieldValue(
       field,
       (!isNaN(value) && value !== '')
         ? Number(value)
@@ -249,11 +266,45 @@ const PriceCalculator = () => {
   const handleSelectInputChange = (evt) => {
     const {value} = evt.target;
 
-    formik.setFieldValue(
+    setFieldValue(
       'fuel_brand',
       value
     );
   }
+
+  const suggestLargeBottle = (
+    amount_of_large_product_packs > 0 &&
+    (amount_of_large_product_packs < amount_of_common_product_packs)
+  );
+
+  const packsTitle = useMemo(() => {
+    const pack_amount = suggestLargeBottle
+      ? amount_of_large_product_packs
+      : amount_of_common_product_packs;
+
+    const strPackAmount = String(pack_amount);
+    const strPackLastSymbol = strPackAmount[strPackAmount.length - 1];
+
+    let packs = 'флакон';
+
+    if (strPackLastSymbol === '1') {
+      packs = 'флакон';
+    } else if (
+      strPackLastSymbol === '2' ||
+      strPackLastSymbol === '3' ||
+      strPackLastSymbol === '4'
+    ) {
+      packs = 'флакона';
+    } else {
+      packs = 'флаконов';
+    }
+
+    return `х ${pack_amount} ${packs}`
+  }, [
+    amount_of_large_product_packs,
+    amount_of_common_product_packs,
+    suggestLargeBottle
+  ]);
 
   return (
     <Box>
@@ -416,7 +467,9 @@ const PriceCalculator = () => {
                 flexDirection='column'
                 alignItems='center'
                 minWidth={211}
-                width={211}
+                width='fit-content'
+                pl={1}
+                pr={1}
                 height={148}
                 backgroundColor='colors.whiteSmoke'
               >
@@ -446,7 +499,8 @@ const PriceCalculator = () => {
                 <Box
                   mt='12px'
                   display='flex'
-                  width={129}
+                  minWidth={129}
+                  width='fit-content'
                   height={37}
                   borderRadius='12px'
                   backgroundColor='colors.blurple'
@@ -459,7 +513,7 @@ const PriceCalculator = () => {
                     color="colors.white"
                     textAlign='center'
                   >
-                    х {formik.values.amount_of_common_product_packs} флакон
+                    {packsTitle}
                   </Box>
                 </Box>
               </Box>
@@ -470,7 +524,9 @@ const PriceCalculator = () => {
                 flexDirection='column'
                 alignItems='center'
                 minWidth={211}
-                width={211}
+                width='fit-content'
+                pl={1}
+                pr={1}
                 height={148}
                 backgroundColor='colors.whiteSmoke'
               >
@@ -494,7 +550,8 @@ const PriceCalculator = () => {
                   color="colors.blurple"
                   textAlign='center'
                 >
-                  x2 мл
+                  {suggestLargeBottle && 'x2 мл'}
+                  {!suggestLargeBottle && 'x1 мл'}
                 </Box>
 
                 <Box
@@ -537,7 +594,9 @@ const PriceCalculator = () => {
                   flexDirection='column'
                   alignItems='center'
                   minWidth={211}
-                  width={211}
+                  width='fit-content'
+                  pl={1}
+                  pr={1}
                   height={102}
                   backgroundColor='colors.whiteSmoke'
                 >
@@ -571,7 +630,9 @@ const PriceCalculator = () => {
                   flexDirection='column'
                   alignItems='center'
                   minWidth={211}
-                  width={211}
+                  width='fit-content'
+                  pl={1}
+                  pr={1}
                   height={102}
                   backgroundColor='colors.whiteSmoke'
                 >
@@ -605,7 +666,9 @@ const PriceCalculator = () => {
                   flexDirection='column'
                   alignItems='center'
                   minWidth={211}
-                  width={211}
+                  width='fit-content'
+                  pl={1}
+                  pr={1}
                   height={102}
                   backgroundColor='colors.whiteSmoke'
                 >
