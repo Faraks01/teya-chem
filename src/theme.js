@@ -12,7 +12,9 @@ export const mainTheme = createTheme({
       romanSilver: "#898C93",
       lightGray: "#E2E2E2",
       nero: "#1E1E1E",
-      white: "#FFFFFF"
+      white: "#FFFFFF",
+      jetBlack: "#35363A",
+      whiteSmoke: "#EFEFEF"
     }
   },
 });

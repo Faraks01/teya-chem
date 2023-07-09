@@ -11,6 +11,7 @@ import BuyOnThisSite from "./sections/BuyOnThisSite";
 import Feedbacks from "./sections/Feedbacks";
 import FeedbackForm from "./sections/FeedbackForm";
 import Footer from "./sections/Footer";
+import PriceCalculator from "./components/PriceCalculator";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
       <Feedbacks/>
       <FeedbackForm/>
       <Footer/>
+
+      {/* Dialogs */}
+      <PriceCalculator/>
     </div>
   );
 }

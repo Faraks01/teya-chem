@@ -1,8 +1,8 @@
 import React from "react";
 import {Box} from "@mui/system";
-import TextInput from "../Feedbacks/TextInput";
-import TextAreaInput from "../Feedbacks/TextAreaInput";
-import FileInput from "../Feedbacks/FileInput";
+import TextInput from "../../components/TextInput";
+import TextAreaInput from "../../components/TextAreaInput";
+import FileInput from "../../components/FileInput";
 import {Formik} from "formik";
 
 export const FEEDBACK_FORM_SECTION_ID = 'feedback_form';

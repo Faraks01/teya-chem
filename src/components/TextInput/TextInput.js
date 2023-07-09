@@ -8,8 +8,11 @@ const TextInput = (props) => {
     name = '',
     inputWidth = '',
     type = 'text',
+    variant = 'primary',
     ...restInputProps
   } = props;
+
+  const altVariant = variant === 'secondary';
 
   return (
     <Box
@@ -18,13 +21,13 @@ const TextInput = (props) => {
     >
       {!!label && (
         <Box
-          mb='13px'
+          mb={altVariant ? '11px' : '13px'}
           htmlFor={id}
           component="label"
           fontWeight={500}
-          fontSize={17}
-          lineHeight="23.69px"
-          color="colors.romanSilver"
+          fontSize={altVariant ? 14 : 17}
+          lineHeight={altVariant ? 'normal' : "23.69px"}
+          color={altVariant ? "colors.jetBlack" : "colors.romanSilver"}
         >
           {label}
         </Box>
@@ -34,19 +37,22 @@ const TextInput = (props) => {
         id={id}
         display='flex'
         alignItems='center'
-        pl='17.77px'
-        pr='17.77px'
+        pl={altVariant ? '16px' : '17.77px'}
+        pr={altVariant ? '16px' : '17.77px'}
         component='input'
         type={type}
         fontWeight={500}
-        fontSize={17}
+        fontSize={altVariant ? 16 : 17}
+        color={altVariant ? 'colors.gray33' : undefined}
         name={name}
         width={inputWidth}
-        height='50px'
-        borderRadius='14.21px'
-        backgroundColor='colors.gray98'
+        height={altVariant ? '53px' : '50px'}
+        borderRadius={altVariant ? '12px' : '14.21px'}
+        backgroundColor={altVariant ? 'colors.white' : 'colors.gray98'}
         sx={{
-          border: '0.592199px solid #CECECE'
+          border: altVariant
+            ? '1px solid #D7D7D7'
+            : '0.592199px solid #CECECE'
         }}
         {...restInputProps}
       />

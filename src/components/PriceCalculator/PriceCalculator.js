@@ -1,0 +1,693 @@
+import React, {Children, cloneElement, createContext, useContext, useEffect, useState} from "react";
+import {Box, Stack} from "@mui/system";
+import styled from "@emotion/styled/macro";
+import Modal from '@mui/base/Modal';
+import TextInput from "../TextInput";
+import {useFormik} from "formik";
+import {COST_REDUCTION, FUEL_BRANDS, PRODUCT_VARIANTS} from "../../constants";
+import wavesSeparatorVector from "../../assets/vectors/waves_separator.svg";
+import Select from "../Select";
+import {formatNumber} from "../../utilities";
+
+export const PriceCalculatorContext = createContext({
+  dialogOpen: false,
+  changeDialogState: (state) => {
+  }
+});
+
+export const PriceCalculatorContextWrapper = ({children}) => {
+  const [dialogOpen, changeDialogState] = useState(false);
+
+  return (
+    <PriceCalculatorContext.Provider
+      value={{dialogOpen, changeDialogState}}
+    >
+      {Children.map(children, (child) => cloneElement(child))}
+    </PriceCalculatorContext.Provider>
+  )
+}
+
+const Backdrop = React.forwardRef((props, ref) => {
+  const {open, className, ...other} = props;
+  return (
+    <div
+      className={`${className} ${open && 'MuiBackdrop-open'}`}
+      ref={ref}
+      {...other}
+    />
+  );
+});
+
+const StyledModal = styled(Modal)`
+  position: fixed;
+  z-index: 1300;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledBackdrop = styled(Backdrop)`
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+`;
+
+const PriceCalculator = () => {
+  const {
+    dialogOpen,
+    changeDialogState
+  } = useContext(PriceCalculatorContext);
+
+  const closeDialog = () => changeDialogState(false);
+
+  const formik = useFormik({
+    initialValues: {
+      tank_volume: 100,
+      fuel_brand: FUEL_BRANDS['ДТ'],
+      average_consumption: 10,
+      fuel_price: 50,
+      average_mileage_per_month: 2000,
+      full_charge_price: 5000,
+      full_charge_discount: 650,
+      mileage_per_hundred_kilometers_discount: 65,
+      per_product_discount: 1625,
+      per_month_during_product_usage_discount: 1300,
+      amount_of_common_product_packs: 1,
+      amount_of_large_product_packs: 1,
+    },
+    onSubmit: () => null,
+  });
+
+  useEffect(() => {
+    if (
+      formik.values.tank_volume !== undefined &&
+      formik.values.fuel_price !== undefined
+    ) {
+      formik.setFieldValue(
+        'full_charge_price',
+        formik.values.tank_volume * formik.values.fuel_price
+      )
+    }
+
+  }, [
+    formik.values.tank_volume,
+    formik.values.fuel_price,
+    formik.setFieldValue
+  ]);
+
+  useEffect(() => {
+    if (
+      formik.values.tank_volume !== undefined
+    ) {
+      const productVolume = PRODUCT_VARIANTS['COMMON']['volume'];
+
+      formik.setFieldValue(
+        'amount_of_common_product_packs',
+        Math.ceil(
+          formik.values.tank_volume / productVolume
+        )
+      )
+    }
+  }, [
+    formik.values.tank_volume,
+    formik.setFieldValue
+  ]);
+
+  useEffect(() => {
+    if (
+      formik.values.tank_volume !== undefined
+    ) {
+      const productVolume = PRODUCT_VARIANTS['LARGE']['volume'];
+
+      formik.setFieldValue(
+        'amount_of_large_product_packs',
+        Math.ceil(
+          formik.values.tank_volume / productVolume
+        )
+      )
+    }
+  }, [
+    formik.values.tank_volume,
+    formik.setFieldValue
+  ]);
+
+  useEffect(() => {
+    if (
+      formik.values.full_charge_price !== undefined &&
+      formik.values.tank_volume !== undefined
+    ) {
+      const productHalfDiscount = PRODUCT_VARIANTS['COMMON']['price'] / 2;
+      const productVolume = PRODUCT_VARIANTS['COMMON']['volume'];
+
+      formik.setFieldValue(
+        'full_charge_discount',
+        (
+          formik.values.full_charge_price * COST_REDUCTION / 100 -
+          formik.values.tank_volume * productHalfDiscount / productVolume
+        )
+      )
+    }
+
+  }, [
+    formik.values.full_charge_price,
+    formik.values.tank_volume,
+    formik.setFieldValue
+  ]);
+
+  useEffect(() => {
+    if (
+      formik.values.average_consumption !== undefined &&
+      formik.values.fuel_price !== undefined
+    ) {
+      const productHalfDiscount = PRODUCT_VARIANTS['COMMON']['price'] / 2;
+      const productVolume = PRODUCT_VARIANTS['COMMON']['volume'];
+
+      formik.setFieldValue(
+        'mileage_per_hundred_kilometers_discount',
+        (
+          formik.values.average_consumption * formik.values.fuel_price * COST_REDUCTION / 100 -
+          formik.values.average_consumption * productHalfDiscount / productVolume
+        )
+      )
+    }
+
+  }, [
+    formik.values.average_consumption,
+    formik.values.fuel_price,
+    formik.setFieldValue
+  ]);
+
+  useEffect(() => {
+    if (
+      formik.values.amount_of_common_product_packs !== undefined &&
+      formik.values.fuel_price !== undefined
+    ) {
+      const productHalfDiscount = PRODUCT_VARIANTS['COMMON']['price'] / 2;
+
+      formik.setFieldValue(
+        'per_product_discount',
+        (
+          formik.values.amount_of_common_product_packs * productHalfDiscount * COST_REDUCTION / 100 * formik.values.fuel_price -
+          formik.values.amount_of_common_product_packs * productHalfDiscount
+        )
+      )
+    }
+
+  }, [
+    formik.values.amount_of_common_product_packs,
+    formik.values.fuel_price,
+    formik.setFieldValue
+  ]);
+
+  useEffect(() => {
+    if (
+      formik.values.average_mileage_per_month !== undefined &&
+      formik.values.mileage_per_hundred_kilometers_discount !== undefined
+    ) {
+      formik.setFieldValue(
+        'per_month_during_product_usage_discount',
+        (
+          formik.values.average_mileage_per_month / 100 * formik.values.mileage_per_hundred_kilometers_discount
+        )
+      )
+    }
+
+  }, [
+    formik.values.average_mileage_per_month,
+    formik.values.mileage_per_hundred_kilometers_discount,
+    formik.setFieldValue
+  ]);
+
+  useEffect(() => {
+    if (!dialogOpen) {
+      formik.resetForm();
+    }
+  }, [
+    dialogOpen
+  ]);
+
+  const handleInputChange = (field) => (evt) => {
+    const {value} = evt.target;
+
+    formik.setFieldValue(
+      field,
+      (!isNaN(value) && value !== '')
+        ? Number(value)
+        : undefined
+    );
+  }
+
+  const handleSelectInputChange = (evt) => {
+    const {value} = evt.target;
+
+    formik.setFieldValue(
+      'fuel_brand',
+      value
+    );
+  }
+
+  return (
+    <Box>
+      <StyledModal
+        open={dialogOpen}
+        onClose={closeDialog}
+        slots={{backdrop: StyledBackdrop}}
+      >
+        <Box
+          display='flex'
+          flexDirection='column'
+          width='100%'
+          maxWidth={1285}
+          height={630}
+          borderRadius='22px'
+          backgroundColor='colors.white'
+          pt='28px'
+          pb='28px'
+        >
+          <Box
+            ml='41px'
+            component="span"
+            fontFamily="RoadRadio"
+            fontWeight={400}
+            fontSize={30}
+            color="colors.nero"
+          >
+            Калькулятор расчёта
+          </Box>
+
+          <Stack
+            mt='36px'
+            ml='41px'
+            direction='row'
+            spacing='25px'
+          >
+            <TextInput
+              id='tank_volume'
+              name='tank_volume'
+              label='Объем бака (л)'
+              inputWidth='211px'
+              variant='secondary'
+              placeholder='Объем бака (л)'
+              max='99999999'
+              onChange={handleInputChange('tank_volume')}
+              value={formik.values.tank_volume}
+            />
+
+            <Select
+              id='fuel_brand'
+              name='fuel_brand'
+              label='Марка топлива'
+              selectWidth='211px'
+              placeholder='Марка топлива'
+              options={Object.entries(FUEL_BRANDS).map(
+                e => ({label: e[0], value: e[1]})
+              )}
+              onChange={handleSelectInputChange}
+              value={formik.values.fuel_brand}
+            />
+
+            <TextInput
+              id='average_consumption'
+              name='average_consumption'
+              label='Средний расход (л/100 км)'
+              inputWidth='211px'
+              variant='secondary'
+              placeholder='Средний расход'
+              max='99999999'
+              onChange={handleInputChange('average_consumption')}
+              value={formik.values.average_consumption}
+            />
+
+            <TextInput
+              id='fuel_price'
+              name='fuel_price'
+              label='Цена запр.топлива (руб/л)'
+              inputWidth='211px'
+              variant='secondary'
+              placeholder='Цена топлива'
+              max='99999999'
+              onChange={handleInputChange('fuel_price')}
+              value={formik.values.fuel_price}
+            />
+
+            <TextInput
+              id='average_mileage_per_month'
+              name='average_mileage_per_month'
+              label='Средний пробег в мес. (км)'
+              inputWidth='211px'
+              variant='secondary'
+              placeholder='Средний пробег'
+              max='99999999'
+              onChange={handleInputChange('average_mileage_per_month')}
+              value={formik.values.average_mileage_per_month}
+            />
+          </Stack>
+
+          <Box
+            mt='21px'
+            ml='41px'
+            display='flex'
+            alignItems='center'
+          >
+            <Box
+              component="span"
+              fontFamily="RoadRadio"
+              fontWeight={400}
+              fontSize={22}
+              color="colors.nero"
+            >
+              Стоимость одной полной заправки:
+            </Box>
+
+            <Box
+              ml='31px'
+              borderRadius='12px'
+              display='flex'
+              minWidth={193}
+              width='fit-content'
+              height={53}
+              pl='10px'
+              pr='10px'
+              backgroundColor='colors.whiteSmoke'
+            >
+              <Box
+                m='auto'
+                component="span"
+                fontFamily="RoadRadio"
+                fontWeight={400}
+                fontSize={35}
+                color="colors.blurple"
+              >
+                {formatNumber(Math.round(formik.values.full_charge_price))} руб
+              </Box>
+            </Box>
+          </Box>
+
+          <Box
+            position='relative'
+            mt='24px'
+            width='100%'
+            height='15px'
+            flexShrink={0}
+            sx={{background: `url('${wavesSeparatorVector}')`}}
+          />
+
+          <Box
+            mt='39px'
+            ml='41px'
+            display='flex'
+          >
+            <Stack
+              direction='row'
+              spacing='13px'
+            >
+              <Box
+                borderRadius='12px'
+                display='flex'
+                flexDirection='column'
+                alignItems='center'
+                minWidth={211}
+                width={211}
+                height={148}
+                backgroundColor='colors.whiteSmoke'
+              >
+                <Box
+                  mt='16px'
+                  component="span"
+                  fontWeight={500}
+                  fontSize={15}
+                  color="colors.nero"
+                  textAlign='center'
+                >
+                  Подходящая присадка
+                </Box>
+
+                <Box
+                  mt='12px'
+                  component="span"
+                  fontFamily="RoadRadio"
+                  fontWeight={400}
+                  fontSize={35}
+                  color="colors.blurple"
+                  textAlign='center'
+                >
+                  ТЭЯ-ДТ
+                </Box>
+
+                <Box
+                  mt='12px'
+                  display='flex'
+                  width={129}
+                  height={37}
+                  borderRadius='12px'
+                  backgroundColor='colors.blurple'
+                >
+                  <Box
+                    m='auto'
+                    component="span"
+                    fontWeight={500}
+                    fontSize={16}
+                    color="colors.white"
+                    textAlign='center'
+                  >
+                    х {formik.values.amount_of_common_product_packs} флакон
+                  </Box>
+                </Box>
+              </Box>
+
+              <Box
+                borderRadius='12px'
+                display='flex'
+                flexDirection='column'
+                alignItems='center'
+                minWidth={211}
+                width={211}
+                height={148}
+                backgroundColor='colors.whiteSmoke'
+              >
+                <Box
+                  mt='16px'
+                  component="span"
+                  fontWeight={500}
+                  fontSize={15}
+                  color="colors.nero"
+                  textAlign='center'
+                >
+                  Необходимая дозировка
+                </Box>
+
+                <Box
+                  mt='12px'
+                  component="span"
+                  fontFamily="RoadRadio"
+                  fontWeight={400}
+                  fontSize={35}
+                  color="colors.blurple"
+                  textAlign='center'
+                >
+                  x2 мл
+                </Box>
+
+                <Box
+                  mt='12px'
+                  component="span"
+                  fontWeight={500}
+                  fontSize={14}
+                  color="colors.gray33"
+                  textAlign='center'
+                >
+                  *дозировка на 1 заправку<br/>
+                  полного бака
+                </Box>
+              </Box>
+            </Stack>
+
+            <Box
+              ml='51px'
+              display='flex'
+              flexDirection='column'
+            >
+              <Box
+                component="span"
+                fontFamily="RoadRadio"
+                fontWeight={400}
+                fontSize={22}
+                color="colors.nero"
+              >
+                Ваша экономия:
+              </Box>
+
+              <Stack
+                mt='24px'
+                direction='row'
+                spacing='30px'
+              >
+                <Box
+                  borderRadius='12px'
+                  display='flex'
+                  flexDirection='column'
+                  alignItems='center'
+                  minWidth={211}
+                  width={211}
+                  height={102}
+                  backgroundColor='colors.whiteSmoke'
+                >
+                  <Box
+                    mt='16px'
+                    component="span"
+                    fontWeight={500}
+                    fontSize={15}
+                    color="colors.nero"
+                    textAlign='center'
+                  >
+                    С каждой заправки
+                  </Box>
+
+                  <Box
+                    mt='12px'
+                    component="span"
+                    fontFamily="RoadRadio"
+                    fontWeight={400}
+                    fontSize={35}
+                    color="colors.blurple"
+                    textAlign='center'
+                  >
+                    {formatNumber(Math.round(formik.values.full_charge_discount))} руб
+                  </Box>
+                </Box>
+
+                <Box
+                  borderRadius='12px'
+                  display='flex'
+                  flexDirection='column'
+                  alignItems='center'
+                  minWidth={211}
+                  width={211}
+                  height={102}
+                  backgroundColor='colors.whiteSmoke'
+                >
+                  <Box
+                    mt='16px'
+                    component="span"
+                    fontWeight={500}
+                    fontSize={15}
+                    color="colors.nero"
+                    textAlign='center'
+                  >
+                    На 100 км
+                  </Box>
+
+                  <Box
+                    mt='12px'
+                    component="span"
+                    fontFamily="RoadRadio"
+                    fontWeight={400}
+                    fontSize={35}
+                    color="colors.blurple"
+                    textAlign='center'
+                  >
+                    {formatNumber(Math.round(formik.values.mileage_per_hundred_kilometers_discount))} руб
+                  </Box>
+                </Box>
+
+                <Box
+                  borderRadius='12px'
+                  display='flex'
+                  flexDirection='column'
+                  alignItems='center'
+                  minWidth={211}
+                  width={211}
+                  height={102}
+                  backgroundColor='colors.whiteSmoke'
+                >
+                  <Box
+                    mt='16px'
+                    component="span"
+                    fontWeight={500}
+                    fontSize={15}
+                    color="colors.nero"
+                    textAlign='center'
+                  >
+                    С одного флакона
+                  </Box>
+
+                  <Box
+                    mt='12px'
+                    component="span"
+                    fontFamily="RoadRadio"
+                    fontWeight={400}
+                    fontSize={35}
+                    color="colors.blurple"
+                    textAlign='center'
+                  >
+                    {formatNumber(Math.round(formik.values.per_product_discount))} руб
+                  </Box>
+                </Box>
+              </Stack>
+            </Box>
+          </Box>
+
+          <Box
+            position='relative'
+            mt='48px'
+            width='100%'
+            height='0.5px'
+            backgroundColor='#ADADAD'
+          />
+
+          <Box
+            mt='24px'
+            mr='65px'
+            display='flex'
+            justifyContent='flex-end'
+            alignItems='center'
+          >
+            <Box
+              component="span"
+              fontFamily="RoadRadio"
+              fontWeight={400}
+              fontSize={22}
+              color="colors.nero"
+            >
+              В месяц при постоянном использовании присадки
+            </Box>
+
+            <Box
+              ml='30px'
+              borderRadius='12px'
+              display='flex'
+              minWidth={211}
+              width='fit-content'
+              height={53}
+              pl='25px'
+              pr='26px'
+              backgroundColor='#D9FFBB'
+            >
+              <Box
+                m='auto'
+                component="span"
+                fontFamily="RoadRadio"
+                fontWeight={400}
+                fontSize={30}
+                color="#416C1F"
+              >
+                {formatNumber(Math.round(formik.values.per_month_during_product_usage_discount))} руб
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </StyledModal>
+    </Box>
+  )
+}
+
+export default PriceCalculator

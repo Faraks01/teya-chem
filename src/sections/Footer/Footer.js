@@ -164,6 +164,7 @@ const Footer = () => {
         mt='8px'
         width='100%'
         height='15px'
+        flexShrink={0}
         sx={{background: `url('${wavesSeparatorVector}')`}}
       />
 

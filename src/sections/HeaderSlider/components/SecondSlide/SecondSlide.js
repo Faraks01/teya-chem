@@ -1,9 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Box} from "@mui/system";
 import sliderImg2Src from "../../../../assets/images/header_slider_img_2.png";
 import calculatorPicSrc from "../../../../assets/images/calculator_picture.png";
+import {PriceCalculatorContext} from "../../../../components/PriceCalculator/PriceCalculator";
 
 const SecondSlide = () => {
+
+  const {
+    changeDialogState
+  } = useContext(PriceCalculatorContext);
+
+  const openCalculatorDialog = () => changeDialogState(true);
+
   return (
     <Box
       width="100%"
@@ -65,6 +73,7 @@ const SecondSlide = () => {
         display="flex"
         justifyContent="center"
         alignItems="center"
+        onClick={openCalculatorDialog}
       >
         <Box
           component="span"
