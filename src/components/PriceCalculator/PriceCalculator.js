@@ -285,7 +285,7 @@ const PriceCalculator = () => {
     const strPackAmount = String(pack_amount);
     const strPackLastSymbol = strPackAmount[strPackAmount.length - 1];
 
-    let packs = 'флакон';
+    let packs;
 
     if (strPackLastSymbol === '1') {
       packs = 'флакон';
