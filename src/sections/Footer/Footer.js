@@ -182,12 +182,14 @@ const Footer = () => {
           alignItems='center'
 
         >
-          <Box
-            component='img'
-            height={20}
-            width={16}
-            src={documentVector}
-          />
+          <Box>
+            <img
+              height={20}
+              width={16}
+              src={documentVector}
+              alt='document icon'
+            />
+          </Box>
 
           <Box
             ml='10px'
@@ -207,11 +209,11 @@ const Footer = () => {
           display='flex'
           alignItems='center'
         >
-          <Box
-            component='img'
+          <img
             height={20}
             width={16}
             src={documentVector}
+            alt='document icon'
           />
 
           <Box
@@ -232,11 +234,11 @@ const Footer = () => {
           <SocialMediaButton
             url='#'
           >
-            <Box
-              component='img'
+            <img
               height={16}
               width={19}
               src={telegramVector}
+              alt='telegram icon'
             />
           </SocialMediaButton>
 
@@ -246,11 +248,11 @@ const Footer = () => {
             <SocialMediaButton
               url='#'
             >
-              <Box
-                component='img'
+              <img
                 height={17.85}
                 width={32.3}
                 src={vkVector}
+                alt='vkontakte icon'
               />
             </SocialMediaButton>
           </Box>
@@ -261,11 +263,11 @@ const Footer = () => {
             <SocialMediaButton
               url='#'
             >
-              <Box
-                component='img'
+              <img
                 height={18}
                 width={18}
                 src={whatsappVector}
+                alt='whatsapp icon'
               />
             </SocialMediaButton>
           </Box>
