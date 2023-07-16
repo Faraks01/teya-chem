@@ -6,6 +6,7 @@ const FileInput = (props) => {
     id = '',
     label = '',
     name = '',
+    fileName = 'Загрузить файл',
     ...restInputProps
   } = props;
 
@@ -61,7 +62,7 @@ const FileInput = (props) => {
           color="colors.nero"
           textAlign='center'
         >
-          Загрузить файл
+          {fileName.length > 15 ? fileName.slice(0, 15) + '...' : fileName}
         </Box>
 
         <Box

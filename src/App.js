@@ -12,6 +12,8 @@ import Feedbacks from "./sections/Feedbacks";
 import FeedbackForm from "./sections/FeedbackForm";
 import Footer from "./sections/Footer";
 import PriceCalculator from "./components/PriceCalculator";
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -31,6 +33,9 @@ function App() {
 
       {/* Dialogs */}
       <PriceCalculator/>
+
+      {/* Toasts Notifications */}
+      <ToastContainer/>
     </div>
   );
 }
