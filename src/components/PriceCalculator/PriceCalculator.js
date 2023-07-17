@@ -366,6 +366,7 @@ const PriceCalculator = () => {
               )}
               onChange={handleSelectInputChange}
               value={formik.values.fuel_brand}
+              disabled
             />
 
             <TextInput
