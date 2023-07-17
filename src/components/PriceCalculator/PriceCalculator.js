@@ -11,7 +11,7 @@ import {formatNumber} from "../../utilities";
 
 export const PriceCalculatorContext = createContext({
   dialogOpen: false,
-  changeDialogState: (state) => {
+  changeDialogState: (_) => {
   }
 });
 
