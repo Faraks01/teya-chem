@@ -38,7 +38,7 @@ const FeedbackForm = () => {
         //   }
         //   return errors;
         // }}
-        onSubmit={async (values, {setSubmitting}) => {
+        onSubmit={async (values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
 
           const [isSucceded, message] = await submitFeedbackForm({
@@ -50,9 +50,10 @@ const FeedbackForm = () => {
           });
 
           if (isSucceded) {
-            toast.success(message)
+            toast.success(message);
+            resetForm();
           } else {
-            toast.error(message)
+            toast.error(message);
           }
 
           setSubmitting(false);
@@ -60,8 +61,6 @@ const FeedbackForm = () => {
       >
         {({
             values,
-            errors,
-            touched,
             handleChange,
             handleBlur,
             handleSubmit,
