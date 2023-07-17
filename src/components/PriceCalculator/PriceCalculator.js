@@ -516,6 +516,8 @@ const PriceCalculator = () => {
                 >
                   <Box
                     m='auto'
+                    pl={1}
+                    pr={1}
                     component="span"
                     fontWeight={500}
                     fontSize={16}
