@@ -190,11 +190,18 @@ const FeedbackForm = () => {
                         (evt) => {
                           const file = evt?.target?.files[0];
 
-                          if (file) setValues((pval) => ({
-                            ...pval,
-                            attachment_file_name: file.name,
-                            attachment_file: file,
-                          }));
+                          if (file) {
+                            // Размер файла не должен быть больше 5мб
+                            if (file.size < 5242880) {
+                              setValues((pval) => ({
+                                ...pval,
+                                attachment_file_name: file.name,
+                                attachment_file: file,
+                              }));
+                            } else {
+                              toast.error('Размер файла не должен быть больше 5 мб!');
+                            }
+                          }
                         }
                       }
                       onBlur={handleBlur}
