@@ -14,6 +14,17 @@ const TextInput = (props) => {
 
   const altVariant = variant === 'secondary';
 
+  const preventNonNumericalInput = (e) => {
+    if (type === 'number') {
+      const charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+      const charStr = String.fromCharCode(charCode);
+
+      if (!charStr.match(/^[0-9]+$/) && e.keyCode !== 8) {
+        e.preventDefault();
+      }
+    }
+  }
+
   return (
     <Box
       display='flex'
@@ -55,6 +66,7 @@ const TextInput = (props) => {
             : '0.592199px solid #CECECE'
         }}
         {...restInputProps}
+        onKeyDown={preventNonNumericalInput}
       />
     </Box>
   );

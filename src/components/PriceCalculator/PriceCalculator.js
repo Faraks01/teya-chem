@@ -255,7 +255,7 @@ const PriceCalculator = () => {
   const handleInputChange = (field) => (evt) => {
     const {value} = evt.target;
 
-    setFieldValue(
+    if (evt.target?.validity?.valid) setFieldValue(
       field,
       (!isNaN(value) && value !== '')
         ? Number(value)
@@ -348,7 +348,9 @@ const PriceCalculator = () => {
               inputWidth='211px'
               variant='secondary'
               placeholder='Объем бака (л)'
-              max='99999999'
+              type='number'
+              min={0}
+              max={99999999}
               onChange={handleInputChange('tank_volume')}
               value={formik.values.tank_volume}
             />
@@ -373,7 +375,9 @@ const PriceCalculator = () => {
               inputWidth='211px'
               variant='secondary'
               placeholder='Средний расход'
-              max='99999999'
+              type='number'
+              min={0}
+              max={99999999}
               onChange={handleInputChange('average_consumption')}
               value={formik.values.average_consumption}
             />
@@ -385,7 +389,9 @@ const PriceCalculator = () => {
               inputWidth='211px'
               variant='secondary'
               placeholder='Цена топлива'
-              max='99999999'
+              type='number'
+              min={0}
+              max={99999999}
               onChange={handleInputChange('fuel_price')}
               value={formik.values.fuel_price}
             />
@@ -397,7 +403,9 @@ const PriceCalculator = () => {
               inputWidth='211px'
               variant='secondary'
               placeholder='Средний пробег'
-              max='99999999'
+              type='number'
+              min={0}
+              max={99999999}
               onChange={handleInputChange('average_mileage_per_month')}
               value={formik.values.average_mileage_per_month}
             />
