@@ -15,8 +15,8 @@ const MarketplaceCard = (props) => {
     <Box
       component="button"
       className={className}
-      height={{xs: 126, lg: 196}}
-      width="100%"
+      height={{xs: 102, md: 126, lg: 170.5}}
+      width={{xs: 306, md: '100%'}}
       position="relative"
       display="flex"
     >
@@ -74,15 +74,16 @@ const MarketplaceCard = (props) => {
         <Box
           className="discountLabel"
           position="absolute"
-          height={48}
-          width={115.38}
-          left="483.5px"
-          bottom="148.22px"
-          borderRadius={14}
+          zIndex={1}
+          height={{xs: 28, md: 48}}
+          width={{xs: 69.2, md: 115.38}}
+          right={{xs: '15.6px', md: '26px'}}
+          top={{xs: '-14px', md: '-24px'}}
+          borderRadius={{xs: '8.4px', md: '14px'}}
           sx={{
             background: "linear-gradient(255.03deg, #F41F1F 22.32%, #B30000 94.02%)"
           }}
-          display={{xs: "none", lg: "flex"}}
+          display='flex'
           justifyContent="center"
           alignItems="center"
         >
@@ -90,8 +91,7 @@ const MarketplaceCard = (props) => {
             component="span"
             fontFamily="RoadRadio"
             fontWeight={400}
-            fontSize="25.64px"
-            lineHeight="25.87px"
+            fontSize={{xs: '16px', md: '25.64px'}}
             color="colors.white"
           >
             -{discount}%

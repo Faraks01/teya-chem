@@ -52,15 +52,15 @@ const MarketplacesNavigation = () => {
         width="100%"
         maxWidth="1294.96px">
         <Box
-          pr="30.98px"
-          pl="30.98px"
+          pr={{xs: 0, md: '30.98px'}}
+          pl={{xs: 0, md: '30.98px'}}
         >
           <Box
             component="span"
             fontFamily="RoadRadio"
-            fontWeight={500}
-            fontSize={45}
-            lineHeight="45px"
+            fontWeight={{xs: 700, md: 500}}
+            fontSize={{xs: 30, md: 45}}
+            lineHeight={{xs: 'normal', md: '45px'}}
             color="colors.nero"
           >
             Покупай онлайн со скидками!
@@ -68,9 +68,9 @@ const MarketplacesNavigation = () => {
         </Box>
 
         <Box
-          mt="10px"
-          pr="30.98px"
-          pl="30.98px"
+          mt={{xs: '20px', md: '10px'}}
+          pr={{xs: 0, md: '30.98px'}}
+          pl={{xs: 0, md: '30.98px'}}
         >
           <Box
             component="span"
@@ -84,12 +84,16 @@ const MarketplacesNavigation = () => {
         </Box>
 
         <Box
-          mt="30px"
+          mt={{xs: '22px', md: '30px'}}
         >
-          <Grid container>
+          <Grid
+            container
+            spacing={{xs: '33px', md: '21.79px'}}
+          >
             {marketplacesCardsPayload.map(p => (
               <Grid
                 xs={12}
+                xsOffset='auto'
                 md={6}
                 key={p.key}
               >
