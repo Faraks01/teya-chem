@@ -15,7 +15,7 @@ const ProductUsageInstruction = () => {
 
   return (
     <Box
-      pt="122px"
+      pt={{xs: '85px', md: '122px'}}
       component='section'
       display="flex"
       justifyContent="center"
@@ -24,6 +24,7 @@ const ProductUsageInstruction = () => {
         ml="7px"
         display="flex"
         flexDirection="column"
+        alignItems={{xs: 'center', md: 'flex-start'}}
         position="relative"
         width="100%"
         maxWidth="1243px">
@@ -31,8 +32,8 @@ const ProductUsageInstruction = () => {
           component="span"
           fontFamily="RoadRadio"
           fontWeight={700}
-          fontSize={45}
-          lineHeight="45.4px"
+          fontSize={{xs: 30, md: 45}}
+          lineHeight={{xs: 'normal', md: '45.4px'}}
           color="colors.nero"
         >
           Инструкция по применению
@@ -44,7 +45,7 @@ const ProductUsageInstruction = () => {
           width={775}
           pl="41px"
           pt="37px"
-          display="flex"
+          display={{xs: 'none', md: 'flex'}}
           position="relative"
         >
           <Box
@@ -96,10 +97,68 @@ const ProductUsageInstruction = () => {
         </Box>
 
         <Box
-          height="108.33px"
+          mt="54px"
+          height={285}
+          width={300}
+          pl="24px"
+          pt="37px"
+          display={{xs: 'flex', md: 'none'}}
+          flexDirection='column'
+          position="relative"
+        >
+          <Box
+            width={36}
+            height={36}
+            display="flex"
+            position="relative"
+            zIndex={2}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="36" viewBox="0 0 35 36" fill="none">
+              <path d="M17.4994 14.9426C17.9101 14.9426 18.3039 15.1057 18.5943 15.396C18.8847 15.6863 19.0479 16.0801 19.0479 16.4906V26.8106C19.0479 27.2212 18.8847 27.6149 18.5943 27.9053C18.3039 28.1956 17.9101 28.3586 17.4994 28.3586C17.0887 28.3586 16.6949 28.1956 16.4045 27.9053C16.1141 27.6149 15.951 27.2212 15.951 26.8106V16.4906C15.951 16.0801 16.1141 15.6863 16.4045 15.396C16.6949 15.1057 17.0887 14.9426 17.4994 14.9426ZM17.4994 11.3306C18.047 11.3306 18.5721 11.1132 18.9593 10.7261C19.3465 10.339 19.564 9.81404 19.564 9.26664C19.564 8.71923 19.3465 8.19424 18.9593 7.80717C18.5721 7.42009 18.047 7.20264 17.4994 7.20264C16.9518 7.20264 16.4267 7.42009 16.0395 7.80717C15.6523 8.19424 15.4348 8.71923 15.4348 9.26664C15.4348 9.81404 15.6523 10.339 16.0395 10.7261C16.4267 11.1132 16.9518 11.3306 17.4994 11.3306Z" fill="#CC0000"/>
+              <path fillRule="evenodd" clipRule="evenodd" d="M7.83096 0.534125C14.2569 -0.178042 20.742 -0.178042 27.168 0.534125C30.94 0.955181 33.9852 3.92321 34.4271 7.71685C35.191 14.2308 35.191 20.815 34.4271 27.331C33.9832 31.1206 30.9379 34.0906 27.168 34.5138C20.742 35.226 14.2569 35.226 7.83096 34.5138C4.05894 34.0906 1.01366 31.1206 0.571841 27.331C-0.190614 20.8145 -0.190614 14.2313 0.571841 7.71478C1.01366 3.92321 4.06101 0.955181 7.83096 0.532061V0.534125ZM26.8252 3.60949C20.627 2.92266 14.3719 2.92266 8.17368 3.60949C7.02657 3.73665 5.95582 4.24661 5.13431 5.05702C4.3128 5.86744 3.78848 6.931 3.64602 8.07598C2.91175 14.3525 2.91175 20.6933 3.64602 26.9698C3.78891 28.1145 4.31342 29.1775 5.13489 29.9875C5.95637 30.7975 7.02688 31.3072 8.17368 31.4343C14.32 32.1216 20.6789 32.1216 26.8252 31.4343C27.9717 31.3068 29.0417 30.7969 29.8628 29.987C30.6838 29.177 31.208 28.1141 31.3508 26.9698C32.0851 20.6933 32.0851 14.3525 31.3508 8.07598C31.2085 6.93131 30.6844 5.86799 29.8633 5.05761C29.0422 4.24724 27.972 3.73709 26.8252 3.60949Z" fill="#CC0000"/>
+            </svg>
+          </Box>
+
+          <Box
+            mt='21px'
+            component="span"
+            fontWeight={500}
+            fontSize={18}
+            lineHeight="normal"
+            color="colors.nero"
+            position="relative"
+            zIndex={2}
+          >
+            Меры предосторожности!<br/>
+            Горючая жидкость! Беречь<br/>
+            от воздействия прямых<br/>
+            солнечных лучей.
+            <br/>
+            <br/>
+            Хранить при температуре не выше 50C
+          </Box>
+
+          <Box
+            position="absolute"
+            top={0}
+            bottom={0}
+            left={0}
+            right={0}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="285" viewBox="0 0 300 285" fill="none">
+              <path d="M0 241.009V36.7616V22C0 9.84973 9.84973 0 22 0H278C290.15 0 300 9.84975 300 22V47.0066V263C300 275.15 290.15 285 278 285H53.3873C48.8702 285 44.4627 283.61 40.7633 281.018L9.376 259.026C3.49937 254.909 0 248.184 0 241.009Z" fill="#FFE898"/>
+            </svg>
+          </Box>
+        </Box>
+
+        <Box
+          height={{xs: '67px', md: '108.33px'}}
         />
 
-        <Grid container>
+        <Grid
+          justifyContent={{xs: 'center', md: 'flex-start'}}
+          spacing='21px'
+          container>
           {stepCardsData.map((data, index) => {
             const key = data.key + "___" + index;
 

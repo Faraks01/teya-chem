@@ -63,7 +63,7 @@ const InstructionStepCard = (props) => {
 
       {!!additionalDescription.length && (
         <Box
-          height="55.33px"
+          height={{xs: '20px', md: "55.33px"}}
         />
       )}
 
@@ -73,6 +73,7 @@ const InstructionStepCard = (props) => {
         return (
           <Box
             mt={!!index ? "60px" : 0}
+            pl={{xs: '10px', md: 0}}
             key={key}
             display="flex"
             flexDirection="column"

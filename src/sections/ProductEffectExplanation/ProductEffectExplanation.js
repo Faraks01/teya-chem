@@ -1,7 +1,7 @@
 import React from "react";
 import {Box} from "@mui/system";
 import fillingGunPicSrc from "../../assets/images/filling_gun_picture.png";
-import sectionBgPicSrc from "../../assets/images/product_effect_explanation_bg.png";
+import sectionBgPicSrc from "../../assets/images/product_effect_explanation_bg.jpg";
 
 const ProductEffectExplanation = () => {
     return (
@@ -20,32 +20,46 @@ const ProductEffectExplanation = () => {
             maxWidth="1354px"
             borderRadius="22px"
             backgroundColor="transparent"
+            overflow={{xs: 'hidden', md: 'auto'}}
           >
             <Box
-              mt="54px"
-              pl="60px"
-              pr="77px"
+              mt={{xs: '64px', md: '54px'}}
+              pl={{xs: 0, md: '60px'}}
+              pr={{xs: 0, md: '77px'}}
               display="flex"
+              flexDirection={{xs: 'column', md: 'row'}}
+              alignItems={{xs: 'center', md: 'flex-start'}}
               position="relative"
               zIndex={1}
             >
               <Box
+                ml={{xs: '30px', md: 0}}
+                mr={{xs: 'auto', md: 0}}
                 component="span"
                 fontFamily="RoadRadio"
                 fontWeight={700}
-                fontSize={45}
-                lineHeight="45px"
+                fontSize={{xs: 30, md: 45}}
+                lineHeight={{xs: 'normal', md: '45px'}}
                 color="colors.white"
               >
-                Как работает присадка?
+                <Box display={{xs: 'none', md: 'inline'}}>
+                  Как работает присадка?
+                </Box>
+
+                <Box display={{xs: 'inline', md: 'none'}}>
+                  Как<br/> работает<br/> присадка?
+                </Box>
               </Box>
 
               <Box
-                ml="76px"
-                height="176px"
-                width="522px"
+                ml={{xs: '16px', md: '76px'}}
+                mr={{xs: '16px', md: 0}}
+                mt={{xs: '39px', md: 0}}
+                height={{xs: '321px', md: '176px'}}
+                width={{xs: '269px', md: '522px'}}
                 backgroundColor="transparent"
                 position="relative"
+                display='flex'
               >
                 <Box
                   position="absolute"
@@ -55,12 +69,13 @@ const ProductEffectExplanation = () => {
                   left={0}
                   right={0}
                   display="flex"
-                  pl="33px"
-                  pt="34px"
+                  flexDirection={{xs: 'column', md: 'row'}}
+                  pl={{xs: '18px', md: '33px'}}
+                  pt={{xs: '59px', md: '34px'}}
                 >
                   <Box
-                    width="44"
-                    height="44"
+                    width="44px"
+                    height="44px"
                   >
                     <svg
                       width="44"
@@ -79,7 +94,8 @@ const ProductEffectExplanation = () => {
                   </Box>
 
                   <Box
-                    ml="23px"
+                    display={{xs: 'none', md: 'inline'}}
+                    ml='23px'
                     component="span"
                     fontWeight={500}
                     fontSize={22}
@@ -91,9 +107,27 @@ const ProductEffectExplanation = () => {
                     воздействия на работу топливной<br/>
                     аппаратуры автомобиля:
                   </Box>
+
+                  <Box
+                    display={{xs: 'inline', md: 'none'}}
+                    mt='15px'
+                    component="span"
+                    fontWeight={500}
+                    fontSize={18}
+                    lineHeight="normal"
+                    color="colors.white"
+                  >
+                    Присадка<br/>
+                    Тея-ДТ обладает<br/>
+                    многофункциональным<br/>
+                    набором воздействия<br/>
+                    на работу топливной<br/>
+                    аппаратуры автомобиля:
+                  </Box>
                 </Box>
 
                 <Box
+                  display={{xs: 'none', md: 'block'}}
                   position="absolute"
                   zIndex={1}
                   top={0}
@@ -115,21 +149,48 @@ const ProductEffectExplanation = () => {
                     />
                   </svg>
                 </Box>
+
+                <Box
+                  display={{xs: 'block', md: 'none'}}
+                  position="absolute"
+                  zIndex={1}
+                  top={0}
+                  bottom={0}
+                  left={0}
+                  right={0}
+                >
+                  <svg
+                    width="269"
+                    height="321"
+                    viewBox="0 0 269 321"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M151.382 0.5H79.6652H23C10.5736 0.5 0.5 10.5736 0.5 23V298C0.5 310.426 10.5736 320.5 23 320.5H245.132C257.559 320.5 267.632 310.426 267.632 298V139.5V62.8824C267.632 57.0548 265.371 51.4544 261.325 47.2604L222.848 7.37795C218.608 2.98268 212.763 0.5 206.655 0.5H151.382Z"
+                      stroke="#CBCBCB"
+                      strokeOpacity="0.6"
+                    />
+                  </svg>
+                </Box>
               </Box>
             </Box>
 
             <Box
-              mt="74px"
-              pl="74px"
+              mt={{xs: '69px', md: '74px'}}
+              pl={{xs: 0, md: '74px'}}
               display="flex"
+              justifyContent={{xs: 'center', md: 'flex-start'}}
               position="relative"
               zIndex={1}
             >
               <Box
-                pl="31px"
-                pt="45px"
-                height="250px"
-                width="681px"
+                pl={{xs: '20px', md: '31px'}}
+                pt={{xs: '49px', md: '45px'}}
+                height={{xs: '465px', md: '250px'}}
+                width={{xs: '262px', md: '681px'}}
+                display='flex'
+                justifyContent={{xs: 'center', md: 'flex-start'}}
                 borderRadius="22px"
                 backgroundColor="rgba(40, 40, 40, 0.5)"
                 sx={{
@@ -137,6 +198,7 @@ const ProductEffectExplanation = () => {
                 }}
               >
                 <Box
+                  display={{xs: 'none', md: 'inline'}}
                   component="ul"
                   pl="31px"
                   m={0}
@@ -156,9 +218,42 @@ const ProductEffectExplanation = () => {
                     экономному расходу топлива.
                   </Box>
                 </Box>
+
+                <Box
+                  display={{xs: 'inline', md: 'none'}}
+                  component="ul"
+                  pl="20px"
+                  m={0}
+                >
+                  <Box
+                    component="li"
+                    fontWeight={500}
+                    fontSize={18}
+                    lineHeight="normal"
+                    color="colors.white"
+                  >
+                    снижает расход и<br/>
+                    потребление<br/>
+                    дизельного топлива<br/>
+                    во время<br/>
+                    эксплуатации автомобиля, за счёт<br/>
+                    более полного и<br/>
+                    быстрого сгорания<br/>
+                    дизельного топлива<br/>
+                    в камерах сгорания<br/>
+                    поршневой группы<br/>
+                    двигателя, что<br/>
+                    повышает мощность<br/>
+                    двигателя и<br/>
+                    приводит к более<br/>
+                    экономному расходу<br/>
+                    топлива.
+                  </Box>
+                </Box>
               </Box>
 
               <Box
+                display={{xs: 'none', md: 'block'}}
                 mt="55.71px"
                 ml="152.79px"
               >
@@ -183,19 +278,23 @@ const ProductEffectExplanation = () => {
             <Box
               position="relative"
               zIndex={3}
-              mt="44px"
-              ml="581px"
-              pt="59px"
-              pl="54px"
-              height="250px"
-              width="681px"
+              mt={{xs: '17px', md: '44px'}}
+              ml={{xs: 0, md: '581px'}}
+              pt={{xs: '49px', md: '59px'}}
+              pl={{xs: 0, md: '54px'}}
+              height={{xs: '391px', md: '250px'}}
+              width={{xs: '262px', md: '681px'}}
               borderRadius="22px"
               backgroundColor="rgba(84, 84, 84, 0.5)"
+              display='flex'
+              justifyContent={{xs: 'center', md: 'flex-start'}}
+              alignSelf={{xs: 'center', md: 'auto'}}
               sx={{
                 backdropFilter: "blur(15px)"
               }}
             >
               <Box
+                display={{xs: 'none', md: 'inline'}}
                 component="ul"
                 pl="31px"
                 m={0}
@@ -214,24 +313,57 @@ const ProductEffectExplanation = () => {
                   дизельного топлива.
                 </Box>
               </Box>
+
+              <Box
+                display={{xs: 'inline', md: 'none'}}
+                component="ul"
+                pl='20px'
+                m={0}
+              >
+                <Box
+                  component="li"
+                  fontWeight={500}
+                  fontSize={18}
+                  lineHeight="normal"
+                  color="colors.white"
+                >
+                  обеспечивает<br/>
+                  противоизносный<br/>
+                  эффект, за счет<br/>
+                  создания на<br/>
+                  поверхности<br/>
+                  трущихся деталей<br/>
+                  топливной<br/>
+                  аппаратуры<br/>
+                  адсорбционной<br/>
+                  пленки, улучшающей<br/>
+                  смазывающие<br/>
+                  свойства дизельного<br/>
+                  топлива.
+                </Box>
+              </Box>
             </Box>
 
             <Box
-              mt="44px"
-              ml="159px"
-              pt="61px"
-              pl="54px"
+              mt={{xs: '17px', md: '44px'}}
+              ml={{xs: 0, md: "159px"}}
+              pt={{xs: '49px', md: '61px'}}
+              pl={{xs: 0, md: '54px'}}
               position="relative"
               zIndex={1}
-              height="198px"
-              width="681px"
+              height={{xs: '264px', md: '198px'}}
+              width={{xs: '262px', md: '681px'}}
               borderRadius="22px"
               backgroundColor="rgba(40, 40, 40, 0.5)"
+              display='flex'
+              justifyContent={{xs: 'center', md: 'flex-start'}}
+              alignSelf={{xs: 'center', md: 'auto'}}
               sx={{
                 backdropFilter: "blur(15px)"
               }}
             >
               <Box
+                display={{xs: 'none', md: 'inline'}}
                 component="ul"
                 pl="31px"
                 m={0}
@@ -248,16 +380,42 @@ const ProductEffectExplanation = () => {
                   углеводородов в дизельном топливе
                 </Box>
               </Box>
+
+              <Box
+                display={{xs: 'inline', md: 'none'}}
+                component="ul"
+                pl='20px'
+                m={0}
+              >
+                <Box
+                  component="li"
+                  fontWeight={500}
+                  fontSize={18}
+                  lineHeight="normal"
+                  color="colors.white"
+                >
+                  обеспечивает<br/>
+                  депрессорный<br/>
+                  эффект, за счёт<br/>
+                  блокирования роста<br/>
+                  кристаллов<br/>
+                  парафиновых<br/>
+                  углеводородов в<br/>
+                  дизельном топливе
+                </Box>
+              </Box>
             </Box>
 
             <Box
-              mt="44px"
-              pl="213px"
+              mt={{xs: '17px', md: '44px'}}
+              pl={{xs: 0, md: "213px"}}
               display="flex"
               position="relative"
+              justifyContent={{xs: 'center', md: 'flex-start'}}
               zIndex={1}
             >
               <Box
+                display={{xs: 'none', md: 'block'}}
                 mt="123px"
               >
                 <svg
@@ -278,20 +436,23 @@ const ProductEffectExplanation = () => {
               </Box>
 
               <Box
-                ml="233.83px"
+                ml={{xs: 0, md: "233.83px"}}
               >
                 <Box
-                  pt="56px"
-                  pl="62px"
-                  height="223px"
-                  width="681px"
+                  pt={{xs: '49px', md: '56px'}}
+                  pl={{xs: 0, md: '62px'}}
+                  height={{xs: '318px', md: '223px'}}
+                  width={{xs: '262px', md: '681px'}}
                   borderRadius="22px"
                   backgroundColor="rgba(84, 84, 84, 0.5)"
+                  display='flex'
+                  justifyContent={{xs: 'center', md: 'flex-start'}}
                   sx={{
                     backdropFilter: "blur(15px)"
                   }}
                 >
                   <Box
+                    display={{xs: 'none', md: 'inline'}}
                     component="ul"
                     pl="31px"
                     m={0}
@@ -309,13 +470,39 @@ const ProductEffectExplanation = () => {
                       отработанных газах дизельных двигателей.
                     </Box>
                   </Box>
+
+                  <Box
+                    display={{xs: 'inline', md: 'none'}}
+                    component="ul"
+                    pl="20px"
+                    m={0}
+                  >
+                    <Box
+                      component="li"
+                      fontWeight={500}
+                      fontSize={18}
+                      lineHeight="normal"
+                      color="colors.white"
+                    >
+                      обеспечивает<br/>
+                      антидымный эффект,<br/>
+                      за счёт снижения<br/>
+                      токсичных<br/>
+                      компонентов<br/>
+                      сгорания дизельного<br/>
+                      топлива, таких как<br/>
+                      сажа, в отработанных<br/>
+                      газах дизельных<br/>
+                      двигателей.
+                    </Box>
+                  </Box>
                 </Box>
               </Box>
             </Box>
 
             <Box
-              top={537}
-              left={235}
+              top={{xs: 0, md: 537}}
+              left={{xs: 135, md: 235}}
               position="absolute"
               component="img"
               src={fillingGunPicSrc}
@@ -330,6 +517,7 @@ const ProductEffectExplanation = () => {
               bottom={0}
               left={0}
               right={0}
+              borderRadius='22px'
               position="absolute"
               component="img"
               src={sectionBgPicSrc}
