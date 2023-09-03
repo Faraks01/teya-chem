@@ -23,7 +23,8 @@ const AboutUs = () => {
             width="100%"
             maxWidth="1233px">
               <Box
-                mr='auto'
+                mr={{xs: 0, md: 'auto'}}
+                width={{xs: 300, md: '100%'}}
                 component="span"
                 fontFamily="RoadRadio"
                 fontWeight={700}
