@@ -12,7 +12,7 @@ const ProductEffectExplanation = () => {
         width="100%"
       >
           <Box
-            pb="100px"
+            pb={{xs: '54px', md: '100px'}}
             display="flex"
             flexDirection="column"
             position="relative"
@@ -30,7 +30,7 @@ const ProductEffectExplanation = () => {
               flexDirection={{xs: 'column', md: 'row'}}
               alignItems={{xs: 'center', md: 'flex-start'}}
               position="relative"
-              zIndex={1}
+              zIndex={{xs: 3, md: 1}}
             >
               <Box
                 ml={{xs: '30px', md: 0}}
@@ -42,13 +42,7 @@ const ProductEffectExplanation = () => {
                 lineHeight={{xs: 'normal', md: '45px'}}
                 color="colors.white"
               >
-                <Box display={{xs: 'none', md: 'inline'}}>
-                  Как работает присадка?
-                </Box>
-
-                <Box display={{xs: 'inline', md: 'none'}}>
-                  Как<br/> работает<br/> присадка?
-                </Box>
+                Как работает присадка?
               </Box>
 
               <Box
@@ -71,6 +65,7 @@ const ProductEffectExplanation = () => {
                   display="flex"
                   flexDirection={{xs: 'column', md: 'row'}}
                   pl={{xs: '18px', md: '33px'}}
+                  pr={{xs: '18px', md: 0}}
                   pt={{xs: '59px', md: '34px'}}
                 >
                   <Box
@@ -94,34 +89,17 @@ const ProductEffectExplanation = () => {
                   </Box>
 
                   <Box
-                    display={{xs: 'none', md: 'inline'}}
-                    ml='23px'
+                    mt={{xs: '15px', md: 0}}
+                    ml={{xs: 0, md: '23px'}}
                     component="span"
                     fontWeight={500}
-                    fontSize={22}
-                    lineHeight="26.63px"
+                    fontSize={{xs: 18, md: 22}}
+                    lineHeight={{xs: 'normal', md: '26.63px'}}
                     color="colors.white"
                   >
-                    Присадка Тея-ДТ обладает<br/>
-                    многофункциональным набором<br/>
-                    воздействия на работу топливной<br/>
-                    аппаратуры автомобиля:
-                  </Box>
-
-                  <Box
-                    display={{xs: 'inline', md: 'none'}}
-                    mt='15px'
-                    component="span"
-                    fontWeight={500}
-                    fontSize={18}
-                    lineHeight="normal"
-                    color="colors.white"
-                  >
-                    Присадка<br/>
-                    Тея-ДТ обладает<br/>
-                    многофункциональным<br/>
-                    набором воздействия<br/>
-                    на работу топливной<br/>
+                    Присадка Тея-ДТ обладает
+                    многофункциональным набором
+                    воздействия на работу топливной
                     аппаратуры автомобиля:
                   </Box>
                 </Box>
@@ -198,56 +176,24 @@ const ProductEffectExplanation = () => {
                 }}
               >
                 <Box
-                  display={{xs: 'none', md: 'inline'}}
                   component="ul"
                   pl="31px"
+                  pr={{xs: '20px', md: '31px'}}
                   m={0}
                 >
                   <Box
                     component="li"
                     fontWeight={500}
-                    fontSize={22}
-                    lineHeight="26.63px"
+                    fontSize={{xs: 18, md: 22}}
+                    lineHeight={{xs: 'normal', md: '26.63px'}}
                     color="colors.white"
                   >
-                    снижает расход и потребление дизельного топлива<br/>
-                    во время эксплуатации автомобиля, за счёт более<br/>
-                    полного и быстрого сгорания дизельного топлива в<br/>
-                    камерах сгорания поршневой группы двигателя, что<br/>
-                    повышает мощность двигателя и приводит к более<br/>
+                    снижает расход и потребление дизельного топлива
+                    во время эксплуатации автомобиля, за счёт более
+                    полного и быстрого сгорания дизельного топлива в
+                    камерах сгорания поршневой группы двигателя, что
+                    повышает мощность двигателя и приводит к более
                     экономному расходу топлива.
-                  </Box>
-                </Box>
-
-                <Box
-                  display={{xs: 'inline', md: 'none'}}
-                  component="ul"
-                  pl="20px"
-                  m={0}
-                >
-                  <Box
-                    component="li"
-                    fontWeight={500}
-                    fontSize={18}
-                    lineHeight="normal"
-                    color="colors.white"
-                  >
-                    снижает расход и<br/>
-                    потребление<br/>
-                    дизельного топлива<br/>
-                    во время<br/>
-                    эксплуатации автомобиля, за счёт<br/>
-                    более полного и<br/>
-                    быстрого сгорания<br/>
-                    дизельного топлива<br/>
-                    в камерах сгорания<br/>
-                    поршневой группы<br/>
-                    двигателя, что<br/>
-                    повышает мощность<br/>
-                    двигателя и<br/>
-                    приводит к более<br/>
-                    экономному расходу<br/>
-                    топлива.
                   </Box>
                 </Box>
               </Box>
@@ -294,52 +240,23 @@ const ProductEffectExplanation = () => {
               }}
             >
               <Box
-                display={{xs: 'none', md: 'inline'}}
                 component="ul"
                 pl="31px"
+                pr={{xs: '20px', md: '31px'}}
                 m={0}
               >
                 <Box
                   component="li"
                   fontWeight={500}
-                  fontSize={22}
-                  lineHeight="26.63px"
+                  fontSize={{xs: 18, md: 22}}
+                  lineHeight={{xs: 'normal', md: '26.63px'}}
                   color="colors.white"
                 >
-                  обеспечивает противоизносный эффект, за счет<br/>
-                  создания на поверхности трущихся деталей<br/>
-                  топливной аппаратуры адсорбционной пленки,<br/>
-                  улучшающей смазывающие свойства<br/>
+                  обеспечивает противоизносный эффект, за счет
+                  создания на поверхности трущихся деталей
+                  топливной аппаратуры адсорбционной пленки,
+                  улучшающей смазывающие свойства
                   дизельного топлива.
-                </Box>
-              </Box>
-
-              <Box
-                display={{xs: 'inline', md: 'none'}}
-                component="ul"
-                pl='20px'
-                m={0}
-              >
-                <Box
-                  component="li"
-                  fontWeight={500}
-                  fontSize={18}
-                  lineHeight="normal"
-                  color="colors.white"
-                >
-                  обеспечивает<br/>
-                  противоизносный<br/>
-                  эффект, за счет<br/>
-                  создания на<br/>
-                  поверхности<br/>
-                  трущихся деталей<br/>
-                  топливной<br/>
-                  аппаратуры<br/>
-                  адсорбционной<br/>
-                  пленки, улучшающей<br/>
-                  смазывающие<br/>
-                  свойства дизельного<br/>
-                  топлива.
                 </Box>
               </Box>
             </Box>
@@ -363,45 +280,21 @@ const ProductEffectExplanation = () => {
               }}
             >
               <Box
-                display={{xs: 'none', md: 'inline'}}
                 component="ul"
                 pl="31px"
+                pr={{xs: '20px', md: '31px'}}
                 m={0}
               >
                 <Box
                   component="li"
                   fontWeight={500}
-                  fontSize={22}
-                  lineHeight="26.63px"
+                  fontSize={{xs: 18, md: 22}}
+                  lineHeight={{xs: 'normal', md: '26.63px'}}
                   color="colors.white"
                 >
-                  обеспечивает депрессорный эффект, за счёт<br/>
-                  блокирования роста кристаллов парафиновых<br/>
+                  обеспечивает депрессорный эффект, за счёт
+                  блокирования роста кристаллов парафиновых
                   углеводородов в дизельном топливе
-                </Box>
-              </Box>
-
-              <Box
-                display={{xs: 'inline', md: 'none'}}
-                component="ul"
-                pl='20px'
-                m={0}
-              >
-                <Box
-                  component="li"
-                  fontWeight={500}
-                  fontSize={18}
-                  lineHeight="normal"
-                  color="colors.white"
-                >
-                  обеспечивает<br/>
-                  депрессорный<br/>
-                  эффект, за счёт<br/>
-                  блокирования роста<br/>
-                  кристаллов<br/>
-                  парафиновых<br/>
-                  углеводородов в<br/>
-                  дизельном топливе
                 </Box>
               </Box>
             </Box>
@@ -452,48 +345,22 @@ const ProductEffectExplanation = () => {
                   }}
                 >
                   <Box
-                    display={{xs: 'none', md: 'inline'}}
                     component="ul"
                     pl="31px"
+                    pr={{xs: '20px', md: '31px'}}
                     m={0}
                   >
                     <Box
                       component="li"
                       fontWeight={500}
-                      fontSize={22}
-                      lineHeight="26.63px"
+                      fontSize={{xs: 18, md: 22}}
+                      lineHeight={{xs: 'normal', md: '26.63px'}}
                       color="colors.white"
                     >
-                      обеспечивает антидымный эффект, за счёт<br/>
-                      снижения токсичных компонентов сгорания<br/>
-                      дизельного топлива, таких как сажа, в<br/>
+                      обеспечивает антидымный эффект, за счёт
+                      снижения токсичных компонентов сгорания
+                      дизельного топлива, таких как сажа, в
                       отработанных газах дизельных двигателей.
-                    </Box>
-                  </Box>
-
-                  <Box
-                    display={{xs: 'inline', md: 'none'}}
-                    component="ul"
-                    pl="20px"
-                    m={0}
-                  >
-                    <Box
-                      component="li"
-                      fontWeight={500}
-                      fontSize={18}
-                      lineHeight="normal"
-                      color="colors.white"
-                    >
-                      обеспечивает<br/>
-                      антидымный эффект,<br/>
-                      за счёт снижения<br/>
-                      токсичных<br/>
-                      компонентов<br/>
-                      сгорания дизельного<br/>
-                      топлива, таких как<br/>
-                      сажа, в отработанных<br/>
-                      газах дизельных<br/>
-                      двигателей.
                     </Box>
                   </Box>
                 </Box>
@@ -502,7 +369,7 @@ const ProductEffectExplanation = () => {
 
             <Box
               top={{xs: 0, md: 537}}
-              left={{xs: 135, md: 235}}
+              left={{xs: 195, md: 235}}
               position="absolute"
               component="img"
               src={fillingGunPicSrc}
