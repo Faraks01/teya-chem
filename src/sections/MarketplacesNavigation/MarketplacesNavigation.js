@@ -49,38 +49,34 @@ const MarketplacesNavigation = () => {
       <Box
         display="flex"
         flexDirection="column"
+        alignItems={{xs: 'center', md: 'flex-start'}}
         width="100%"
         maxWidth="1294.96px">
         <Box
           pr={{xs: 0, md: '30.98px'}}
           pl={{xs: 0, md: '30.98px'}}
+          textAlign={{xs: 'center', md: 'left'}}
+          component="span"
+          fontFamily="RoadRadio"
+          fontWeight={{xs: 700, md: 500}}
+          fontSize={{xs: 30, md: 45}}
+          lineHeight={{xs: 'normal', md: '45px'}}
+          color="colors.nero"
         >
-          <Box
-            component="span"
-            fontFamily="RoadRadio"
-            fontWeight={{xs: 700, md: 500}}
-            fontSize={{xs: 30, md: 45}}
-            lineHeight={{xs: 'normal', md: '45px'}}
-            color="colors.nero"
-          >
-            Покупай онлайн со скидками!
-          </Box>
+          Покупай онлайн со скидками!
         </Box>
 
         <Box
           mt={{xs: '20px', md: '10px'}}
           pr={{xs: 0, md: '30.98px'}}
           pl={{xs: 0, md: '30.98px'}}
+          component="span"
+          fontWeight={500}
+          fontSize={30}
+          lineHeight="36px"
+          color="colors.gray33"
         >
-          <Box
-            component="span"
-            fontWeight={500}
-            fontSize={30}
-            lineHeight="36px"
-            color="colors.gray33"
-          >
-            Мы на маркетплейсах
-          </Box>
+          Мы на маркетплейсах
         </Box>
 
         <Box
@@ -97,12 +93,17 @@ const MarketplacesNavigation = () => {
                 md={6}
                 key={p.key}
               >
-                <MarketplaceCard
-                  iconSrc={p.iconSrc}
-                  iconAltText={p.iconAltText}
-                  description={p.description}
-                  discount={p.discount}
-                />
+                <Box
+                  display='flex'
+                  justifyContent={{xs: 'center', md: 'flex-start'}}
+                >
+                  <MarketplaceCard
+                    iconSrc={p.iconSrc}
+                    iconAltText={p.iconAltText}
+                    description={p.description}
+                    discount={p.discount}
+                  />
+                </Box>
               </Grid>
             ))}
           </Grid>
