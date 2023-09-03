@@ -1,12 +1,12 @@
 import React from "react";
-import {Box} from "@mui/system";
+import {Box, Stack} from "@mui/system";
 import certificatePic from '../../assets/images/certificate_example.png';
-import sectionBgPicSrc from "../../assets/images/product_documentation_and_certification_bg.png";
+import sectionBgPicSrc from "../../assets/images/product_documentation_and_certification_bg.jpeg";
 
 const ProductDocumentationAndCertification = () => {
   return (
     <Box
-      mt='122px'
+      mt={{xs: '85px', md: '122px'}}
       component='section'
       display='flex'
       justifyContent='center'
@@ -21,7 +21,24 @@ const ProductDocumentationAndCertification = () => {
         pb='60px'
         width="100%"
         borderRadius='22px'
+        overflow='hidden'
         maxWidth="1354px">
+
+        <Box
+          display={{xs: 'flex', md: 'none'}}
+          justifyContent='flex-end'
+          zIndex={2}
+        >
+          <Box
+            component='button'
+          >
+            <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M21.8236 21.2739L22 0.0336914C16.6784 0.0854088 6.07448 0.15837 0.753363 0.209626L0.709483 2.86843C5.49612 2.82133 11.8506 2.78254 17.4414 2.73175L0 20.1679L1.86003 22.0274L19.3015 4.59122L19.15 21.3039L21.8244 21.2739L21.8236 21.2739Z"
+                fill="#9E9E9E"/>
+            </svg>
+          </Box>
+        </Box>
 
         <Box
           display='flex'
@@ -33,20 +50,21 @@ const ProductDocumentationAndCertification = () => {
             component="span"
             fontFamily="RoadRadio"
             fontWeight={700}
-            fontSize={45}
-            lineHeight="45.4px"
+            fontSize={{xs: 30, md: 45}}
+            lineHeight={{xs: 'normal', md: '45.4px'}}
             color="colors.white"
           >
             Документация и сертификация
           </Box>
 
           <Box
+            display={{xs: 'none', md: 'block'}}
             width={11}
           />
 
           <Box
             component='button'
-            display='flex'
+            display={{xs: 'none', md: 'flex'}}
           >
             <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -56,9 +74,10 @@ const ProductDocumentationAndCertification = () => {
           </Box>
         </Box>
 
-        <Box
-          mt='47px'
-          display='flex'
+        <Stack
+          mt={{xs: '37px', md: '47px'}}
+          direction={{xs: 'column', md: 'row'}}
+          spacing='25px'
           zIndex={2}
         >
           <Box
@@ -75,23 +94,23 @@ const ProductDocumentationAndCertification = () => {
           </Box>
 
           <Box
-            ml='25px'
             component='span'
             fontWeight={500}
             fontSize={22}
             lineHeight='27px'
             color='colors.lightGray'
           >
-            Проведенные испытания доказали, что использование<br/>
-            присадки не имеет негативного влияния на работу<br/>
-            топливной аппаратуры дизельного ДВС и не ухудшает<br/>
+            Проведенные испытания доказали, что использование <br/>
+            присадки не имеет негативного влияния на работу <br/>
+            топливной аппаратуры дизельного ДВС и не ухудшает <br/>
             физико-химические свойства дизельного топлива.
           </Box>
-        </Box>
+        </Stack>
 
-        <Box
-          mt='32px'
-          display='flex'
+        <Stack
+          mt={{xs: '36px', md: '32px'}}
+          direction={{xs: 'column', md: 'row'}}
+          spacing='25px'
           zIndex={2}
         >
           <Box
@@ -115,26 +134,28 @@ const ProductDocumentationAndCertification = () => {
             lineHeight='27px'
             color='colors.lightGray'
           >
-            Использование присадки не может<br/>
+            Использование присадки не может <br/>
             нанести вред вашему двигателю.
           </Box>
-        </Box>
+        </Stack>
 
-        <Box
-          mt='71px'
-          display='flex'
+        <Stack
+          direction='row'
+          justifyContent={{xs: 'center', md: 'flex-start'}}
+          mt={{xs: '60px', md: '71px'}}
+          spacing='44px'
           zIndex={2}
         >
           <Box
             component="img"
             src={certificatePic}
-            height={466}
-            width={322}
+            height={{xs: 369, md: 466}}
+            width={{xs: 256, md: 322}}
             alt="certificate_picture"
           />
 
           <Box
-            ml='44px'
+            display={{xs: 'none', md: 'block'}}
             component="img"
             src={certificatePic}
             height={466}
@@ -143,17 +164,17 @@ const ProductDocumentationAndCertification = () => {
           />
 
           <Box
-            ml='44px'
+            display={{xs: 'none', md: 'block'}}
             component="img"
             src={certificatePic}
             height={466}
             width={322}
             alt="certificate_picture"
           />
-        </Box>
+        </Stack>
 
         <Box
-          mt='36px'
+          mt={{xs: '46px', md: '36px'}}
           component='span'
           fontWeight={500}
           fontSize={22}
