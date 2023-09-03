@@ -29,6 +29,7 @@ const ProductUsageInstruction = () => {
         width="100%"
         maxWidth="1243px">
         <Box
+          textAlign={{xs: 'center', md: 'left'}}
           component="span"
           fontFamily="RoadRadio"
           fontWeight={700}
@@ -76,8 +77,8 @@ const ProductUsageInstruction = () => {
             position="relative"
             zIndex={2}
           >
-            Меры предосторожности!<br/>
-            Горючая жидкость! Беречь от воздействия прямых<br/>
+            Меры предосторожности! <br/>
+            Горючая жидкость! Беречь от воздействия прямых <br/>
             солнечных лучей. Хранить при температуре не выше 50C
           </Box>
 
@@ -101,6 +102,7 @@ const ProductUsageInstruction = () => {
           height={285}
           width={300}
           pl="24px"
+          pr="24px"
           pt="37px"
           display={{xs: 'flex', md: 'none'}}
           flexDirection='column'
@@ -129,12 +131,22 @@ const ProductUsageInstruction = () => {
             position="relative"
             zIndex={2}
           >
-            Меры предосторожности!<br/>
-            Горючая жидкость! Беречь<br/>
-            от воздействия прямых<br/>
+            Меры предосторожности! <br/>
+            Горючая жидкость! Беречь <br/>
+            от воздействия прямых <br/>
             солнечных лучей.
-            <br/>
-            <br/>
+          </Box>
+
+          <Box
+            mt='21px'
+            component="span"
+            fontWeight={500}
+            fontSize={18}
+            lineHeight="normal"
+            color="colors.nero"
+            position="relative"
+            zIndex={2}
+          >
             Хранить при температуре не выше 50C
           </Box>
 
@@ -181,7 +193,7 @@ const ProductUsageInstruction = () => {
         </Grid>
 
         <Box
-          mt="91px"
+          mt={{xs: '40px', md: '91px'}}
           pt="24px"
           pb='16px'
           pr='42px'
@@ -204,7 +216,7 @@ const ProductUsageInstruction = () => {
             color="colors.nero"
             textAlign='center'
           >
-            Вы можете самостоятельно расчитать дозировку, а так же увидеть реальную<br/>
+            Вы можете самостоятельно расчитать дозировку, а так же увидеть реальную <br/>
             экономию, воспользовавшись калькулятором
           </Box>
 
