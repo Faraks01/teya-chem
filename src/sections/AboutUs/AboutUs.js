@@ -45,37 +45,17 @@ const AboutUs = () => {
                 position="relative"
               >
                   <Box
-                    display={{xs: 'none', md: 'inline'}}
                     component="span"
                     fontWeight={500}
-                    fontSize={20}
-                    lineHeight="24.2px"
+                    fontSize={{xs: 18, md: 20}}
+                    lineHeight={{xs: 'normal', md: '24.2px'}}
                     color="colors.gray33"
                     position="relative"
                     zIndex={1}
                   >
-                      ООО «Тея-хим» - это российская компания, поставляющая<br/>
-                      на рынок продукцию исключительно собственного<br/>
+                      ООО «Тея-хим» - это российская компания, поставляющая
+                      на рынок продукцию исключительно собственного
                       производства на основе собственных научных разработок.
-                  </Box>
-
-                  <Box
-                    display={{xs: 'inline', md: 'none'}}
-                    component="span"
-                    fontWeight={500}
-                    fontSize={18}
-                    lineHeight="normal"
-                    color="colors.gray33"
-                    position="relative"
-                    zIndex={1}
-                  >
-                      ООО «Тея-хим» -<br/>
-                      это российская компания,<br/>
-                      поставляющая на рынок<br/>
-                      продукцию исключительно<br/>
-                      собственного производства<br/>
-                      на основе собственных<br/>
-                      научных разработок.
                   </Box>
 
                   <Box
@@ -136,46 +116,24 @@ const AboutUs = () => {
                 width={{xs: 299, md: 724}}
                 pt={{xs: '26px', md: '36px'}}
                 pl={{xs: '17px', md: '34px'}}
+                pr={{xs: '17px', md: 0}}
                 position="relative"
               >
                   <Box
-                    display={{xs: 'none', md: 'inline'}}
                     component="span"
                     fontFamily="RoadRadio"
                     fontWeight={700}
-                    fontSize={30}
-                    lineHeight="30.27px"
+                    fontSize={{xs: 18, md: 30}}
+                    lineHeight={{xs: 'normal', md: '30.27px'}}
                     color="colors.nero"
                     position="relative"
                     zIndex={1}
                   >
-                      Компания разрабатывает<br/>
-                      и специализируется на производстве<br/>
-                      автохимии, продуктах бытовой химии<br/>
-                      и реагентах, имеющих нишевое<br/>
-                      применение, таких как очистители<br/>
-                      резиновых поверхностей.
-                  </Box>
-
-                  <Box
-                    display={{xs: 'inline', md: 'none'}}
-                    component="span"
-                    fontFamily="RoadRadio"
-                    fontWeight={700}
-                    fontSize={18}
-                    lineHeight="normal"
-                    color="colors.nero"
-                    position="relative"
-                    zIndex={1}
-                  >
-                      Компания разрабатывает<br/>
-                      и специализируется<br/>
-                      на производстве<br/>
-                      автохимии, продуктах<br/>
-                      бытовой химии<br/>
-                      и реагентах, имеющих<br/>
-                      нишевое применение,<br/>
-                      таких как очистители<br/>
+                      Компания разрабатывает
+                      и специализируется на производстве
+                      автохимии, продуктах бытовой химии
+                      и реагентах, имеющих нишевое
+                      применение, таких как очистители
                       резиновых поверхностей.
                   </Box>
 
