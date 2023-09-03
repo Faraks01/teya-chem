@@ -34,6 +34,12 @@ section, .footer-content-body {
   transform: scale(0.9);
 }
 
+@media only screen and (max-width: 900px) {
+  section, .footer-content-body {
+    transform: none;
+  }
+}
+
 * {
   scroll-behavior: smooth !important;
 }
