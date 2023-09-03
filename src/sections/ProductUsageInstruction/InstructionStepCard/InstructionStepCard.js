@@ -14,27 +14,40 @@ const InstructionStepCard = (props) => {
     <Box
       display="flex"
       flexDirection="column"
+      alignItems={{xs: 'center', md: 'flex-start'}}
     >
       <Box
         pt="33.29px"
         pb="31.58px"
         pl="20px"
-        minWidth="296.2px"
+        pr="20px"
+        minWidth="300px"
+        width={{xs: '300px', md: 'auto'}}
         height="260.35px"
         display="flex"
         flexDirection="column"
         justifyContent="space-between"
         position="relative"
       >
-        <Box
-          component="span"
-          fontWeight={500}
-          fontSize={17}
-          lineHeight="20.57px"
-          color="colors.gray33"
-          zIndex={2}
-        >
-          {description}
+        <Box zIndex={2}>
+          <Box
+            width={25}
+            height={25}
+            sx={{
+              float: 'right'
+            }}
+          />
+
+          <Box
+            component="span"
+            fontWeight={500}
+            fontSize={17}
+            lineHeight="20.57px"
+            color="colors.gray33"
+            zIndex={2}
+          >
+            {description}
+          </Box>
         </Box>
 
         <Box
@@ -72,8 +85,9 @@ const InstructionStepCard = (props) => {
 
         return (
           <Box
-            mt={!!index ? "60px" : 0}
+            mt={{xs: !!index ? "30px" : 0, md: !!index ? "60px" : 0}}
             pl={{xs: '10px', md: 0}}
+            width={{xs: '300px', md: 'auto'}}
             key={key}
             display="flex"
             flexDirection="column"
