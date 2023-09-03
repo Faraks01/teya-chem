@@ -14,10 +14,14 @@ import Footer from "./sections/Footer";
 import PriceCalculator from "./components/PriceCalculator";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Box} from "@mui/system";
 
 function App() {
   return (
-    <div>
+    <Box
+      pr={{xs: '10px', md: 0}}
+      pl={{xs: '10px', md: 0}}
+    >
       <NavigationBar/>
       <HeaderSlider/>
       <MarketplacesNavigation/>
@@ -36,7 +40,7 @@ function App() {
 
       {/* Toasts Notifications */}
       <ToastContainer/>
-    </div>
+    </Box>
   );
 }
 
