@@ -24,17 +24,21 @@ const BuyOnThisSite = () => {
           component="span"
           fontFamily="RoadRadio"
           fontWeight={700}
-          fontSize={45}
-          lineHeight="45.4px"
+          fontSize={{xs: 30, md: 45}}
+          lineHeight={{xs: 'normal', md: '45.4px'}}
+          textAlign={{xs: 'center', md: 'left'}}
           color="colors.nero"
         >
           Заказать на сайте
         </Box>
 
         <Box
-          mt='60px'
+          mt={{xs: '45px', md: '60px'}}
         >
-          <Grid container>
+          <Grid
+            container
+            spacing={{xs: '25px', md: 0}}
+          >
             {Array.from(Array(4).keys()).map((_, index) => (
               <Grid
                 xs={12}
@@ -42,14 +46,19 @@ const BuyOnThisSite = () => {
                 lg={3}
                 key={'product__' + index}
               >
-                <ProductCard/>
+                <Box
+                  display='flex'
+                  justifyContent={{xs: 'center', md: 'flex-start'}}
+                >
+                  <ProductCard/>
+                </Box>
               </Grid>
             ))}
           </Grid>
         </Box>
 
         <Box
-          mt='30.61px'
+          mt={{xs: '24px', md: '30.61px'}}
           component="button"
           display="flex"
           justifyContent='center'
