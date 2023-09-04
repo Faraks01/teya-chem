@@ -38,6 +38,10 @@ section, .footer-content-body {
   section, .footer-content-body {
     transform: none;
   }
+
+  br {
+    display: none;
+  }
 }
 
 * {

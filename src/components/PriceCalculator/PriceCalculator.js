@@ -573,7 +573,7 @@ const PriceCalculator = () => {
                   color="colors.gray33"
                   textAlign='center'
                 >
-                  *дозировка на 1 заправку<br/>
+                  *дозировка на 1 заправку <br/>
                   полного бака
                 </Box>
               </Box>

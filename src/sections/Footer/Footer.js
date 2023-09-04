@@ -59,7 +59,7 @@ const Footer = () => {
             color="colors.gray33"
             lineHeight="17px"
           >
-            Универсальная присадка <br/>для дизельного топлива
+            Универсальная присадка  <br/>для дизельного топлива
           </Box>
         </Box>
 
@@ -288,7 +288,7 @@ const Footer = () => {
           lineHeight='normal'
           textAlign='center'
         >
-          Все права защищены.<br/>
+          Все права защищены. <br/>
           ©2023-2024
         </Box>
       </Box>
