@@ -1,5 +1,5 @@
 import React from "react";
-import {Box} from "@mui/system";
+import {Box, Stack} from "@mui/system";
 import feedbackAuthorPicture1 from '../../assets/images/feedback_author_1.png';
 import feedbackAuthorPicture2 from '../../assets/images/feedback_author_2.png';
 import playIcon from "../../assets/vectors/play_icon.svg";
@@ -10,14 +10,13 @@ const Feedbacks = () => {
   return (
     <Box
       id={FEEDBACKS_SECTION_ID}
-      mt='122px'
+      mt={{xs: '85px', md: '122px'}}
       component='section'
       display='flex'
       justifyContent='center'
       width='100%'>
-      <Box
-        display="flex"
-        flexDirection="column"
+      <Stack
+        alignItems={{xs: 'center', md: 'flex-start'}}
         position="relative"
         width="100%"
         maxWidth="1236px">
@@ -25,29 +24,29 @@ const Feedbacks = () => {
           component="span"
           fontFamily="RoadRadio"
           fontWeight={700}
-          fontSize={45}
-          lineHeight="45.4px"
+          fontSize={{xs: 30, md: 45}}
+          lineHeight={{xs: 'normal', md: "45.4px"}}
           color="colors.nero"
         >
           Отзывы
         </Box>
 
-        <Box
-          mt='50px'
+        <Stack
+          mt={{xs: '40px', md: '50px'}}
           position='relative'
-          width='100%'
-          display='flex'
-          flexDirection='column'
-          pt='49px'
-          pl='51px'
+          width={{xs: '300px', md: '100%'}}
+          pt={{xs: '40px', md: '49px'}}
+          pl={{xs: '24px', md: '51px'}}
+          pr={{xs: '25px', md: 0}}
+          pb={{xs: '44.54px', md: 0}}
         >
           <Box
             zIndex={2}
             component="span"
             fontFamily="RoadRadio"
             fontWeight={700}
-            fontSize={30}
-            lineHeight="30.27px"
+            fontSize={{xs: 20, md: 30}}
+            lineHeight={{xs: 'normal', md: "30.27px"}}
             color="colors.nero"
           >
             Александр
@@ -55,27 +54,66 @@ const Feedbacks = () => {
 
           <Box
             zIndex={2}
-            mt='41px'
+            mt={{xs: '20px', md: '41px'}}
+            width={{xs: 'auto', md: 564}}
             component="span"
             fontWeight={500}
-            fontSize={22}
-            lineHeight="26.63px"
+            fontSize={{xs: 18, md: 22}}
+            lineHeight={{xs: 'normal', md: "26.63px"}}
             color="colors.gray33"
           >
-            Использовал несколько месяцев, в порядке <br/>
-            испытаний, присадку на своём Volskwagen <br/>
-            Amarok. Машине 10 лет, механика, полный привод, <br/>
-            2,0 л. Заметил снижение шумности двигателя и <br/>
-            расхода потребления ДТ. Расход в городе без <br/>
-            присадки около 10 л а с присадкой около 8 л на <br/>
+            Использовал несколько месяцев, в порядке
+            испытаний, присадку на своём Volskwagen
+            Amarok. Машине 10 лет, механика, полный привод,
+            2,0 л. Заметил снижение шумности двигателя и
+            расхода потребления ДТ. Расход в городе без
+            присадки около 10 л а с присадкой около 8 л на
             100 км. Фильтра чистые. Проверял сам.
+          </Box>
+
+          <Box
+            mt='36px'
+            display={{xs: 'flex', md: 'none'}}
+            zIndex={2}
+            position='relative'
+            component='button'
+            width="104.791px"
+            height="128px"
+          >
+            <Box
+              component='img'
+              alt='feedback author picture'
+              src={feedbackAuthorPicture1}
+              height='inherit'
+              width='inherit'
+            />
+
+            <Box
+              zIndex={1}
+              position='absolute'
+              top={0}
+              bottom={0}
+              left={0}
+              right={0}
+              display='flex'
+              justifyContent='center'
+              alignItems="center"
+            >
+              <Box
+                width='37.729px'
+                height='38.146px'
+                component='img'
+                alt='play icon'
+                src={playIcon}
+              />
+            </Box>
           </Box>
 
           <Box
             zIndex={2}
             mt='54px'
             width='100%'
-            display='flex'
+            display={{xs: 'none', md: 'flex'}}
           >
             <Box
               component='button'
@@ -147,7 +185,7 @@ const Feedbacks = () => {
             position='absolute'
             bottom='179.73px'
             right='236.51px'
-            display='flex'
+            display={{xs: 'none', md: 'flex'}}
             component='button'
           >
             <Box
@@ -182,7 +220,7 @@ const Feedbacks = () => {
             position='absolute'
             bottom='249.45px'
             right='80.5px'
-            display='flex'
+            display={{xs: 'none', md: 'flex'}}
             component='button'
           >
             <Box
@@ -213,6 +251,7 @@ const Feedbacks = () => {
           </Box>
 
           <Box
+            display={{xs: 'none', md: 'block'}}
             position='absolute'
             top={0}
             bottom={0}
@@ -225,8 +264,64 @@ const Feedbacks = () => {
                 fill="white"/>
             </svg>
           </Box>
+
+          <Box
+            display={{xs: 'block', md: 'none'}}
+            position='absolute'
+            top={0}
+            bottom={0}
+            left={0}
+            right={0}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="597" viewBox="0 0 300 597" fill="none">
+              <path
+                d="M0 552.552V36.7616V22C0 9.84973 9.84973 0 22 0H278C290.15 0 300 9.84975 300 22V47.0066V574.543C300 586.693 290.15 596.543 278 596.543H53.3873C48.8702 596.543 44.4627 595.153 40.7633 592.561L9.37599 570.569C3.49936 566.452 0 559.727 0 552.552Z"
+                fill="white"/>
+            </svg>
+          </Box>
+        </Stack>
+
+        <Box
+          mt='40.72px'
+          component='button'
+          display={{xs: 'flex', md: 'none'}}
+          justifyContent='center'
+          alignItems='center'
+          borderRadius='19.1px'
+          height={81.739}
+          width={300}
+          sx={{border: '1px solid #D3D3D3'}}
+        >
+          <Box
+            component="span"
+            fontWeight={500}
+            fontSize={19.13}
+            lineHeight="normal"
+            color="colors.gray33"
+          >
+            Следующий отзыв
+          </Box>
+
+          <Box
+            ml='28.96px'
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
+            height={49.565}
+            width={49.565}
+            borderRadius='15.4px'
+            backgroundColor='colors.blurple'
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none">
+              <rect x="0.956543" y="50.4785" width="49.5652" height="49.5652" rx="15.4266"
+                    transform="rotate(-90 0.956543 50.4785)" fill="#3D3AD1"/>
+              <path fillRule="evenodd" clipRule="evenodd"
+                    d="M21.3703 17.8353C21.6141 17.5787 21.9445 17.4346 22.2891 17.4346C22.6336 17.4346 22.964 17.5787 23.2078 17.8353L30.1415 25.1441C30.385 25.4011 30.5218 25.7494 30.5218 26.1125C30.5218 26.4757 30.385 26.824 30.1415 27.0809L23.2078 34.3897C23.0888 34.5244 22.9452 34.6323 22.7858 34.7072C22.6263 34.7821 22.4541 34.8224 22.2796 34.8257C22.105 34.8289 21.9316 34.7951 21.7697 34.7261C21.6078 34.6572 21.4608 34.5546 21.3373 34.4245C21.2139 34.2944 21.1166 34.1394 21.0512 33.9687C20.9858 33.7981 20.9537 33.6153 20.9567 33.4313C20.9598 33.2473 20.998 33.0658 21.0691 32.8977C21.1401 32.7296 21.2426 32.5783 21.3703 32.4529L27.3854 26.1125L21.3703 19.7722C21.1269 19.5152 20.9901 19.1669 20.9901 18.8038C20.9901 18.4406 21.1269 18.0923 21.3703 17.8353Z"
+                    fill="white"/>
+            </svg>
+          </Box>
         </Box>
-      </Box>
+      </Stack>
     </Box>
   )
 }
