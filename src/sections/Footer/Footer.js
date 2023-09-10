@@ -1,5 +1,5 @@
 import React from "react";
-import {Box} from "@mui/system";
+import {Box, Stack} from "@mui/system";
 import SocialMediaButton from "./SocialMediaButton";
 import teyaLogoSrc from "../../assets/images/teya-logo.png";
 import lightningIcon from "../../assets/vectors/lightning_icon.svg";
@@ -16,23 +16,25 @@ import {FEEDBACK_FORM_SECTION_ID} from "../FeedbackForm/FeedbackForm";
 const Footer = () => {
   return (
     <Box
-      mt='121px'
+      mt={{xs: '100px', md: '121px'}}
       pb='111px'
       display="flex"
       flexDirection='column'
       alignItems='center'
       position='relative'
       width="100%"
-      backgroundColor='#EFEFEF'
+      backgroundColor={{xs: 'unset', md: '#EFEFEF'}}
       justifyContent="center">
-      <Box
+      <Stack
         className='footer-content-body'
-        display="flex"
+        direction={{xs: 'column', md: 'row'}}
+        alignItems='center'
         width="100%"
         maxWidth="1237px"
-        height="106px"
-        alignItems="center">
+        height={{xs: 'fit-content', md: "106px"}}
+      >
         <Box
+          order={1}
           component="a"
           href={'#'}
           display="flex"
@@ -51,7 +53,12 @@ const Footer = () => {
           />
         </Box>
 
-        <Box ml="30px">
+        <Box
+          order={1}
+          mt={{xs: '14px', md: 0}}
+          ml={{xs: 0, md: '30px'}}
+          width={{xs: 178, md: 'auto'}}
+        >
           <Box
             component="span"
             fontSize={14}
@@ -59,11 +66,15 @@ const Footer = () => {
             color="colors.gray33"
             lineHeight="17px"
           >
-            Универсальная присадка  <br/>для дизельного топлива
+            Универсальная присадка для дизельного топлива
           </Box>
         </Box>
 
-        <Box ml="77px">
+        <Box
+          order={{xs: 2, md: 1}}
+          mt={{xs: '38.64px', md: 0}}
+          ml={{xs: 0, md: "77px"}}
+        >
           <Box
             component="a"
             href={'#' + BUY_ON_THIS_SITE_SECTION_ID}
@@ -94,7 +105,14 @@ const Footer = () => {
           </Box>
         </Box>
 
-        <Box ml="28px">
+        <Stack
+          order={1}
+          mt={{xs: '46px', md: 0}}
+          ml={{xs: 0, md: "28px"}}
+          direction={{xs: 'column', md: 'row'}}
+          spacing={{xs: '25px', md: '47px'}}
+          alignItems='center'
+        >
           <Box
             component="a"
             href={'#' + ABOUT_US_SECTION_ID}
@@ -105,9 +123,7 @@ const Footer = () => {
           >
             Блог
           </Box>
-        </Box>
 
-        <Box ml="47px">
           <Box
             component="a"
             href={'#' + FEEDBACKS_SECTION_ID}
@@ -118,9 +134,7 @@ const Footer = () => {
           >
             Отзывы
           </Box>
-        </Box>
 
-        <Box ml="47px">
           <Box
             component="a"
             href={'#' + FEEDBACK_FORM_SECTION_ID}
@@ -131,9 +145,22 @@ const Footer = () => {
           >
             Контакты
           </Box>
-        </Box>
+        </Stack>
 
-        <Box ml="70px">
+        <Box
+          display={{xs: 'block', md: 'none'}}
+          mt='37px'
+          order={4}
+          height={1.5}
+          width='100%'
+          backgroundColor='colors.lightGray2'
+        />
+
+        <Box
+          order={{xs: 5, md: 1}}
+          mt={{xs: '37px', md: 0}}
+          ml={{xs: 0, md: "70px"}}
+        >
           <Box
             component="a"
             href={'#' + FEEDBACK_FORM_SECTION_ID}
@@ -157,9 +184,10 @@ const Footer = () => {
             </Box>
           </Box>
         </Box>
-      </Box>
+      </Stack>
 
       <Box
+        display={{xs: 'none', md: 'block'}}
         position='relative'
         mt='8px'
         width='100%'
@@ -168,68 +196,84 @@ const Footer = () => {
         sx={{background: `url('${wavesSeparatorVector}')`}}
       />
 
-      <Box
+      <Stack
         className='footer-content-body'
         mt='25px'
-        display="flex"
+        direction={{xs: 'column', md: 'row'}}
         width="100%"
         maxWidth="1237px"
-        alignItems="flex-start">
+        alignItems={{xs: 'center', md: 'flex-start'}}>
         <Box
-          component='a'
-          href='/'
-          display='flex'
-          alignItems='center'
+          mt='49px'
+          mb='49px'
+          display={{xs: 'block', md: 'none'}}
+          order={{xs: 2, md: 1}}
+          height={1.5}
+          width='100%'
+          backgroundColor='colors.lightGray2'
+        />
 
+        <Stack
+          order={{xs: 3, md: 1}}
+          direction={{xs: 'column-reverse', md: 'row'}}
+          spacing={{xs: '17px', md: '28px'}}
         >
-          <Box>
+          <Box
+            component='a'
+            href='/'
+            display='flex'
+            alignItems='center'
+          >
+            <Box>
+              <img
+                height={20}
+                width={16}
+                src={documentVector}
+                alt='document icon'
+              />
+            </Box>
+
+            <Box
+              ml='10px'
+              component="span"
+              fontSize={16}
+              fontWeight={500}
+              color="colors.gray33"
+            >
+              Политика конфиденциальности
+            </Box>
+          </Box>
+
+          <Box
+            component='a'
+            href='/'
+            display='flex'
+            alignItems='center'
+          >
             <img
               height={20}
               width={16}
               src={documentVector}
               alt='document icon'
             />
+
+            <Box
+              ml='10px'
+              component="span"
+              fontSize={16}
+              fontWeight={500}
+              color="colors.gray33"
+            >
+              Договор оферты
+            </Box>
           </Box>
+        </Stack>
 
-          <Box
-            ml='10px'
-            component="span"
-            fontSize={16}
-            fontWeight={500}
-            color="colors.gray33"
-          >
-            Политика конфиденциальности
-          </Box>
-        </Box>
-
-        <Box
-          ml='28px'
-          component='a'
-          href='/'
-          display='flex'
-          alignItems='center'
-        >
-          <img
-            height={20}
-            width={16}
-            src={documentVector}
-            alt='document icon'
-          />
-
-          <Box
-            ml='10px'
-            component="span"
-            fontSize={16}
-            fontWeight={500}
-            color="colors.gray33"
-          >
-            Договор оферты
-          </Box>
-        </Box>
-
-        <Box
-          ml='auto'
-          display='flex'
+        <Stack
+          order={{xs: 1, md: 1}}
+          direction='row'
+          ml={{xs: 0, md: 'auto'}}
+          spacing={{xs: '26.46px', md: '20px'}}
         >
           <SocialMediaButton
             url='#'
@@ -242,40 +286,32 @@ const Footer = () => {
             />
           </SocialMediaButton>
 
-          <Box
-            ml='20px'
+          <SocialMediaButton
+            url='#'
           >
-            <SocialMediaButton
-              url='#'
-            >
-              <img
-                height={17.85}
-                width={32.3}
-                src={vkVector}
-                alt='vkontakte icon'
-              />
-            </SocialMediaButton>
-          </Box>
+            <img
+              height={17.85}
+              width={32.3}
+              src={vkVector}
+              alt='vkontakte icon'
+            />
+          </SocialMediaButton>
 
-          <Box
-            ml='20px'
+          <SocialMediaButton
+            url='#'
           >
-            <SocialMediaButton
-              url='#'
-            >
-              <img
-                height={18}
-                width={18}
-                src={whatsappVector}
-                alt='whatsapp icon'
-              />
-            </SocialMediaButton>
-          </Box>
-        </Box>
-      </Box>
+            <img
+              height={18}
+              width={18}
+              src={whatsappVector}
+              alt='whatsapp icon'
+            />
+          </SocialMediaButton>
+        </Stack>
+      </Stack>
 
       <Box
-        mt='79.69px'
+        mt={{xs: '123px', md: '79.69px'}}
         display="flex"
         width="100%"
         maxWidth="1237px"

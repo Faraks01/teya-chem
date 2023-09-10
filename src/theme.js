@@ -11,6 +11,7 @@ export const mainTheme = createTheme({
       gray98: "#FAFAFA",
       romanSilver: "#898C93",
       lightGray: "#E2E2E2",
+      lightGray2: "#D7D7D7",
       nero: "#1E1E1E",
       white: "#FFFFFF",
       jetBlack: "#35363A",
