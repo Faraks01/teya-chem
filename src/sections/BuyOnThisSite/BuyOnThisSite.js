@@ -66,7 +66,8 @@ const BuyOnThisSite = () => {
           backgroundColor="#D7D7D7"
           borderRadius="17.74px"
           height="67.99px"
-          width='100%'
+          alignSelf='center'
+          width={{xs: '300px', md: '100%'}}
           zIndex={2}
         >
           <Box
