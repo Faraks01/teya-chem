@@ -1,5 +1,5 @@
 import React from "react";
-import {Box} from "@mui/system";
+import {Box, Stack} from "@mui/system";
 import TextInput from "../../components/TextInput";
 import TextAreaInput from "../../components/TextAreaInput";
 import FileInput from "../../components/FileInput";
@@ -75,41 +75,42 @@ const FeedbackForm = () => {
             flexDirection="column"
             position="relative"
             width="100%"
-            maxWidth="1236px">
+            maxWidth={{xs: '320px', md: "1236px"}}>
             <Box
+              alignSelf='center'
               component="span"
               fontFamily="RoadRadio"
               fontWeight={700}
               fontSize={45}
-              lineHeight="45.4px"
+              lineHeight={{xs: "normal", md: "45.4px"}}
               color="colors.nero"
             >
               Контакты
             </Box>
 
-            <Box
-              mt='40px'
-              display='flex'
+            <Stack
+              mt={{xs: '41px', md: '40px'}}
+              direction={{xs: 'column', md: 'row'}}
               backgroundColor='colors.white'
               borderRadius='22px'
               width='100%'
-              pt='37px'
-              pb='37px'
-              pl='27px'
-              pr='27px'
+              pt={{xs: '30px', md: '37px'}}
+              pb={{xs: '17px', md: '37px'}}
+              pl={{xs: '19px', md: '27px'}}
+              pr={{xs: '22px', md: '27px'}}
             >
-              <Box
-                display='flex'
-                flexDirection='column'
+              <Stack
+                spacing={{xs: '26px', md: '33px'}}
               >
-                <Box
-                  display='flex'
+                <Stack
+                  direction={{xs: 'column', md: 'row'}}
+                  spacing='26px'
                 >
                   <TextInput
                     id='full_name'
                     label='Имя'
                     name='full_name'
-                    inputWidth='335px'
+                    inputWidth={{xs: 'inherit', md: '335px'}}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.full_name}
@@ -120,7 +121,7 @@ const FeedbackForm = () => {
                   />
 
                   <Box
-                    ml='50px'
+                    ml={{xs: 0, md: '50px'}}
                     display='flex'
                     flexDirection='column'
                   >
@@ -129,7 +130,7 @@ const FeedbackForm = () => {
                       type='email'
                       label='Email'
                       name='email'
-                      inputWidth='236.88px'
+                      inputWidth={{xs: 'inherit', md: '236.88px'}}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values.email}
@@ -138,16 +139,16 @@ const FeedbackForm = () => {
                       pattern='[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+'
                     />
                   </Box>
-                </Box>
+                </Stack>
 
                 <Box
-                  mt='33px'
+                  display={{xs: 'none', md: 'block'}}
                 >
                   <TextAreaInput
                     id='comment'
                     label='Комментарий'
                     name='comment'
-                    inputWidth='634px'
+                    inputWidth={{xs: 'inherit', md: '634px'}}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.comment}
@@ -155,21 +156,23 @@ const FeedbackForm = () => {
                     maxlength={800}
                   />
                 </Box>
-              </Box>
+              </Stack>
 
-              <Box
-                ml='37.88px'
-                display='flex'
-                flexDirection='column'
+              <Stack
+                mt={{xs: '26px', md: 0}}
+                spacing={{xs: '26px', md: 0}}
+                ml={{xs: 0, md: '37.88px'}}
+                justifyContent={{xs: 'flex-start', md: 'space-between'}}
               >
-                <Box
-                  display='flex'
+                <Stack
+                  direction={{xs: 'column', md: 'row'}}
+                  spacing={{xs: '26px', md: '50.24px'}}
                 >
                   <TextInput
                     id='phone'
                     label='Телефон'
                     name='phone'
-                    inputWidth='236.88px'
+                    inputWidth={{xs: 'inherit', md: '236.88px'}}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.phone}
@@ -180,12 +183,13 @@ const FeedbackForm = () => {
                   />
 
                   <Box
-                    ml='auto'
+                    ml={{xs: 0, md: 'auto'}}
                   >
                     <FileInput
                       id='file_input'
                       name='attachment_file_name'
                       label='Приложить файл'
+                      inputWidth={{xs: 'inherit', md: '223px'}}
                       onChange={
                         (evt) => {
                           const file = evt?.target?.files[0];
@@ -209,11 +213,26 @@ const FeedbackForm = () => {
                       disabled={isSubmitting}
                     />
                   </Box>
-                </Box>
+
+                  <Box
+                    display={{xs: 'block', md: 'none'}}
+                  >
+                    <TextAreaInput
+                      id='comment'
+                      label='Комментарий'
+                      name='comment'
+                      inputWidth={{xs: 'inherit', md: '634px'}}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.comment}
+                      disabled={isSubmitting}
+                      maxlength={800}
+                    />
+                  </Box>
+                </Stack>
 
                 <Box
-                  mt='auto'
-                  ml='23.12px'
+                  ml={{xs: 0, md: '23.12px'}}
                   component="button"
                   type='submit'
                   display="flex"
@@ -222,7 +241,7 @@ const FeedbackForm = () => {
                   backgroundColor="#262C27"
                   borderRadius="18px"
                   height="60px"
-                  width='487px'
+                  width={{xs: 'inherit', md: '487px'}}
                 >
                   <Box
                     component="span"
@@ -235,8 +254,8 @@ const FeedbackForm = () => {
                     Отправить
                   </Box>
                 </Box>
-              </Box>
-            </Box>
+              </Stack>
+            </Stack>
           </Box>
         )}
       </Formik>

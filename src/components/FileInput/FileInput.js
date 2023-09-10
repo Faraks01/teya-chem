@@ -6,6 +6,7 @@ const FileInput = (props) => {
     id = '',
     label = '',
     name = '',
+    inputWidth = '',
     fileName = 'Загрузить файл',
     ...restInputProps
   } = props;
@@ -34,7 +35,7 @@ const FileInput = (props) => {
         flexDirection='column'
         alignItems='center'
         component='label'
-        width='223px'
+        width={inputWidth}
         height='121px'
         borderRadius='14.21px'
         backgroundColor='colors.white'
