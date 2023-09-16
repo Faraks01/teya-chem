@@ -36,8 +36,9 @@ const BuyOnThisSite = () => {
           mt={{xs: '45px', md: '60px'}}
         >
           <Grid
+            width='100%'
             container
-            spacing={{xs: '25px', md: 0}}
+            rowSpacing={{xs: '25px', md: 0}}
           >
             {Array.from(Array(4).keys()).map((_, index) => (
               <Grid

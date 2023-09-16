@@ -168,8 +168,10 @@ const ProductUsageInstruction = () => {
         />
 
         <Grid
+          width='100%'
           justifyContent={{xs: 'center', md: 'flex-start'}}
-          spacing='21px'
+          rowSpacing={{xs: '21px', md: 0}}
+          columnSpacing={{xs: 0, md: '21px'}}
           container>
           {stepCardsData.map((data, index) => {
             const key = data.key + "___" + index;

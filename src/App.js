@@ -1,4 +1,6 @@
+import 'react-toastify/dist/ReactToastify.css';
 import "./generalStyles.css";
+import {Box} from "@mui/system";
 import NavigationBar from "./sections/NavigationBar";
 import HeaderSlider from "./sections/HeaderSlider";
 import MarketplacesNavigation from "./sections/MarketplacesNavigation";
@@ -13,8 +15,7 @@ import FeedbackForm from "./sections/FeedbackForm";
 import Footer from "./sections/Footer";
 import PriceCalculator from "./components/PriceCalculator";
 import {ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import {Box} from "@mui/system";
+import DialogMenu from "./components/DialogMenu";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
       <Footer/>
 
       {/* Dialogs */}
+      <DialogMenu/>
       <PriceCalculator/>
 
       {/* Toasts Notifications */}

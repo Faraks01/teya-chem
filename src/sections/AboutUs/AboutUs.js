@@ -14,6 +14,7 @@ const AboutUs = () => {
         pb="201.43px"
         display="flex"
         justifyContent="center"
+        overflow='hidden'
         width="100%">
           <Box
             display="flex"

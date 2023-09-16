@@ -83,6 +83,7 @@ const MarketplacesNavigation = () => {
           mt={{xs: '22px', md: '30px'}}
         >
           <Grid
+            width='100%'
             container
             spacing={{xs: '33px', md: '21.79px'}}
           >
