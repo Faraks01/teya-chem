@@ -255,28 +255,38 @@ const PriceCalculator = () => {
         slots={{ backdrop: StyledBackdrop }}
       >
         <Box
+          overflow="scroll"
           display="flex"
           flexDirection="column"
-          width="100%"
           maxWidth={1285}
-          height={630}
+          height={{ xs: "calc(100% - 70px)", md: 630 }}
+          width={{ xs: "calc(100% - 40px)", md: "100%" }}
           borderRadius="22px"
           backgroundColor="colors.white"
           pt="28px"
           pb="28px"
+          alignItems={{ xs: "center", md: "flex-start" }}
+          textAlign={{ xs: "center", md: "left" }}
         >
           <Box
-            ml="41px"
+            ml={{ xs: 0, md: "41px" }}
             component="span"
             fontFamily="RoadRadio"
             fontWeight={400}
             fontSize={30}
             color="colors.nero"
+            width={{ xs: "250px", md: "auto" }}
           >
             Калькулятор расчёта
           </Box>
 
-          <Stack mt="36px" ml="41px" direction="row" spacing="25px">
+          <Stack
+            mt="36px"
+            ml={{ xs: 0, md: "41px" }}
+            direction={{ xs: "column", md: "row" }}
+            alignItems={{ xs: "center", md: "flex-start" }}
+            spacing="25px"
+          >
             <TextInput
               id="tank_volume"
               name="tank_volume"
@@ -349,7 +359,15 @@ const PriceCalculator = () => {
             />
           </Stack>
 
-          <Box mt="21px" ml="41px" display="flex" alignItems="center">
+          <Stack
+            mt="21px"
+            ml={{ xs: 0, md: "41px" }}
+            direction={{ xs: "column", md: "row" }}
+            spacing="16px"
+            alignItems="center"
+            width={{ xs: "250px", md: "auto" }}
+            textAlign={{ xs: "center", md: "left" }}
+          >
             <Box
               component="span"
               fontFamily="RoadRadio"
@@ -361,7 +379,6 @@ const PriceCalculator = () => {
             </Box>
 
             <Box
-              ml="31px"
               borderRadius="12px"
               display="flex"
               minWidth={193}
@@ -382,7 +399,7 @@ const PriceCalculator = () => {
                 {formatNumber(Math.round(formik.values.full_charge_price))} руб
               </Box>
             </Box>
-          </Box>
+          </Stack>
 
           <Box
             position="relative"
@@ -393,8 +410,17 @@ const PriceCalculator = () => {
             sx={{ background: `url('${wavesSeparatorVector}')` }}
           />
 
-          <Box mt="39px" ml="41px" display="flex">
-            <Stack direction="row" spacing="13px">
+          <Stack
+            mt="39px"
+            ml={{ xs: 0, md: "41px" }}
+            direction={{ xs: "column", md: "row" }}
+            spacing="51px"
+          >
+            <Stack
+              direction={{ xs: "column", md: "row" }}
+              alignItems={{ xs: "center", md: "flex-start" }}
+              spacing="13px"
+            >
               <Box
                 borderRadius="12px"
                 display="flex"
@@ -504,7 +530,7 @@ const PriceCalculator = () => {
               </Box>
             </Stack>
 
-            <Box ml="51px" display="flex" flexDirection="column">
+            <Stack spacing="24px" direction="column">
               <Box
                 component="span"
                 fontFamily="RoadRadio"
@@ -515,7 +541,11 @@ const PriceCalculator = () => {
                 Ваша экономия:
               </Box>
 
-              <Stack mt="24px" direction="row" spacing="30px">
+              <Stack
+                direction={{ xs: "column", md: "row" }}
+                alignItems={{ xs: "center", md: "flex-start" }}
+                spacing="30px"
+              >
                 <Box
                   borderRadius="12px"
                   display="flex"
@@ -635,8 +665,8 @@ const PriceCalculator = () => {
                   </Box>
                 </Box>
               </Stack>
-            </Box>
-          </Box>
+            </Stack>
+          </Stack>
 
           <Box
             position="relative"
@@ -646,25 +676,27 @@ const PriceCalculator = () => {
             backgroundColor="#ADADAD"
           />
 
-          <Box
+          <Stack
             mt="24px"
-            mr="65px"
-            display="flex"
-            justifyContent="flex-end"
+            mr={{ xs: 0, md: "65px" }}
+            direction={{ xs: "column", md: "row" }}
+            justifyContent={{ xs: "flex-start", md: "flex-end" }}
             alignItems="center"
+            spacing="30px"
           >
-            <Box
-              component="span"
-              fontFamily="RoadRadio"
-              fontWeight={400}
-              fontSize={22}
-              color="colors.nero"
-            >
-              В месяц при постоянном использовании присадки
+            <Box width={{ xs: "250px", md: "auto" }}>
+              <Box
+                component="span"
+                fontFamily="RoadRadio"
+                fontWeight={400}
+                fontSize={22}
+                color="colors.nero"
+              >
+                В месяц при постоянном использовании присадки
+              </Box>
             </Box>
 
             <Box
-              ml="30px"
               borderRadius="12px"
               display="flex"
               minWidth={211}
@@ -690,7 +722,7 @@ const PriceCalculator = () => {
                 руб
               </Box>
             </Box>
-          </Box>
+          </Stack>
         </Box>
       </StyledModal>
     </Box>
