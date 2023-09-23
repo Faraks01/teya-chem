@@ -1,31 +1,27 @@
 import React from "react";
-import {Box} from "@mui/system";
+import { Box } from "@mui/system";
 
 const Select = (props) => {
   const {
-    id = '',
-    label = '',
-    name = '',
-    selectWidth = '',
+    id = "",
+    label = "",
+    name = "",
+    selectWidth = "",
     options = [],
     ...restSelectProps
   } = props;
 
   return (
-    <Box
-      display='flex'
-      flexDirection='column'
-      position='relative'
-    >
+    <Box display="flex" flexDirection="column" position="relative">
       {!!label && (
         <Box
-          mb='11px'
+          mb="11px"
           htmlFor={id}
           component="label"
           fontWeight={500}
           fontSize={14}
-          lineHeight='normal'
-          color='colors.jetBlack'
+          lineHeight="normal"
+          color="colors.jetBlack"
         >
           {label}
         </Box>
@@ -33,43 +29,39 @@ const Select = (props) => {
 
       <Box
         id={id}
-        display='flex'
-        alignItems='center'
-        pl='16px'
-        pr='16px'
-        component='select'
+        display="flex"
+        alignItems="center"
+        pl="16px"
+        pr="16px"
+        component="select"
         fontWeight={500}
         fontSize={16}
-        color='colors.gray33'
+        color="colors.gray33"
         name={name}
         width={selectWidth}
-        height='53px'
-        borderRadius='12px'
-        backgroundColor='colors.white'
+        height="53px"
+        borderRadius="12px"
+        backgroundColor="colors.white"
         sx={{
-          border: '1px solid #D7D7D7',
-          appearance: 'none',
-          cursor: 'pointer'
+          border: "1px solid #D7D7D7",
+          appearance: "none",
+          cursor: "pointer",
         }}
         {...restSelectProps}
       >
         {options.map((o) => (
-          <Box
-            key={'option__' + o.label}
-            component='option'
-            value={o.value}
-          >
+          <Box key={"option__" + o.label} component="option" value={o.value}>
             {o.label}
           </Box>
         ))}
       </Box>
 
       <Box
-        position='absolute'
-        bottom='19px'
-        right='16px'
+        position="absolute"
+        bottom="19px"
+        right="16px"
         sx={{
-          pointerEvents: 'none'
+          pointerEvents: "none",
         }}
       >
         <svg
@@ -89,6 +81,6 @@ const Select = (props) => {
       </Box>
     </Box>
   );
-}
+};
 
-export default Select
+export default Select;

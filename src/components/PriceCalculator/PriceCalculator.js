@@ -1,37 +1,42 @@
-import React, {Children, cloneElement, createContext, useContext, useEffect, useMemo, useState} from "react";
-import {Box, Stack} from "@mui/system";
+import React, {
+  Children,
+  cloneElement,
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import { Box, Stack } from "@mui/system";
 import styled from "@emotion/styled/macro";
-import Modal from '@mui/base/Modal';
+import Modal from "@mui/base/Modal";
 import TextInput from "../TextInput";
-import {useFormik} from "formik";
-import {COST_REDUCTION, FUEL_BRANDS, PRODUCT_VARIANTS} from "../../constants";
+import { useFormik } from "formik";
+import { COST_REDUCTION, FUEL_BRANDS, PRODUCT_VARIANTS } from "../../constants";
 import wavesSeparatorVector from "../../assets/vectors/waves_separator.svg";
 import Select from "../Select";
-import {formatNumber} from "../../utilities";
+import { formatNumber } from "../../utilities";
 
 export const PriceCalculatorContext = createContext({
   dialogOpen: false,
-  changeDialogState: (_) => {
-  }
+  changeDialogState: (_) => {},
 });
 
-export const PriceCalculatorContextWrapper = ({children}) => {
+export const PriceCalculatorContextWrapper = ({ children }) => {
   const [dialogOpen, changeDialogState] = useState(false);
 
   return (
-    <PriceCalculatorContext.Provider
-      value={{dialogOpen, changeDialogState}}
-    >
+    <PriceCalculatorContext.Provider value={{ dialogOpen, changeDialogState }}>
       {Children.map(children, (child) => cloneElement(child))}
     </PriceCalculatorContext.Provider>
-  )
-}
+  );
+};
 
 const Backdrop = React.forwardRef((props, ref) => {
-  const {open, className, ...other} = props;
+  const { open, className, ...other } = props;
   return (
     <div
-      className={`${className} ${open && 'MuiBackdrop-open'}`}
+      className={`${className} ${open && "MuiBackdrop-open"}`}
       ref={ref}
       {...other}
     />
@@ -62,17 +67,14 @@ const StyledBackdrop = styled(Backdrop)`
 `;
 
 const PriceCalculator = () => {
-  const {
-    dialogOpen,
-    changeDialogState
-  } = useContext(PriceCalculatorContext);
+  const { dialogOpen, changeDialogState } = useContext(PriceCalculatorContext);
 
   const closeDialog = () => changeDialogState(false);
 
   const formik = useFormik({
     initialValues: {
       tank_volume: 100,
-      fuel_brand: FUEL_BRANDS['ДТ'],
+      fuel_brand: FUEL_BRANDS["ДТ"],
       average_consumption: 10,
       fuel_price: 50,
       average_mileage_per_month: 2000,
@@ -95,134 +97,83 @@ const PriceCalculator = () => {
     amount_of_common_product_packs,
     amount_of_large_product_packs,
     average_mileage_per_month,
-    mileage_per_hundred_kilometers_discount
+    mileage_per_hundred_kilometers_discount,
   } = formik.values;
 
-  const {
-    setFieldValue,
-    resetForm
-  } = formik;
+  const { setFieldValue, resetForm } = formik;
 
   useEffect(() => {
-    if (
-      tank_volume !== undefined &&
-      fuel_price !== undefined
-    ) {
-      setFieldValue(
-        'full_charge_price',
-        tank_volume * fuel_price
-      )
+    if (tank_volume !== undefined && fuel_price !== undefined) {
+      setFieldValue("full_charge_price", tank_volume * fuel_price);
     }
-
-  }, [
-    tank_volume,
-    fuel_price,
-    setFieldValue
-  ]);
+  }, [tank_volume, fuel_price, setFieldValue]);
 
   useEffect(() => {
-    if (
-      tank_volume !== undefined
-    ) {
-      const productVolume = PRODUCT_VARIANTS['COMMON']['volume'];
+    if (tank_volume !== undefined) {
+      const productVolume = PRODUCT_VARIANTS["COMMON"]["volume"];
 
       setFieldValue(
-        'amount_of_common_product_packs',
-        Math.ceil(
-          tank_volume / productVolume
-        )
-      )
+        "amount_of_common_product_packs",
+        Math.ceil(tank_volume / productVolume),
+      );
     }
-  }, [
-    tank_volume,
-    setFieldValue
-  ]);
+  }, [tank_volume, setFieldValue]);
 
   useEffect(() => {
-    if (
-      tank_volume !== undefined
-    ) {
-      const productVolume = PRODUCT_VARIANTS['LARGE']['volume'];
+    if (tank_volume !== undefined) {
+      const productVolume = PRODUCT_VARIANTS["LARGE"]["volume"];
 
       setFieldValue(
-        'amount_of_large_product_packs',
-        Math.ceil(
-          tank_volume / productVolume
-        )
-      )
+        "amount_of_large_product_packs",
+        Math.ceil(tank_volume / productVolume),
+      );
     }
-  }, [
-    tank_volume,
-    setFieldValue
-  ]);
+  }, [tank_volume, setFieldValue]);
 
   useEffect(() => {
-    if (
-      full_charge_price !== undefined &&
-      tank_volume !== undefined
-    ) {
-      const productHalfDiscount = PRODUCT_VARIANTS['COMMON']['price'] / 2;
-      const productVolume = PRODUCT_VARIANTS['COMMON']['volume'];
+    if (full_charge_price !== undefined && tank_volume !== undefined) {
+      const productHalfDiscount = PRODUCT_VARIANTS["COMMON"]["price"] / 2;
+      const productVolume = PRODUCT_VARIANTS["COMMON"]["volume"];
 
       setFieldValue(
-        'full_charge_discount',
-        (
-          full_charge_price * COST_REDUCTION / 100 -
-          tank_volume * productHalfDiscount / productVolume
-        )
-      )
+        "full_charge_discount",
+        (full_charge_price * COST_REDUCTION) / 100 -
+          (tank_volume * productHalfDiscount) / productVolume,
+      );
     }
-
-  }, [
-    full_charge_price,
-    tank_volume,
-    setFieldValue
-  ]);
+  }, [full_charge_price, tank_volume, setFieldValue]);
 
   useEffect(() => {
-    if (
-      average_consumption !== undefined &&
-      fuel_price !== undefined
-    ) {
-      const productHalfDiscount = PRODUCT_VARIANTS['COMMON']['price'] / 2;
-      const productVolume = PRODUCT_VARIANTS['COMMON']['volume'];
+    if (average_consumption !== undefined && fuel_price !== undefined) {
+      const productHalfDiscount = PRODUCT_VARIANTS["COMMON"]["price"] / 2;
+      const productVolume = PRODUCT_VARIANTS["COMMON"]["volume"];
 
       setFieldValue(
-        'mileage_per_hundred_kilometers_discount',
-        (
-          average_consumption * fuel_price * COST_REDUCTION / 100 -
-          average_consumption * productHalfDiscount / productVolume
-        )
-      )
+        "mileage_per_hundred_kilometers_discount",
+        (average_consumption * fuel_price * COST_REDUCTION) / 100 -
+          (average_consumption * productHalfDiscount) / productVolume,
+      );
     }
-
-  }, [
-    average_consumption,
-    fuel_price,
-    setFieldValue
-  ]);
+  }, [average_consumption, fuel_price, setFieldValue]);
 
   useEffect(() => {
     if (
       amount_of_common_product_packs !== undefined &&
       fuel_price !== undefined
     ) {
-      const productHalfDiscount = PRODUCT_VARIANTS['COMMON']['price'] / 2;
+      const productHalfDiscount = PRODUCT_VARIANTS["COMMON"]["price"] / 2;
 
       setFieldValue(
-        'per_product_discount',
-        (
-          amount_of_common_product_packs * productHalfDiscount * COST_REDUCTION / 100 * fuel_price -
-          amount_of_common_product_packs * productHalfDiscount
-        )
-      )
+        "per_product_discount",
+        ((amount_of_common_product_packs *
+          productHalfDiscount *
+          COST_REDUCTION) /
+          100) *
+          fuel_price -
+          amount_of_common_product_packs * productHalfDiscount,
+      );
     }
-
-  }, [
-    amount_of_common_product_packs,
-    fuel_price,
-    setFieldValue
-  ]);
+  }, [amount_of_common_product_packs, fuel_price, setFieldValue]);
 
   useEffect(() => {
     if (
@@ -230,52 +181,42 @@ const PriceCalculator = () => {
       mileage_per_hundred_kilometers_discount !== undefined
     ) {
       setFieldValue(
-        'per_month_during_product_usage_discount',
-        (
-          average_mileage_per_month / 100 * mileage_per_hundred_kilometers_discount
-        )
-      )
+        "per_month_during_product_usage_discount",
+        (average_mileage_per_month / 100) *
+          mileage_per_hundred_kilometers_discount,
+      );
     }
-
   }, [
     average_mileage_per_month,
     mileage_per_hundred_kilometers_discount,
-    setFieldValue
+    setFieldValue,
   ]);
 
   useEffect(() => {
     if (!dialogOpen) {
       resetForm();
     }
-  }, [
-    dialogOpen,
-    resetForm
-  ]);
+  }, [dialogOpen, resetForm]);
 
   const handleInputChange = (field) => (evt) => {
-    const {value} = evt.target;
+    const { value } = evt.target;
 
-    if (evt.target?.validity?.valid) setFieldValue(
-      field,
-      (!isNaN(value) && value !== '')
-        ? Number(value)
-        : undefined
-    );
-  }
+    if (evt.target?.validity?.valid)
+      setFieldValue(
+        field,
+        !isNaN(value) && value !== "" ? Number(value) : undefined,
+      );
+  };
 
   const handleSelectInputChange = (evt) => {
-    const {value} = evt.target;
+    const { value } = evt.target;
 
-    setFieldValue(
-      'fuel_brand',
-      value
-    );
-  }
+    setFieldValue("fuel_brand", value);
+  };
 
-  const suggestLargeBottle = (
+  const suggestLargeBottle =
     amount_of_large_product_packs > 0 &&
-    (amount_of_large_product_packs < amount_of_common_product_packs)
-  );
+    amount_of_large_product_packs < amount_of_common_product_packs;
 
   const packsTitle = useMemo(() => {
     const pack_amount = suggestLargeBottle
@@ -287,23 +228,23 @@ const PriceCalculator = () => {
 
     let packs;
 
-    if (strPackLastSymbol === '1') {
-      packs = 'флакон';
+    if (strPackLastSymbol === "1") {
+      packs = "флакон";
     } else if (
-      strPackLastSymbol === '2' ||
-      strPackLastSymbol === '3' ||
-      strPackLastSymbol === '4'
+      strPackLastSymbol === "2" ||
+      strPackLastSymbol === "3" ||
+      strPackLastSymbol === "4"
     ) {
-      packs = 'флакона';
+      packs = "флакона";
     } else {
-      packs = 'флаконов';
+      packs = "флаконов";
     }
 
-    return `х ${pack_amount} ${packs}`
+    return `х ${pack_amount} ${packs}`;
   }, [
     amount_of_large_product_packs,
     amount_of_common_product_packs,
-    suggestLargeBottle
+    suggestLargeBottle,
   ]);
 
   return (
@@ -311,21 +252,21 @@ const PriceCalculator = () => {
       <StyledModal
         open={dialogOpen}
         onClose={closeDialog}
-        slots={{backdrop: StyledBackdrop}}
+        slots={{ backdrop: StyledBackdrop }}
       >
         <Box
-          display='flex'
-          flexDirection='column'
-          width='100%'
+          display="flex"
+          flexDirection="column"
+          width="100%"
           maxWidth={1285}
           height={630}
-          borderRadius='22px'
-          backgroundColor='colors.white'
-          pt='28px'
-          pb='28px'
+          borderRadius="22px"
+          backgroundColor="colors.white"
+          pt="28px"
+          pb="28px"
         >
           <Box
-            ml='41px'
+            ml="41px"
             component="span"
             fontFamily="RoadRadio"
             fontWeight={400}
@@ -335,89 +276,80 @@ const PriceCalculator = () => {
             Калькулятор расчёта
           </Box>
 
-          <Stack
-            mt='36px'
-            ml='41px'
-            direction='row'
-            spacing='25px'
-          >
+          <Stack mt="36px" ml="41px" direction="row" spacing="25px">
             <TextInput
-              id='tank_volume'
-              name='tank_volume'
-              label='Объем бака (л)'
-              inputWidth='211px'
-              variant='secondary'
-              placeholder='Объем бака (л)'
-              type='number'
+              id="tank_volume"
+              name="tank_volume"
+              label="Объем бака (л)"
+              inputWidth="211px"
+              variant="secondary"
+              placeholder="Объем бака (л)"
+              type="number"
               min={0}
               max={99999999}
-              onChange={handleInputChange('tank_volume')}
+              onChange={handleInputChange("tank_volume")}
               value={formik.values.tank_volume}
             />
 
             <Select
-              id='fuel_brand'
-              name='fuel_brand'
-              label='Марка топлива'
-              selectWidth='211px'
-              placeholder='Марка топлива'
-              options={Object.entries(FUEL_BRANDS).map(
-                e => ({label: e[0], value: e[1]})
-              )}
+              id="fuel_brand"
+              name="fuel_brand"
+              label="Марка топлива"
+              selectWidth="211px"
+              placeholder="Марка топлива"
+              options={Object.entries(FUEL_BRANDS).map((e) => ({
+                label: e[0],
+                value: e[1],
+              }))}
               onChange={handleSelectInputChange}
               value={formik.values.fuel_brand}
               disabled
             />
 
             <TextInput
-              id='average_consumption'
-              name='average_consumption'
-              label='Средний расход (л/100 км)'
-              inputWidth='211px'
-              variant='secondary'
-              placeholder='Средний расход'
-              type='number'
+              id="average_consumption"
+              name="average_consumption"
+              label="Средний расход (л/100 км)"
+              inputWidth="211px"
+              variant="secondary"
+              placeholder="Средний расход"
+              type="number"
               min={0}
               max={99999999}
-              onChange={handleInputChange('average_consumption')}
+              onChange={handleInputChange("average_consumption")}
               value={formik.values.average_consumption}
             />
 
             <TextInput
-              id='fuel_price'
-              name='fuel_price'
-              label='Цена запр.топлива (руб/л)'
-              inputWidth='211px'
-              variant='secondary'
-              placeholder='Цена топлива'
-              type='number'
+              id="fuel_price"
+              name="fuel_price"
+              label="Цена запр.топлива (руб/л)"
+              inputWidth="211px"
+              variant="secondary"
+              placeholder="Цена топлива"
+              type="number"
               min={0}
               max={99999999}
-              onChange={handleInputChange('fuel_price')}
+              onChange={handleInputChange("fuel_price")}
               value={formik.values.fuel_price}
             />
 
             <TextInput
-              id='average_mileage_per_month'
-              name='average_mileage_per_month'
-              label='Средний пробег в мес. (км)'
-              inputWidth='211px'
-              variant='secondary'
-              placeholder='Средний пробег'
-              type='number'
+              id="average_mileage_per_month"
+              name="average_mileage_per_month"
+              label="Средний пробег в мес. (км)"
+              inputWidth="211px"
+              variant="secondary"
+              placeholder="Средний пробег"
+              type="number"
               min={0}
               max={99999999}
-              onChange={handleInputChange('average_mileage_per_month')}
+              onChange={handleInputChange("average_mileage_per_month")}
               value={formik.values.average_mileage_per_month}
             />
           </Stack>
 
-          <Box
-            mt='21px'
-            ml='41px'
-            display='flex'
-            alignItems='center'
-          >
+          <Box mt="21px" ml="41px" display="flex" alignItems="center">
             <Box
               component="span"
               fontFamily="RoadRadio"
@@ -429,18 +361,18 @@ const PriceCalculator = () => {
             </Box>
 
             <Box
-              ml='31px'
-              borderRadius='12px'
-              display='flex'
+              ml="31px"
+              borderRadius="12px"
+              display="flex"
               minWidth={193}
-              width='fit-content'
+              width="fit-content"
               height={53}
-              pl='10px'
-              pr='10px'
-              backgroundColor='colors.whiteSmoke'
+              pl="10px"
+              pr="10px"
+              backgroundColor="colors.whiteSmoke"
             >
               <Box
-                m='auto'
+                m="auto"
                 component="span"
                 fontFamily="RoadRadio"
                 fontWeight={400}
@@ -453,76 +385,69 @@ const PriceCalculator = () => {
           </Box>
 
           <Box
-            position='relative'
-            mt='24px'
-            width='100%'
-            height='15px'
+            position="relative"
+            mt="24px"
+            width="100%"
+            height="15px"
             flexShrink={0}
-            sx={{background: `url('${wavesSeparatorVector}')`}}
+            sx={{ background: `url('${wavesSeparatorVector}')` }}
           />
 
-          <Box
-            mt='39px'
-            ml='41px'
-            display='flex'
-          >
-            <Stack
-              direction='row'
-              spacing='13px'
-            >
+          <Box mt="39px" ml="41px" display="flex">
+            <Stack direction="row" spacing="13px">
               <Box
-                borderRadius='12px'
-                display='flex'
-                flexDirection='column'
-                alignItems='center'
+                borderRadius="12px"
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
                 minWidth={211}
-                width='fit-content'
+                width="fit-content"
                 pl={1}
                 pr={1}
                 height={148}
-                backgroundColor='colors.whiteSmoke'
+                backgroundColor="colors.whiteSmoke"
               >
                 <Box
-                  mt='16px'
+                  mt="16px"
                   component="span"
                   fontWeight={500}
                   fontSize={15}
                   color="colors.nero"
-                  textAlign='center'
+                  textAlign="center"
                 >
                   Подходящая присадка
                 </Box>
 
                 <Box
-                  mt='12px'
+                  mt="12px"
                   component="span"
                   fontFamily="RoadRadio"
                   fontWeight={400}
                   fontSize={35}
                   color="colors.blurple"
-                  textAlign='center'
+                  textAlign="center"
                 >
                   ТЭЯ-ДТ
                 </Box>
 
                 <Box
-                  mt='12px'
-                  display='flex'
+                  mt="12px"
+                  display="flex"
                   minWidth={129}
-                  width='fit-content'
+                  width="fit-content"
                   height={37}
-                  borderRadius='12px'
-                  backgroundColor='colors.blurple'
+                  borderRadius="12px"
+                  backgroundColor="colors.blurple"
                 >
                   <Box
-                    m='auto'
+                    m="auto"
                     pl={1}
                     pr={1}
                     component="span"
                     fontWeight={500}
                     fontSize={16}
                     color="colors.white"
-                    textAlign='center'
+                    textAlign="center"
                   >
                     {packsTitle}
                   </Box>
@@ -530,60 +455,56 @@ const PriceCalculator = () => {
               </Box>
 
               <Box
-                borderRadius='12px'
-                display='flex'
-                flexDirection='column'
-                alignItems='center'
+                borderRadius="12px"
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
                 minWidth={211}
-                width='fit-content'
+                width="fit-content"
                 pl={1}
                 pr={1}
                 height={148}
-                backgroundColor='colors.whiteSmoke'
+                backgroundColor="colors.whiteSmoke"
               >
                 <Box
-                  mt='16px'
+                  mt="16px"
                   component="span"
                   fontWeight={500}
                   fontSize={15}
                   color="colors.nero"
-                  textAlign='center'
+                  textAlign="center"
                 >
                   Необходимая дозировка
                 </Box>
 
                 <Box
-                  mt='12px'
+                  mt="12px"
                   component="span"
                   fontFamily="RoadRadio"
                   fontWeight={400}
                   fontSize={35}
                   color="colors.blurple"
-                  textAlign='center'
+                  textAlign="center"
                 >
-                  {suggestLargeBottle && 'x2 мл'}
-                  {!suggestLargeBottle && 'x1 мл'}
+                  {suggestLargeBottle && "x2 мл"}
+                  {!suggestLargeBottle && "x1 мл"}
                 </Box>
 
                 <Box
-                  mt='12px'
+                  mt="12px"
                   component="span"
                   fontWeight={500}
                   fontSize={14}
                   color="colors.gray33"
-                  textAlign='center'
+                  textAlign="center"
                 >
-                  *дозировка на 1 заправку <br/>
+                  *дозировка на 1 заправку <br />
                   полного бака
                 </Box>
               </Box>
             </Stack>
 
-            <Box
-              ml='51px'
-              display='flex'
-              flexDirection='column'
-            >
+            <Box ml="51px" display="flex" flexDirection="column">
               <Box
                 component="span"
                 fontFamily="RoadRadio"
@@ -594,116 +515,123 @@ const PriceCalculator = () => {
                 Ваша экономия:
               </Box>
 
-              <Stack
-                mt='24px'
-                direction='row'
-                spacing='30px'
-              >
+              <Stack mt="24px" direction="row" spacing="30px">
                 <Box
-                  borderRadius='12px'
-                  display='flex'
-                  flexDirection='column'
-                  alignItems='center'
+                  borderRadius="12px"
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
                   minWidth={211}
-                  width='fit-content'
+                  width="fit-content"
                   pl={1}
                   pr={1}
                   height={102}
-                  backgroundColor='colors.whiteSmoke'
+                  backgroundColor="colors.whiteSmoke"
                 >
                   <Box
-                    mt='16px'
+                    mt="16px"
                     component="span"
                     fontWeight={500}
                     fontSize={15}
                     color="colors.nero"
-                    textAlign='center'
+                    textAlign="center"
                   >
                     С каждой заправки
                   </Box>
 
                   <Box
-                    mt='12px'
+                    mt="12px"
                     component="span"
                     fontFamily="RoadRadio"
                     fontWeight={400}
                     fontSize={35}
                     color="colors.blurple"
-                    textAlign='center'
+                    textAlign="center"
                   >
-                    {formatNumber(Math.round(formik.values.full_charge_discount))} руб
+                    {formatNumber(
+                      Math.round(formik.values.full_charge_discount),
+                    )}{" "}
+                    руб
                   </Box>
                 </Box>
 
                 <Box
-                  borderRadius='12px'
-                  display='flex'
-                  flexDirection='column'
-                  alignItems='center'
+                  borderRadius="12px"
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
                   minWidth={211}
-                  width='fit-content'
+                  width="fit-content"
                   pl={1}
                   pr={1}
                   height={102}
-                  backgroundColor='colors.whiteSmoke'
+                  backgroundColor="colors.whiteSmoke"
                 >
                   <Box
-                    mt='16px'
+                    mt="16px"
                     component="span"
                     fontWeight={500}
                     fontSize={15}
                     color="colors.nero"
-                    textAlign='center'
+                    textAlign="center"
                   >
                     На 100 км
                   </Box>
 
                   <Box
-                    mt='12px'
+                    mt="12px"
                     component="span"
                     fontFamily="RoadRadio"
                     fontWeight={400}
                     fontSize={35}
                     color="colors.blurple"
-                    textAlign='center'
+                    textAlign="center"
                   >
-                    {formatNumber(Math.round(formik.values.mileage_per_hundred_kilometers_discount))} руб
+                    {formatNumber(
+                      Math.round(
+                        formik.values.mileage_per_hundred_kilometers_discount,
+                      ),
+                    )}{" "}
+                    руб
                   </Box>
                 </Box>
 
                 <Box
-                  borderRadius='12px'
-                  display='flex'
-                  flexDirection='column'
-                  alignItems='center'
+                  borderRadius="12px"
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
                   minWidth={211}
-                  width='fit-content'
+                  width="fit-content"
                   pl={1}
                   pr={1}
                   height={102}
-                  backgroundColor='colors.whiteSmoke'
+                  backgroundColor="colors.whiteSmoke"
                 >
                   <Box
-                    mt='16px'
+                    mt="16px"
                     component="span"
                     fontWeight={500}
                     fontSize={15}
                     color="colors.nero"
-                    textAlign='center'
+                    textAlign="center"
                   >
                     С одного флакона
                   </Box>
 
                   <Box
-                    mt='12px'
+                    mt="12px"
                     component="span"
                     fontFamily="RoadRadio"
                     fontWeight={400}
                     fontSize={35}
                     color="colors.blurple"
-                    textAlign='center'
+                    textAlign="center"
                   >
-                    {formatNumber(Math.round(formik.values.per_product_discount))} руб
+                    {formatNumber(
+                      Math.round(formik.values.per_product_discount),
+                    )}{" "}
+                    руб
                   </Box>
                 </Box>
               </Stack>
@@ -711,19 +639,19 @@ const PriceCalculator = () => {
           </Box>
 
           <Box
-            position='relative'
-            mt='48px'
-            width='100%'
-            height='0.5px'
-            backgroundColor='#ADADAD'
+            position="relative"
+            mt="48px"
+            width="100%"
+            height="0.5px"
+            backgroundColor="#ADADAD"
           />
 
           <Box
-            mt='24px'
-            mr='65px'
-            display='flex'
-            justifyContent='flex-end'
-            alignItems='center'
+            mt="24px"
+            mr="65px"
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="center"
           >
             <Box
               component="span"
@@ -736,32 +664,37 @@ const PriceCalculator = () => {
             </Box>
 
             <Box
-              ml='30px'
-              borderRadius='12px'
-              display='flex'
+              ml="30px"
+              borderRadius="12px"
+              display="flex"
               minWidth={211}
-              width='fit-content'
+              width="fit-content"
               height={53}
-              pl='25px'
-              pr='26px'
-              backgroundColor='#D9FFBB'
+              pl="25px"
+              pr="26px"
+              backgroundColor="#D9FFBB"
             >
               <Box
-                m='auto'
+                m="auto"
                 component="span"
                 fontFamily="RoadRadio"
                 fontWeight={400}
                 fontSize={30}
                 color="#416C1F"
               >
-                {formatNumber(Math.round(formik.values.per_month_during_product_usage_discount))} руб
+                {formatNumber(
+                  Math.round(
+                    formik.values.per_month_during_product_usage_discount,
+                  ),
+                )}{" "}
+                руб
               </Box>
             </Box>
           </Box>
         </Box>
       </StyledModal>
     </Box>
-  )
-}
+  );
+};
 
-export default PriceCalculator
+export default PriceCalculator;

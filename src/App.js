@@ -1,6 +1,6 @@
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import "./generalStyles.css";
-import {Box} from "@mui/system";
+import { Box } from "@mui/system";
 import NavigationBar from "./sections/NavigationBar";
 import HeaderSlider from "./sections/HeaderSlider";
 import MarketplacesNavigation from "./sections/MarketplacesNavigation";
@@ -14,34 +14,31 @@ import Feedbacks from "./sections/Feedbacks";
 import FeedbackForm from "./sections/FeedbackForm";
 import Footer from "./sections/Footer";
 import PriceCalculator from "./components/PriceCalculator";
-import {ToastContainer} from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 import DialogMenu from "./components/DialogMenu";
 
 function App() {
   return (
-    <Box
-      pr={{xs: '10px', md: 0}}
-      pl={{xs: '10px', md: 0}}
-    >
-      <NavigationBar/>
-      <HeaderSlider/>
-      <MarketplacesNavigation/>
-      <AboutUs/>
-      <ProductEffectExplanation/>
-      <ProductUsageInstruction/>
-      <ProductDocumentationAndCertification/>
-      <ProductTesting/>
-      <BuyOnThisSite/>
-      <Feedbacks/>
-      <FeedbackForm/>
-      <Footer/>
+    <Box pr={{ xs: "10px", md: 0 }} pl={{ xs: "10px", md: 0 }}>
+      <NavigationBar />
+      <HeaderSlider />
+      <MarketplacesNavigation />
+      <AboutUs />
+      <ProductEffectExplanation />
+      <ProductUsageInstruction />
+      <ProductDocumentationAndCertification />
+      <ProductTesting />
+      <BuyOnThisSite />
+      <Feedbacks />
+      <FeedbackForm />
+      <Footer />
 
       {/* Dialogs */}
-      <DialogMenu/>
-      <PriceCalculator/>
+      <DialogMenu />
+      <PriceCalculator />
 
       {/* Toasts Notifications */}
-      <ToastContainer/>
+      <ToastContainer />
     </Box>
   );
 }

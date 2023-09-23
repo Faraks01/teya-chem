@@ -1,34 +1,37 @@
-import React, {Children, cloneElement, createContext, useContext, useState} from "react";
-import {Box, Stack} from "@mui/system";
+import React, {
+  Children,
+  cloneElement,
+  createContext,
+  useContext,
+  useState,
+} from "react";
+import { Box, Stack } from "@mui/system";
 import styled from "@emotion/styled/macro";
-import Modal from '@mui/base/Modal';
-import {ABOUT_US_SECTION_ID} from "../../sections/AboutUs/AboutUs";
-import {FEEDBACKS_SECTION_ID} from "../../sections/Feedbacks/Feedbacks";
-import {FEEDBACK_FORM_SECTION_ID} from "../../sections/FeedbackForm/FeedbackForm";
+import Modal from "@mui/base/Modal";
+import { ABOUT_US_SECTION_ID } from "../../sections/AboutUs/AboutUs";
+import { FEEDBACKS_SECTION_ID } from "../../sections/Feedbacks/Feedbacks";
+import { FEEDBACK_FORM_SECTION_ID } from "../../sections/FeedbackForm/FeedbackForm";
 
 export const DialogMenuContext = createContext({
   dialogOpen: false,
-  changeDialogState: (_) => {
-  }
+  changeDialogState: (_) => {},
 });
 
-export const DialogMenuContextWrapper = ({children}) => {
+export const DialogMenuContextWrapper = ({ children }) => {
   const [dialogOpen, changeDialogState] = useState(false);
 
   return (
-    <DialogMenuContext.Provider
-      value={{dialogOpen, changeDialogState}}
-    >
+    <DialogMenuContext.Provider value={{ dialogOpen, changeDialogState }}>
       {Children.map(children, (child) => cloneElement(child))}
     </DialogMenuContext.Provider>
-  )
-}
+  );
+};
 
 const Backdrop = React.forwardRef((props, ref) => {
-  const {open, className, ...other} = props;
+  const { open, className, ...other } = props;
   return (
     <div
-      className={`${className} ${open && 'MuiBackdrop-open'}`}
+      className={`${className} ${open && "MuiBackdrop-open"}`}
       ref={ref}
       {...other}
     />
@@ -59,10 +62,7 @@ const StyledBackdrop = styled(Backdrop)`
 `;
 
 const DialogMenu = () => {
-  const {
-    dialogOpen,
-    changeDialogState
-  } = useContext(DialogMenuContext);
+  const { dialogOpen, changeDialogState } = useContext(DialogMenuContext);
 
   const closeDialog = () => changeDialogState(false);
 
@@ -71,21 +71,21 @@ const DialogMenu = () => {
       <StyledModal
         open={dialogOpen}
         onClose={closeDialog}
-        slots={{backdrop: StyledBackdrop}}
+        slots={{ backdrop: StyledBackdrop }}
       >
         <Stack
-          borderRadius='12px'
+          borderRadius="12px"
           pt={5}
           pb={5}
           spacing={3}
-          alignItems='center'
-          backgroundColor='colors.white'
-          width='95%'
+          alignItems="center"
+          backgroundColor="colors.white"
+          width="95%"
         >
           <Box
             onClick={closeDialog}
             component="a"
-            href={'#' + ABOUT_US_SECTION_ID}
+            href={"#" + ABOUT_US_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -97,7 +97,7 @@ const DialogMenu = () => {
           <Box
             onClick={closeDialog}
             component="a"
-            href={'#' + FEEDBACKS_SECTION_ID}
+            href={"#" + FEEDBACKS_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -109,7 +109,7 @@ const DialogMenu = () => {
           <Box
             onClick={closeDialog}
             component="a"
-            href={'#' + FEEDBACK_FORM_SECTION_ID}
+            href={"#" + FEEDBACK_FORM_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -120,7 +120,7 @@ const DialogMenu = () => {
         </Stack>
       </StyledModal>
     </Box>
-  )
-}
+  );
+};
 
-export default DialogMenu
+export default DialogMenu;

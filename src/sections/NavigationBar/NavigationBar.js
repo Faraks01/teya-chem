@@ -1,54 +1,52 @@
-import React, {useContext} from "react";
-import {Box} from "@mui/system";
+import React, { useContext } from "react";
+import { Box } from "@mui/system";
 import teyaLogoSrc from "../../assets/images/teya-logo.png";
 import lightningIcon from "../../assets/vectors/lightning_icon.svg";
-import {ABOUT_US_SECTION_ID} from "../AboutUs/AboutUs";
-import {FEEDBACKS_SECTION_ID} from "../Feedbacks/Feedbacks";
-import {FEEDBACK_FORM_SECTION_ID} from "../FeedbackForm/FeedbackForm";
-import {BUY_ON_THIS_SITE_SECTION_ID} from "../BuyOnThisSite/BuyOnThisSite";
-import {DialogMenuContext} from "../../components/DialogMenu/DialogMenu";
+import { ABOUT_US_SECTION_ID } from "../AboutUs/AboutUs";
+import { FEEDBACKS_SECTION_ID } from "../Feedbacks/Feedbacks";
+import { FEEDBACK_FORM_SECTION_ID } from "../FeedbackForm/FeedbackForm";
+import { BUY_ON_THIS_SITE_SECTION_ID } from "../BuyOnThisSite/BuyOnThisSite";
+import { DialogMenuContext } from "../../components/DialogMenu/DialogMenu";
 
 const NavigationBar = () => {
-  const {
-    changeDialogState
-  } = useContext(DialogMenuContext);
+  const { changeDialogState } = useContext(DialogMenuContext);
 
   const openDialogMenu = () => changeDialogState(true);
 
   return (
     <Box
-      component='section'
+      component="section"
       display="flex"
       width="100%"
-      justifyContent="center">
+      justifyContent="center"
+    >
       <Box
         display="flex"
         width="100%"
         maxWidth="1233px"
         height="106px"
-        alignItems="center">
+        alignItems="center"
+      >
         <Box
           component="a"
-          href={'#'}
+          href={"#"}
           display="flex"
           height="fit-content"
-          width='fit-content'
+          width="fit-content"
         >
           <Box
             component="img"
             alt={"Teya logo"}
             src={teyaLogoSrc}
             width="auto"
-            height={{xs: 34, md: 39}}
+            height={{ xs: 34, md: 39 }}
             sx={{
-              mixBlendMode: "darken"
+              mixBlendMode: "darken",
             }}
           />
         </Box>
 
-        <Box
-          display={{xs: 'none', md: 'block'}}
-          ml="26px">
+        <Box display={{ xs: "none", md: "block" }} ml="26px">
           <Box
             component="span"
             fontSize={14}
@@ -56,23 +54,24 @@ const NavigationBar = () => {
             color="colors.gray33"
             lineHeight="17px"
           >
-            Универсальная присадка  <br/>для дизельного топлива
+            Универсальная присадка <br />
+            для дизельного топлива
           </Box>
         </Box>
 
-        <Box ml={{xs: 'auto', md: '53px'}}>
+        <Box ml={{ xs: "auto", md: "53px" }}>
           <Box
             component="a"
-            href={'#' + BUY_ON_THIS_SITE_SECTION_ID}
+            href={"#" + BUY_ON_THIS_SITE_SECTION_ID}
             display="flex"
             alignItems="center"
             backgroundColor="colors.blurple"
             borderRadius="12px"
-            height={{xs: 50, md: 51}}
+            height={{ xs: 50, md: 51 }}
             p="0 17px"
           >
             <Box
-              display={{xs: 'none', md: 'inline'}}
+              display={{ xs: "none", md: "inline" }}
               component="span"
               fontSize={16}
               fontWeight={500}
@@ -82,21 +81,16 @@ const NavigationBar = () => {
               Заказать на сайте
             </Box>
 
-            <Box ml={{xs: 0, md: '10px'}}>
-              <img
-                alt="lightning icon"
-                src={lightningIcon}
-              />
+            <Box ml={{ xs: 0, md: "10px" }}>
+              <img alt="lightning icon" src={lightningIcon} />
             </Box>
           </Box>
         </Box>
 
-        <Box
-          display={{xs: 'none', md: 'block'}}
-          ml="52px">
+        <Box display={{ xs: "none", md: "block" }} ml="52px">
           <Box
             component="a"
-            href={'#' + ABOUT_US_SECTION_ID}
+            href={"#" + ABOUT_US_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -106,12 +100,10 @@ const NavigationBar = () => {
           </Box>
         </Box>
 
-        <Box
-          display={{xs: 'none', md: 'block'}}
-          ml="47px">
+        <Box display={{ xs: "none", md: "block" }} ml="47px">
           <Box
             component="a"
-            href={'#' + FEEDBACKS_SECTION_ID}
+            href={"#" + FEEDBACKS_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -121,12 +113,10 @@ const NavigationBar = () => {
           </Box>
         </Box>
 
-        <Box
-          display={{xs: 'none', md: 'block'}}
-          ml="47px">
+        <Box display={{ xs: "none", md: "block" }} ml="47px">
           <Box
             component="a"
-            href={'#' + FEEDBACK_FORM_SECTION_ID}
+            href={"#" + FEEDBACK_FORM_SECTION_ID}
             fontSize={18}
             fontWeight={500}
             color="colors.nero"
@@ -136,23 +126,21 @@ const NavigationBar = () => {
           </Box>
         </Box>
 
-        <Box ml={{xs: '10px', md: '70px'}}>
+        <Box ml={{ xs: "10px", md: "70px" }}>
           <Box
             component="a"
-            href={'#' + FEEDBACK_FORM_SECTION_ID}
+            href={"#" + FEEDBACK_FORM_SECTION_ID}
             display="flex"
             alignItems="center"
-            justifyContent={{xs: 'center', md: undefined}}
-            backgroundColor={{xs: 'colors.white', md: 'colors.lightGray'}}
-            borderRadius={{xs: '12px', md: '18px'}}
-            height={{xs: 50, md: 64}}
-            width={{xs: 50, md: 'auto'}}
-            pl={{xs: 0, md: '34px'}}
-            pr={{xs: 0, md: '33px'}}
+            justifyContent={{ xs: "center", md: undefined }}
+            backgroundColor={{ xs: "colors.white", md: "colors.lightGray" }}
+            borderRadius={{ xs: "12px", md: "18px" }}
+            height={{ xs: 50, md: 64 }}
+            width={{ xs: 50, md: "auto" }}
+            pl={{ xs: 0, md: "34px" }}
+            pr={{ xs: 0, md: "33px" }}
           >
-            <Box
-              display={{xs: 'block', md: 'none'}}
-            >
+            <Box display={{ xs: "block", md: "none" }}>
               <svg
                 width="18"
                 height="18"
@@ -168,7 +156,7 @@ const NavigationBar = () => {
             </Box>
 
             <Box
-              display={{xs: 'none', md: 'block'}}
+              display={{ xs: "none", md: "block" }}
               component="span"
               fontFamily="RoadRadio"
               fontSize={18}
@@ -182,21 +170,28 @@ const NavigationBar = () => {
         </Box>
 
         <Box
-          display={{xs: 'block', md: 'none'}}
-          ml={{xs: '10px', md: '70px'}}>
+          display={{ xs: "block", md: "none" }}
+          ml={{ xs: "10px", md: "70px" }}
+        >
           <Box
             component="button"
             onClick={openDialogMenu}
             display="flex"
             alignItems="center"
-            justifyContent={'center'}
-            backgroundColor={'colors.white'}
-            borderRadius={'12px'}
+            justifyContent={"center"}
+            backgroundColor={"colors.white"}
+            borderRadius={"12px"}
             height={50}
             width={50}
           >
-            <Box mt='3px'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="18" viewBox="0 0 26 18" fill="none">
+            <Box mt="3px">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="26"
+                height="18"
+                viewBox="0 0 26 18"
+                fill="none"
+              >
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"
@@ -209,7 +204,7 @@ const NavigationBar = () => {
         </Box>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default NavigationBar
+export default NavigationBar;

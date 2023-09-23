@@ -1,4 +1,4 @@
-import {createTheme} from "@mui/system";
+import { createTheme } from "@mui/system";
 
 export const mainTheme = createTheme({
   palette: {
@@ -15,7 +15,7 @@ export const mainTheme = createTheme({
       nero: "#1E1E1E",
       white: "#FFFFFF",
       jetBlack: "#35363A",
-      whiteSmoke: "#EFEFEF"
-    }
+      whiteSmoke: "#EFEFEF",
+    },
   },
 });

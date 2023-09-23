@@ -1,23 +1,16 @@
-import React, {useContext} from "react";
-import {Box} from "@mui/system";
+import React, { useContext } from "react";
+import { Box } from "@mui/system";
 import sliderImg2Src from "../../../../assets/images/header_slider_img_2.png";
 import calculatorPicSrc from "../../../../assets/images/calculator_picture.png";
-import {PriceCalculatorContext} from "../../../../components/PriceCalculator/PriceCalculator";
+import { PriceCalculatorContext } from "../../../../components/PriceCalculator/PriceCalculator";
 
 const SecondSlide = () => {
-
-  const {
-    changeDialogState
-  } = useContext(PriceCalculatorContext);
+  const { changeDialogState } = useContext(PriceCalculatorContext);
 
   const openCalculatorDialog = () => changeDialogState(true);
 
   return (
-    <Box
-      width="100%"
-      height="100%"
-      position="relative"
-    >
+    <Box width="100%" height="100%" position="relative">
       <Box
         position="absolute"
         top="85px"
@@ -43,12 +36,7 @@ const SecondSlide = () => {
         </Box>
       </Box>
 
-      <Box
-        position="absolute"
-        top="165px"
-        left="74px"
-        width="fit-content"
-      >
+      <Box position="absolute" top="165px" left="74px" width="fit-content">
         <Box
           component="span"
           fontWeight={500}
@@ -56,7 +44,7 @@ const SecondSlide = () => {
           lineHeight="24px"
           color="colors.gray72"
         >
-          Рассчитайте самостоятельно вашу выгоду при <br/>
+          Рассчитайте самостоятельно вашу выгоду при <br />
           использовании присадки
         </Box>
       </Box>
@@ -116,11 +104,12 @@ const SecondSlide = () => {
         left={0}
         right={0}
         sx={{
-          background: "linear-gradient(235.57deg, rgba(0, 0, 0, 0) 25.15%, #232323 84.89%)"
+          background:
+            "linear-gradient(235.57deg, rgba(0, 0, 0, 0) 25.15%, #232323 84.89%)",
         }}
       />
     </Box>
-  )
-}
+  );
+};
 
-export default SecondSlide
+export default SecondSlide;

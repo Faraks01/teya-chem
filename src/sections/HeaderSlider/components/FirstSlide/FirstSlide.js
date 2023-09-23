@@ -1,16 +1,12 @@
 import React from "react";
-import {Box} from "@mui/system";
+import { Box } from "@mui/system";
 import sliderImg1Src from "../../../../assets/images/header_slider_img_1.png";
 import sciencetistsPicSrc from "../../../../assets/images/sciencetists_picture.png";
 import laboratoryPicSrc from "../../../../assets/images/laboratory_picture.png";
 
 const FirstSlide = () => {
   return (
-    <Box
-      width="100%"
-      height="100%"
-      position="relative"
-    >
+    <Box width="100%" height="100%" position="relative">
       <Box
         position="absolute"
         top="170px"
@@ -36,12 +32,7 @@ const FirstSlide = () => {
         </Box>
       </Box>
 
-      <Box
-        position="absolute"
-        top="259px"
-        left="65px"
-        width="fit-content"
-      >
+      <Box position="absolute" top="259px" left="65px" width="fit-content">
         <Box
           component="span"
           fontWeight={400}
@@ -49,8 +40,8 @@ const FirstSlide = () => {
           lineHeight="24px"
           color="colors.white"
         >
-          это российская компания, поставляющая на рынок <br/>
-          продукцию, такую как многофункциональные <br/>
+          это российская компания, поставляющая на рынок <br />
+          продукцию, такую как многофункциональные <br />
           присадки и очистители резины
         </Box>
       </Box>
@@ -67,10 +58,12 @@ const FirstSlide = () => {
           height="111"
           viewBox="0 0 455 111"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M210.769 0H63.7315H22C9.84974 0 0 9.84974 0 22V89C0 101.15 9.84971 111 22 111H152.273H303.636H433C445.15 111 455 101.15 455 89V60.1046C455 55.1573 453.332 50.3544 450.267 46.4715L420.181 8.36688C416.009 3.0828 409.647 0 402.914 0H210.769Z"
-            fill="white"/>
+            fill="white"
+          />
         </svg>
 
         <Box
@@ -84,10 +77,7 @@ const FirstSlide = () => {
           pl="33px"
           pr="34px"
         >
-          <Box
-            position="relative"
-            display="flex"
-          >
+          <Box position="relative" display="flex">
             <Box
               component="img"
               src={sciencetistsPicSrc}
@@ -108,10 +98,7 @@ const FirstSlide = () => {
             />
           </Box>
 
-          <Box
-            ml="-11.2px"
-            width="fit-content"
-          >
+          <Box ml="-11.2px" width="fit-content">
             <Box
               component="span"
               fontWeight={500}
@@ -119,14 +106,13 @@ const FirstSlide = () => {
               lineHeight="19px"
               color="colors.gray33"
             >
-              Исключительно собственного <br/>
-              производства на основе <br/>
+              Исключительно собственного <br />
+              производства на основе <br />
               собственных научных разработок
             </Box>
           </Box>
         </Box>
       </Box>
-
 
       <Box
         component="img"
@@ -148,11 +134,12 @@ const FirstSlide = () => {
         left={0}
         right={0}
         sx={{
-          background: "linear-gradient(238.77deg, rgba(0, 0, 0, 0) 38.54%, #151515 90.63%)"
+          background:
+            "linear-gradient(238.77deg, rgba(0, 0, 0, 0) 38.54%, #151515 90.63%)",
         }}
       />
     </Box>
-  )
-}
+  );
+};
 
-export default FirstSlide
+export default FirstSlide;
