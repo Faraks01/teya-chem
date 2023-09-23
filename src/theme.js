@@ -16,6 +16,7 @@ export const mainTheme = createTheme({
       white: "#FFFFFF",
       jetBlack: "#35363A",
       whiteSmoke: "#EFEFEF",
+      mercury: "#E6E6E6",
     },
   },
 });

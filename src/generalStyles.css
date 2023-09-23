@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 @import "./assets/fonts/RoadRadio/roadradio_font.css";
 
 * {
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 #root {
@@ -30,25 +30,38 @@ a {
   text-decoration: none;
 }
 
-section, .footer-content-body {
+section,
+.footer-content-body {
   transform: scale(0.9);
 }
 
+.use-slider-mask-clip {
+  /*noinspection CssInvalidPropertyValue*/
+  clip-path: path(
+    "M0 374V22.4996C0 10.3566 9.83832 0.509944 21.9813 0.499601L608.5 0H1198.07C1204.96 0 1211.44 3.22087 1215.6 8.70425L1228.53 25.7434C1231.43 29.5686 1233 34.238 1233 39.0392V76.1937V292.335V374C1233 386.15 1223.15 396 1211 396H951H763H22C9.84974 396 0 386.15 0 374Z"
+  );
+}
+
 @media only screen and (max-width: 900px) {
-  section, .footer-content-body {
+  section,
+  .footer-content-body {
     transform: none;
   }
 
   br {
     display: none;
   }
+
+  /* M0 383V22.4453C0 10.3282 9.79801 0.492247 21.915 0.445429L137.196 0H253.962C264.712 0 273.888 7.7687 275.661 18.3714L277.699 30.5564C277.899 31.7556 278 32.9693 278 34.1851V77.9254V312C278 324.15 268.15 334 256 334H225.977C218.74 334 211.966 337.559 207.861 343.518L172.058 395.482C167.952 401.441 161.178 405 153.942 405H104H22C9.84974 405 0 395.15 0 383Z  */
+
+  .use-slider-mask-clip {
+    /*noinspection CssInvalidPropertyValue*/
+    clip-path: path(
+      "M 0 403.3373 V 23.6371 C 0 10.8766 10.5734 0.5184 23.6493 0.4691 L 148.0533 0 H 274.0598 C 285.6605 0 295.5627 8.1812 297.476 19.3469 L 299.6753 32.1789 C 299.8911 33.4418 300.0001 34.72 300.0001 36.0003 V 82.0632 V 328.5672 C 300.0001 341.3624 289.3706 351.7354 276.2591 351.7354 H 243.8601 C 236.0504 351.7354 228.7404 355.4834 224.3105 361.7588 L 185.6742 416.4821 C 181.2432 422.7575 173.9331 426.5055 166.1245 426.5055 H 112.2302 H 23.741 C 10.6292 426.5055 0 416.1325 0 403.3373 Z"
+    );
+  }
 }
 
 * {
   scroll-behavior: smooth !important;
-}
-
-.use-slider-mask-clip {
-  /*noinspection CssInvalidPropertyValue*/
-  clip-path: path('M0 374V22.4996C0 10.3566 9.83832 0.509944 21.9813 0.499601L608.5 0H1198.07C1204.96 0 1211.44 3.22087 1215.6 8.70425L1228.53 25.7434C1231.43 29.5686 1233 34.238 1233 39.0392V76.1937V292.335V374C1233 386.15 1223.15 396 1211 396H951H763H22C9.84974 396 0 386.15 0 374Z');
 }
