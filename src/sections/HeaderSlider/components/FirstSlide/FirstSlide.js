@@ -39,7 +39,7 @@ const FirstSlide = () => {
         top={{ xs: "82px", md: "259px" }}
         left={{ xs: "50%", md: "65px" }}
         sx={{ transform: { xs: "translateX(-50%)", md: "none" } }}
-        width={{ xs: "274px", md: "fit-content" }}
+        width={{ xs: "274px", md: "515px" }}
         textAlign={{ xs: "center", md: "left" }}
         lineHeight={{ xs: "normal", md: "24px" }}
       >

@@ -97,7 +97,6 @@ const HeaderSlider = () => {
             mt={activeSlideIndex === 0 ? "10px" : 0}
             display="flex"
             alignItems="center"
-            flexDirection={activeSlideIndex === 1 ? "row-reverse" : "row"}
           >
             {activeSlideIndex === 1 && (
               <Box
