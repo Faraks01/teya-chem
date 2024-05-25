@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Stack } from "@mui/system";
 import TextInput from "../../components/TextInput";
 import TextAreaInput from "../../components/TextAreaInput";
-import FileInput from "../../components/FileInput";
+import FileInput from "../../../src_new/shared/ui/FileInput";
 import { Formik } from "formik";
 import { toast } from "react-toastify";
 import { submitFeedbackForm } from "../../requests/feedback_form/POST";
@@ -67,7 +67,6 @@ const FeedbackForm = () => {
           handleSubmit,
           isSubmitting,
           setValues,
-          /* and other goodies */
         }) => (
           <Box
             component="form"

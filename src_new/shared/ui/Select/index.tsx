@@ -1,12 +1,23 @@
-import React from "react";
+import { FC, SelectHTMLAttributes } from "react";
 import { Box } from "@mui/system";
 
-const Select = (props) => {
+interface Option {
+  label: string;
+  value: string | number;
+}
+
+interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  label?: string;
+  selectWidth?: number | string;
+  options: Option[];
+}
+
+const Select: FC<SelectProps> = (props) => {
   const {
-    id = "",
-    label = "",
-    name = "",
-    selectWidth = "",
+    id,
+    label,
+    name,
+    selectWidth,
     options = [],
     ...restSelectProps
   } = props;
@@ -41,7 +52,7 @@ const Select = (props) => {
         width={selectWidth}
         height="53px"
         borderRadius="12px"
-        backgroundColor="colors.white"
+        bgcolor="colors.white"
         sx={{
           border: "1px solid #D7D7D7",
           appearance: "none",

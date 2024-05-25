@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/system";
 
-export const mainTheme = createTheme({
+export default createTheme({
   palette: {
     colors: {
       purple: "#C67EFE",

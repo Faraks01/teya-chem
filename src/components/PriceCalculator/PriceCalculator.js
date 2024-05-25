@@ -7,8 +7,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { Box, Stack } from "@mui/system";
-import styled from "@emotion/styled/macro";
+import { Box, Stack, styled } from "@mui/system";
 import Modal from "@mui/base/Modal";
 import TextInput from "../TextInput";
 import { useFormik } from "formik";

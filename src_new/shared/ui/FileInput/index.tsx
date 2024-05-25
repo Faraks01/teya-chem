@@ -1,12 +1,29 @@
-import React from "react";
+import React, { FC, InputHTMLAttributes, SelectHTMLAttributes } from "react";
 import { Box } from "@mui/system";
 
-const FileInput = (props) => {
+const ALLOWED_FILE_FORMATS = [
+  ".png",
+  ".jpg",
+  ".jpeg",
+  ".doc",
+  ".docx",
+  ".xlsx",
+  ".pdf",
+];
+
+interface FileInputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "accept"> {
+  label?: string;
+  fileName?: string;
+  inputWidth?: number | string;
+}
+
+const FileInput: FC<FileInputProps> = (props) => {
   const {
-    id = "",
-    label = "",
-    name = "",
-    inputWidth = "",
+    id,
+    label,
+    name,
+    inputWidth,
     fileName = "Загрузить файл",
     ...restInputProps
   } = props;
@@ -35,7 +52,7 @@ const FileInput = (props) => {
         width={inputWidth}
         height="121px"
         borderRadius="14.21px"
-        backgroundColor="colors.white"
+        bgcolor="colors.white"
         sx={{
           border: "1px dashed #CECECE",
           cursor: "pointer",
@@ -89,7 +106,7 @@ const FileInput = (props) => {
           type="file"
           name={name}
           {...restInputProps}
-          accept=".png, .jpg, .jpeg, .doc, .docx, .xlsx, .pdf"
+          accept={ALLOWED_FILE_FORMATS.join(", ")}
         />
       </Box>
     </Box>
