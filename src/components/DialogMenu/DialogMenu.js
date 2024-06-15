@@ -8,9 +8,9 @@ import React, {
 import { Box, Stack } from "@mui/system";
 import styled from "@emotion/styled/macro";
 import Modal from "@mui/base/Modal";
-import { ABOUT_US_SECTION_ID } from "../../sections/AboutUs/AboutUs";
-import { FEEDBACKS_SECTION_ID } from "../../sections/Feedbacks/Feedbacks";
-import { FEEDBACK_FORM_SECTION_ID } from "../../sections/FeedbackForm/FeedbackForm";
+import { ABOUT_US_SECTION_ID } from "@/sections/AboutUs/AboutUs";
+import { FEEDBACKS_SECTION_ID } from "@/sections/Feedbacks/Feedbacks";
+import { FEEDBACK_FORM_SECTION_ID } from "@/sections/FeedbackForm/FeedbackForm";
 
 export const DialogMenuContext = createContext({
   dialogOpen: false,

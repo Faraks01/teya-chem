@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Stack } from "@mui/system";
-import sliderImg1Src from "../../../../../assets/images/header_slider_img_1.png";
-import sciencetistsPicSrc from "../../../../../assets/images/sciencetists_picture.png";
-import laboratoryPicSrc from "../../../../../assets/images/laboratory_picture.png";
+import sliderImg1Src from "@/assets/images/header_slider_img_1.png";
+import sciencetistsPicSrc from "@/assets/images/sciencetists_picture.png";
+import laboratoryPicSrc from "@/assets/images/laboratory_picture.png";
 
 const FirstSlide = () => {
   return (
