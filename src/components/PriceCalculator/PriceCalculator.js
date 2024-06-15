@@ -255,7 +255,7 @@ const PriceCalculator = () => {
         slots={{ backdrop: StyledBackdrop }}
       >
         <Box
-          overflow="scroll"
+          overflow="auto"
           display="flex"
           flexDirection="column"
           maxWidth={1285}
