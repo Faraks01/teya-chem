@@ -5,6 +5,7 @@ export const mainTheme = createTheme({
     colors: {
       purple: "#C67EFE",
       blurple: "#3D3AD1",
+      midnightBloom: "rgba(44,42,144,0.8)",
       gray93: "#EDEDED",
       gray72: "#B8B8B8",
       gray33: "#545454",
