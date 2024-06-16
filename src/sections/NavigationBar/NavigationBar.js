@@ -20,6 +20,7 @@ const NavigationBar = () => {
       component="section"
       display="flex"
       width="100%"
+      bgcolor="inherit"
       justifyContent="center"
     >
       <Box
