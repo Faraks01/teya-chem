@@ -1,1 +1,1 @@
-export { default } from "./ProductUsageInstruction";
+export { default as ProductUsageInstruction } from "./ProductUsageInstruction";

@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Stack } from "@mui/system";
-import certificatePic from "../../assets/images/certificate_example.png";
-import sectionBgPicSrc from "../../assets/images/product_documentation_and_certification_bg.jpeg";
+import certificatePic from "@/assets/images/certificate_example.png";
+import sectionBgPicSrc from "@/assets/images/product_documentation_and_certification_bg.jpeg";
 
 const ProductDocumentationAndCertification = () => {
   return (

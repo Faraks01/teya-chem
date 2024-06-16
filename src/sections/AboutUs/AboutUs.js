@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/system";
-import springPicSrc from "../../assets/images/spring_picture.png";
-import dodecahedronPicSrc from "../../assets/images/dodecahedron_picture.png";
+import springPicSrc from "@/assets/images/spring_picture.png";
+import dodecahedronPicSrc from "@/assets/images/dodecahedron_picture.png";
 
 export const ABOUT_US_SECTION_ID = "about_us";
 

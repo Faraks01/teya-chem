@@ -1,1 +1,1 @@
-export { default } from "./Feedbacks";
+export { default as Feedbacks, FEEDBACKS_SECTION_ID } from "./Feedbacks";

@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Stack } from "@mui/system";
-import productTestingPicture1 from "../../assets/images/product_testing_picture_1.png";
-import productTestingPicture2 from "../../assets/images/product_testing_picture_2.png";
+import productTestingPicture1 from "@/assets/images/product_testing_picture_1.png";
+import productTestingPicture2 from "@/assets/images/product_testing_picture_2.png";
 
 const ProductTesting = () => {
   return (

@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Stack } from "@mui/system";
-import feedbackAuthorPicture1 from "../../assets/images/feedback_author_1.png";
-import feedbackAuthorPicture2 from "../../assets/images/feedback_author_2.png";
-import playIcon from "../../assets/vectors/play_icon.svg";
+import feedbackAuthorPicture1 from "@/assets/images/feedback_author_1.png";
+import feedbackAuthorPicture2 from "@/assets/images/feedback_author_2.png";
+import playIcon from "@/assets/vectors/play_icon.svg";
 
 export const FEEDBACKS_SECTION_ID = "feedbacks";
 

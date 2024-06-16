@@ -1,11 +1,9 @@
 import React from "react";
 import { Box, Stack } from "@mui/system";
-import TextInput from "../../components/TextInput";
-import TextAreaInput from "../../components/TextAreaInput";
-import FileInput from "../../components/FileInput";
+import { TextInput, TextAreaInput, FileInput } from "@/components";
 import { Formik } from "formik";
 import { toast } from "react-toastify";
-import { submitFeedbackForm } from "../../requests/feedback_form/POST";
+import { submitFeedbackForm } from "@/requests/feedback_form/POST";
 
 export const FEEDBACK_FORM_SECTION_ID = "feedback_form";
 

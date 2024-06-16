@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Box } from "@mui/system";
-import sliderImg2Src from "../../../../assets/images/header_slider_img_2.png";
-import calculatorPicSrc from "../../../../assets/images/calculator_picture.png";
-import { PriceCalculatorContext } from "../../../../components/PriceCalculator/PriceCalculator";
+import sliderImg2Src from "@/assets/images/header_slider_img_2.png";
+import calculatorPicSrc from "@/assets/images/calculator_picture.png";
+import { PriceCalculatorContext } from "@/components";
 
 const SecondSlide = () => {
   const { changeDialogState } = useContext(PriceCalculatorContext);
@@ -22,7 +22,7 @@ const SecondSlide = () => {
         pl="8px"
         pr="19px"
         alignItems="center"
-        backgroundColor="colors.blurple"
+        backgroundColor="colors.midnightBloom"
       >
         <Box
           component="span"

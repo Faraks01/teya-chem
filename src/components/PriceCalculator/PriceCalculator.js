@@ -10,12 +10,11 @@ import React, {
 import { Box, Stack } from "@mui/system";
 import styled from "@emotion/styled/macro";
 import Modal from "@mui/base/Modal";
-import TextInput from "../TextInput";
+import { TextInput, Select } from "@/components";
 import { useFormik } from "formik";
-import { COST_REDUCTION, FUEL_BRANDS, PRODUCT_VARIANTS } from "../../constants";
-import wavesSeparatorVector from "../../assets/vectors/waves_separator.svg";
-import Select from "../Select";
-import { formatNumber } from "../../utilities";
+import { COST_REDUCTION, FUEL_BRANDS, PRODUCT_VARIANTS } from "@/constants";
+import wavesSeparatorVector from "@/assets/vectors/waves_separator.svg";
+import { formatNumber } from "@/utils";
 
 export const PriceCalculatorContext = createContext({
   dialogOpen: false,
@@ -255,7 +254,7 @@ const PriceCalculator = () => {
         slots={{ backdrop: StyledBackdrop }}
       >
         <Box
-          overflow="scroll"
+          overflow="auto"
           display="flex"
           flexDirection="column"
           maxWidth={1285}
@@ -678,6 +677,7 @@ const PriceCalculator = () => {
 
           <Stack
             mt="24px"
+            ml={{ xs: 0, md: "41px" }}
             mr={{ xs: 0, md: "65px" }}
             direction={{ xs: "column", md: "row" }}
             justifyContent={{ xs: "flex-start", md: "flex-end" }}

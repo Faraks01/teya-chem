@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { Box } from "@mui/system";
-import teyaLogoSrc from "../../assets/images/teya-logo.png";
-import lightningIcon from "../../assets/vectors/lightning_icon.svg";
-import { ABOUT_US_SECTION_ID } from "../AboutUs/AboutUs";
-import { FEEDBACKS_SECTION_ID } from "../Feedbacks/Feedbacks";
-import { FEEDBACK_FORM_SECTION_ID } from "../FeedbackForm/FeedbackForm";
-import { BUY_ON_THIS_SITE_SECTION_ID } from "../BuyOnThisSite/BuyOnThisSite";
-import { DialogMenuContext } from "../../components/DialogMenu/DialogMenu";
+import teyaLogoSrc from "@/assets/images/teya-logo.png";
+import lightningIcon from "@/assets/vectors/lightning_icon.svg";
+import {
+  ABOUT_US_SECTION_ID,
+  BUY_ON_THIS_SITE_SECTION_ID,
+  FEEDBACK_FORM_SECTION_ID,
+  FEEDBACKS_SECTION_ID,
+} from "@/sections";
+import { DialogMenuContext } from "@/components";
 
 const NavigationBar = () => {
   const { changeDialogState } = useContext(DialogMenuContext);
@@ -18,6 +20,7 @@ const NavigationBar = () => {
       component="section"
       display="flex"
       width="100%"
+      bgcolor="inherit"
       justifyContent="center"
     >
       <Box

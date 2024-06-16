@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
 import { Box } from "@mui/system";
-import productPicture from "../../../assets/images/product_bottle_picture.png";
+import productPicture from "@/assets/images/product_bottle_picture.png";
 
 const ProductCard = (props) => {
   const { className } = props;

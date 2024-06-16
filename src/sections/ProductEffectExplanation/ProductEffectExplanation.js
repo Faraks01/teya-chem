@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/system";
-import fillingGunPicSrc from "../../assets/images/filling_gun_picture.png";
-import sectionBgPicSrc from "../../assets/images/product_effect_explanation_bg.jpg";
+import fillingGunPicSrc from "@/assets/images/filling_gun_picture.png";
+import sectionBgPicSrc from "@/assets/images/product_effect_explanation_bg.jpg";
 
 const ProductEffectExplanation = () => {
   return (
