@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef } from "react";
 
 /**
  * @function useUpdateEffect
  * @extends {useEffect}
  */
-export const useUpdateEffect = (effect, deps) => {
+export const useUpdateEffect = (...args) => {
   const firstUpdate = useRef(true);
 
   return useEffect(() => {
@@ -13,7 +14,7 @@ export const useUpdateEffect = (effect, deps) => {
       return;
     }
 
-    const effectReturnValue = effect();
+    const effectReturnValue = args[0]();
     if (effectReturnValue) return effectReturnValue;
-  }, deps);
+  }, args[1]);
 };

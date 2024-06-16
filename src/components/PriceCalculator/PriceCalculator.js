@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { Box, Stack } from "@mui/system";
 import styled from "@emotion/styled/macro";
-import Modal from "@mui/base/Modal";
+import { Modal } from "@mui/base";
 import { TextInput, Select } from "@/components";
 import { useFormik } from "formik";
 import { COST_REDUCTION, FUEL_BRANDS, PRODUCT_VARIANTS } from "@/constants";

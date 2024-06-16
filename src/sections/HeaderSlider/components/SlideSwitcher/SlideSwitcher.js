@@ -18,10 +18,7 @@ const SlideSwitcher = ({
 
   return (
     <Stack>
-      <_NavigationButton
-        onClick={setNextSlide}
-        reversedArrow={reversedSwitch}
-      />
+      <NavigationButton onClick={setNextSlide} reversedArrow={reversedSwitch} />
 
       <Box mt="10px" display="flex" alignItems="center">
         <Box
@@ -68,7 +65,7 @@ const SlideSwitcher = ({
   );
 };
 
-const _NavigationButton = ({ reversedArrow = false, onClick }) => {
+const NavigationButton = ({ reversedArrow = false, onClick }) => {
   const arrowSvgTransformValue = `rotate(${reversedArrow ? 180 : 0})`;
 
   return (
