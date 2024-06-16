@@ -677,6 +677,7 @@ const PriceCalculator = () => {
 
           <Stack
             mt="24px"
+            ml={{ xs: 0, md: "41px" }}
             mr={{ xs: 0, md: "65px" }}
             direction={{ xs: "column", md: "row" }}
             justifyContent={{ xs: "flex-start", md: "flex-end" }}
