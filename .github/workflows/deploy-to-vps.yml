@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - prod-hotfix
 
 jobs:
   deploy:
