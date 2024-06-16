@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from "react";
-import { useUpdateEffect } from "../../../hooks";
+import { useUpdateEffect } from "@/hooks";
 
 /**
  * @param {number} slidesLength - Slides` array length

@@ -1,1 +1,1 @@
-export { default } from "./AboutUs";
+export { default as AboutUs, ABOUT_US_SECTION_ID } from "./AboutUs";

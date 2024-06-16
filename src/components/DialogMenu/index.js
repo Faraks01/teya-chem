@@ -1,1 +1,5 @@
-export { default } from "./DialogMenu";
+export {
+  default as DialogMenu,
+  DialogMenuContext,
+  DialogMenuContextWrapper,
+} from "./DialogMenu";

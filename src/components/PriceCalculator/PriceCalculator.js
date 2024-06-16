@@ -10,12 +10,11 @@ import React, {
 import { Box, Stack } from "@mui/system";
 import styled from "@emotion/styled/macro";
 import Modal from "@mui/base/Modal";
-import TextInput from "@/components/TextInput";
+import { TextInput, Select } from "@/components";
 import { useFormik } from "formik";
 import { COST_REDUCTION, FUEL_BRANDS, PRODUCT_VARIANTS } from "@/constants";
-import wavesSeparatorVector from "../../assets/vectors/waves_separator.svg";
-import Select from "../Select";
-import { formatNumber } from "@/utilities";
+import wavesSeparatorVector from "@/assets/vectors/waves_separator.svg";
+import { formatNumber } from "@/utils";
 
 export const PriceCalculatorContext = createContext({
   dialogOpen: false,

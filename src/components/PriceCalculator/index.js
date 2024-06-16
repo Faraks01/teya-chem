@@ -1,1 +1,5 @@
-export { default } from "./PriceCalculator";
+export {
+  default as PriceCalculator,
+  PriceCalculatorContextWrapper,
+  PriceCalculatorContext,
+} from "./PriceCalculator";

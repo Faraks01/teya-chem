@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Stack } from "@mui/system";
-import SocialMediaButton from "./SocialMediaButton";
 import teyaLogoSrc from "@/assets/images/teya-logo.png";
 import lightningIcon from "@/assets/vectors/lightning_icon.svg";
 import wavesSeparatorVector from "@/assets/vectors/waves_separator.svg";
@@ -8,10 +7,13 @@ import documentVector from "@/assets/vectors/document_icon.svg";
 import telegramVector from "@/assets/vectors/telegram_icon.svg";
 import vkVector from "@/assets/vectors/vk_icon.svg";
 import whatsappVector from "@/assets/vectors/whats_app_icon.svg";
-import { BUY_ON_THIS_SITE_SECTION_ID } from "../BuyOnThisSite/BuyOnThisSite";
-import { ABOUT_US_SECTION_ID } from "@/sections/AboutUs/AboutUs";
-import { FEEDBACKS_SECTION_ID } from "@/sections/Feedbacks/Feedbacks";
-import { FEEDBACK_FORM_SECTION_ID } from "@/sections/FeedbackForm/FeedbackForm";
+import {
+  BUY_ON_THIS_SITE_SECTION_ID,
+  ABOUT_US_SECTION_ID,
+  FEEDBACKS_SECTION_ID,
+  FEEDBACK_FORM_SECTION_ID,
+} from "@/sections";
+import SocialMediaButton from "./SocialMediaButton";
 
 const Footer = () => {
   return (

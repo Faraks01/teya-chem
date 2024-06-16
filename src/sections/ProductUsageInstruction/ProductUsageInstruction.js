@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Box } from "@mui/system";
 import Grid from "@mui/system/Unstable_Grid";
-import { stepCardsData } from "./stepCardsData";
-import InstructionStepCard from "./components/InstructionStepCard";
-import { PriceCalculatorContext } from "../../components/PriceCalculator/PriceCalculator";
+import { PriceCalculatorContext } from "@/components";
+import { stepCardsData } from "./data/local/stepCardsData";
+import { InstructionStepCard } from "./children";
 
 const ProductUsageInstruction = () => {
   const { changeDialogState } = useContext(PriceCalculatorContext);

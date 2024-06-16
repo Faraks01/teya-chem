@@ -1,1 +1,1 @@
-export { default } from "./MarketplacesNavigation";
+export { default as MarketplacesNavigation } from "./MarketplacesNavigation";

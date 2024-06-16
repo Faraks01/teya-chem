@@ -1,11 +1,11 @@
 import React from "react";
 import { Box } from "@mui/system";
-import wildberriesLogoSrc from "../../assets/images/wildberries_logo.png";
-import yandexMarketLogoSrc from "../../assets/images/ya_market_logo.png";
-import ozonLogoSrc from "../../assets/images/ozon_logo.png";
-import sberMarketLogoSrc from "../../assets/images/sb_market_logo.png";
-import MarketplaceCard from "./MarketplaceCard";
+import wildberriesLogoSrc from "@/assets/images/wildberries_logo.png";
+import yandexMarketLogoSrc from "@/assets/images/ya_market_logo.png";
+import ozonLogoSrc from "@/assets/images/ozon_logo.png";
+import sberMarketLogoSrc from "@/assets/images/sb_market_logo.png";
 import Grid from "@mui/system/Unstable_Grid";
+import MarketplaceCard from "./MarketplaceCard";
 
 const marketplacesCardsPayload = [
   {

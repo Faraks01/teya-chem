@@ -1,1 +1,1 @@
-export { default } from "./ProductEffectExplanation";
+export { default as ProductEffectExplanation } from "./ProductEffectExplanation";

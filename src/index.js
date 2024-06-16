@@ -3,9 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { ThemeProvider } from "@mui/system";
-import { mainTheme } from "./theme";
-import { PriceCalculatorContextWrapper } from "./components/PriceCalculator/PriceCalculator";
-import { DialogMenuContextWrapper } from "./components/DialogMenu/DialogMenu";
+import { mainTheme } from "@/config/theme";
+import {
+  PriceCalculatorContextWrapper,
+  DialogMenuContextWrapper,
+} from "@/components";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

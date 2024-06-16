@@ -65,7 +65,7 @@ const InstructionStepCard = ({
 
       <Grid width="100%" mt="21px" rowSpacing="21px" container>
         {additionalDescription.map((elem, index) => (
-          <Grid key={"AdditionalDescriptionPoint" + "__" + index} xs={12}>
+          <Grid key={`AdditionalDescriptionPoint__${index}`} xs={12}>
             <AdditionalDescriptionPoint>{elem}</AdditionalDescriptionPoint>
           </Grid>
         ))}

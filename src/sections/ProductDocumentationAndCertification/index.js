@@ -1,1 +1,1 @@
-export { default } from "./ProductDocumentationAndCertification";
+export { default as ProductDocumentationAndCertification } from "./ProductDocumentationAndCertification";
