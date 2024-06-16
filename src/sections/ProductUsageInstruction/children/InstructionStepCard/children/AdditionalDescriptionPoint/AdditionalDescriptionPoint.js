@@ -14,6 +14,7 @@ const AdditionalDescriptionPoint = ({ children, ...boxProps }) => {
       flexDirection="row"
       gap="26.5px"
       pl="43px"
+      alignItems="center"
       {...boxProps}
     >
       <Box height="30.04px" width="30.04px">
