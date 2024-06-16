@@ -32,7 +32,6 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY_NAME }}:${{ secrets.DOCKER_REPOSITORY_TAG }}
-            docker stop ${{ secrets.DOCKER_REPOSITORY_NAME }} || true
-            docker rm ${{ secrets.DOCKER_REPOSITORY_NAME }} || true
-            docker run -d --name ${{ secrets.DOCKER_REPOSITORY_NAME }} ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY_NAME }}:${{ secrets.DOCKER_REPOSITORY_TAG }}
+            cd ${{ secrets.APP_PATH }}
+            docker compose pull ${{ secrets.DOCKER_COMPOSE_SERVICE_NAME }}
+            docker compose up -d --force-recreate ${{ secrets.DOCKER_COMPOSE_SERVICE_NAME }}
