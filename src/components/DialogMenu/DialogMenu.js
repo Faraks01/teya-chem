@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { Box, Stack } from "@mui/system";
 import styled from "@emotion/styled/macro";
-import Modal from "@mui/base/Modal";
+import { Modal } from "@mui/base";
 import {
   ABOUT_US_SECTION_ID,
   FEEDBACKS_SECTION_ID,
