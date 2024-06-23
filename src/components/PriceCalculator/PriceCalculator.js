@@ -8,14 +8,14 @@ import React, {
   useState,
 } from "react";
 import { Box, Stack } from "@mui/system";
-import { ListInfoPoint, Select, TextInput } from "@/components";
-import { FUEL_BRANDS } from "@/constants";
+import { Select, TextInput } from "@/components";
+import plural from "plural-ru";
 import wavesSeparatorVector from "@/assets/vectors/waves_separator.svg";
 import { navigateToAnchor } from "@/utils";
 import { ProductCard, StyledBackdrop, StyledModal } from "./children";
 import { BUY_ON_THIS_SITE_SECTION_ID } from "@/sections";
+import { FUEL_BRANDS } from "./constants";
 import { useCalculatedValues } from "./hooks";
-import plural from "plural-ru";
 import InformationFootnote from "./children/InformationFootnote";
 
 export const PriceCalculatorContext = createContext({

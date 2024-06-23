@@ -1,11 +1,11 @@
 import { useEffect, useMemo } from "react";
 import { useFormik } from "formik";
-import {
-  CONSUMPTION_REDUCTION,
-  FUEL_BRANDS,
-  PRODUCT_VARIANTS,
-} from "@/constants";
 import { formatNumber as applyNumberFormatters } from "@/utils";
+import { PRODUCT } from "@/constants";
+import {
+  FUEL_BRANDS,
+  CONSUMPTION_REDUCTION,
+} from "@/components/PriceCalculator/constants";
 
 const formatNumber = (n) =>
   n > 0 ? applyNumberFormatters(Math.round(n)) : "—";
@@ -54,7 +54,7 @@ export const useCalculatedValues = () => {
 
   useEffect(() => {
     if (tank_volume !== undefined) {
-      const productVolume = PRODUCT_VARIANTS["COMMON"]["volume"];
+      const productVolume = PRODUCT.variants["COMMON"]["volume"];
 
       setFieldValue(
         "amount_of_common_product_packs",
@@ -65,8 +65,8 @@ export const useCalculatedValues = () => {
 
   useEffect(() => {
     if (full_charge_price !== undefined && tank_volume !== undefined) {
-      const productHalfDiscount = PRODUCT_VARIANTS["COMMON"]["price"] / 2;
-      const productVolume = PRODUCT_VARIANTS["COMMON"]["volume"];
+      const productHalfDiscount = PRODUCT.variants["COMMON"]["price"] / 2;
+      const productVolume = PRODUCT.variants["COMMON"]["volume"];
 
       setFieldValue(
         "full_charge_discount",
@@ -78,8 +78,8 @@ export const useCalculatedValues = () => {
 
   useEffect(() => {
     if (average_consumption !== undefined && fuel_price !== undefined) {
-      const productHalfDiscount = PRODUCT_VARIANTS["COMMON"]["price"] / 2;
-      const productVolume = PRODUCT_VARIANTS["COMMON"]["volume"];
+      const productHalfDiscount = PRODUCT.variants["COMMON"]["price"] / 2;
+      const productVolume = PRODUCT.variants["COMMON"]["volume"];
 
       setFieldValue(
         "mileage_per_hundred_kilometers_discount",
@@ -94,7 +94,7 @@ export const useCalculatedValues = () => {
       amount_of_common_product_packs !== undefined &&
       fuel_price !== undefined
     ) {
-      const productHalfDiscount = PRODUCT_VARIANTS["COMMON"]["price"] / 2;
+      const productHalfDiscount = PRODUCT.variants["COMMON"]["price"] / 2;
 
       setFieldValue(
         "per_product_discount",
