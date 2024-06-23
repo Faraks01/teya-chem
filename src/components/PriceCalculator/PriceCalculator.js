@@ -15,6 +15,7 @@ import { navigateToAnchor } from "@/utils";
 import { ProductCard, StyledBackdrop, StyledModal } from "./children";
 import { BUY_ON_THIS_SITE_SECTION_ID } from "@/sections";
 import { useCalculatedValues } from "./hooks";
+import plural from "plural-ru";
 
 export const PriceCalculatorContext = createContext({
   dialogOpen: false,
@@ -74,24 +75,7 @@ const PriceCalculator = () => {
       ? amount_of_large_product_packs
       : amount_of_common_product_packs;
 
-    const strPackAmount = String(pack_amount);
-    const strPackLastSymbol = strPackAmount[strPackAmount.length - 1];
-
-    let packs;
-
-    if (strPackLastSymbol === "1") {
-      packs = "флакон";
-    } else if (
-      strPackLastSymbol === "2" ||
-      strPackLastSymbol === "3" ||
-      strPackLastSymbol === "4"
-    ) {
-      packs = "флакона";
-    } else {
-      packs = "флаконов";
-    }
-
-    return `х ${pack_amount} ${packs}`;
+    return plural(pack_amount, "%d флакон", "%d флакона", "%d флаконов");
   }, [
     amount_of_large_product_packs,
     amount_of_common_product_packs,
