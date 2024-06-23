@@ -101,7 +101,7 @@ const ProductCard = (props) => {
           textAlign="center"
           color="colors.nero"
         >
-          250 мл
+          {PRODUCT_VARIANTS.COMMON.volume} мл
         </Box>
       </Box>
 
