@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled/macro";
 import { Box } from "@mui/system";
 import productPicture from "@/assets/images/product_bottle_picture.png";
+import { PRODUCT_VARIANTS } from "@/constants";
 
 const ProductCard = (props) => {
   const { className } = props;
@@ -128,7 +129,7 @@ const ProductCard = (props) => {
         color="colors.nero"
         zIndex={2}
       >
-        2 659 руб
+        {PRODUCT_VARIANTS.COMMON.price} руб
       </Box>
 
       <Box
