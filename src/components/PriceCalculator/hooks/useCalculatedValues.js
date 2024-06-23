@@ -5,21 +5,26 @@ import {
   FUEL_BRANDS,
   PRODUCT_VARIANTS,
 } from "@/constants";
-import { formatNumber } from "@/utils";
+import { formatNumber as applyNumberFormatters } from "@/utils";
+
+const formatNumber = (n) =>
+  n > 0 ? applyNumberFormatters(Math.round(n)) : "—";
 
 export const useCalculatedValues = () => {
   const formik = useFormik({
     initialValues: {
-      tank_volume: 100,
+      /// Input values
+      tank_volume: undefined,
       fuel_brand: FUEL_BRANDS["ДТ"],
-      average_consumption: 10,
-      fuel_price: 50,
-      average_mileage_per_month: 2000,
-      full_charge_price: 5000,
-      full_charge_discount: 650,
-      mileage_per_hundred_kilometers_discount: 65,
-      per_product_discount: 1625,
-      per_month_during_product_usage_discount: 1300,
+      average_consumption: undefined,
+      fuel_price: undefined,
+      average_mileage_per_month: undefined,
+      // Calculated values
+      full_charge_price: 0,
+      full_charge_discount: 0,
+      mileage_per_hundred_kilometers_discount: 0,
+      per_product_discount: 0,
+      per_month_during_product_usage_discount: 0,
       amount_of_common_product_packs: 1,
       amount_of_large_product_packs: 0,
     },
@@ -154,18 +159,18 @@ export const useCalculatedValues = () => {
       tank_volume,
       fuel_brand,
       fuel_price,
-      full_charge_price: formatNumber(Math.round(full_charge_price)),
-      full_charge_discount: formatNumber(Math.round(full_charge_discount)),
+      full_charge_price: formatNumber(full_charge_price),
+      full_charge_discount: formatNumber(full_charge_discount),
       average_consumption,
       amount_of_common_product_packs,
       amount_of_large_product_packs,
       average_mileage_per_month,
       mileage_per_hundred_kilometers_discount: formatNumber(
-        Math.round(mileage_per_hundred_kilometers_discount),
+        mileage_per_hundred_kilometers_discount,
       ),
-      per_product_discount: formatNumber(Math.round(per_product_discount)),
+      per_product_discount: formatNumber(per_product_discount),
       per_month_during_product_usage_discount: formatNumber(
-        Math.round(per_month_during_product_usage_discount),
+        per_month_during_product_usage_discount,
       ),
     },
     handleInputChange,
