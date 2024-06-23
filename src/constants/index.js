@@ -1,3 +1,3 @@
 export * from "./api";
-export * as PATHS from "./router";
+export * from "./router";
 export * as PRODUCT from "./product";
