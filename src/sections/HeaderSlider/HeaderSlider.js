@@ -19,13 +19,11 @@ const HeaderSlider = () => {
     slideSwitchingDelay,
   });
 
-  const disableAutoSlideSwitching = (evt) => {
-    console.log("disableAutoSlideSwitching");
+  const disableAutoSlideSwitching = () => {
     setSlideSwitchingDelay(undefined);
   };
 
-  const enableAutoSlideSwitching = (evt) => {
-    console.log("enableAutoSlideSwitching");
+  const enableAutoSlideSwitching = () => {
     setSlideSwitchingDelay(SLIDE_SWITCHING_DELAY);
   };
 
