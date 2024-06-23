@@ -17,5 +17,5 @@ export const useQRCodeTransition = (sectionId) => {
       firstUpdate.current = false;
       navigateToAnchor(sectionId, "instant");
     }
-  }, []);
+  }, [sectionId]);
 };
