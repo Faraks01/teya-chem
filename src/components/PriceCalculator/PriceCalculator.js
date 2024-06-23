@@ -14,7 +14,9 @@ import { TextInput, Select } from "@/components";
 import { useFormik } from "formik";
 import { COST_REDUCTION, FUEL_BRANDS, PRODUCT_VARIANTS } from "@/constants";
 import wavesSeparatorVector from "@/assets/vectors/waves_separator.svg";
-import { formatNumber } from "@/utils";
+import { formatNumber, navigateToAnchor } from "@/utils";
+import { ProductCard } from "./children";
+import { BUY_ON_THIS_SITE_SECTION_ID } from "@/sections";
 
 export const PriceCalculatorContext = createContext({
   dialogOpen: false,
@@ -87,6 +89,11 @@ const PriceCalculator = () => {
     },
     onSubmit: () => null,
   });
+
+  const navigateToProductsSection = () => {
+    closeDialog();
+    navigateToAnchor(BUY_ON_THIS_SITE_SECTION_ID);
+  };
 
   const {
     tank_volume,
@@ -420,64 +427,10 @@ const PriceCalculator = () => {
               alignItems={{ xs: "center", md: "flex-start" }}
               spacing="13px"
             >
-              <Box
-                borderRadius="12px"
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                minWidth={211}
-                width="fit-content"
-                pl={1}
-                pr={1}
-                height={148}
-                backgroundColor="colors.whiteSmoke"
-              >
-                <Box
-                  mt="16px"
-                  component="span"
-                  fontWeight={500}
-                  fontSize={15}
-                  color="colors.nero"
-                  textAlign="center"
-                >
-                  Подходящая присадка
-                </Box>
-
-                <Box
-                  mt="12px"
-                  component="span"
-                  fontFamily="RoadRadio"
-                  fontWeight={400}
-                  fontSize={35}
-                  color="colors.blurple"
-                  textAlign="center"
-                >
-                  ТЭЯ-ДТ
-                </Box>
-
-                <Box
-                  mt="12px"
-                  display="flex"
-                  minWidth={129}
-                  width="fit-content"
-                  height={37}
-                  borderRadius="12px"
-                  backgroundColor="colors.blurple"
-                >
-                  <Box
-                    m="auto"
-                    pl={1}
-                    pr={1}
-                    component="span"
-                    fontWeight={500}
-                    fontSize={16}
-                    color="colors.white"
-                    textAlign="center"
-                  >
-                    {packsTitle}
-                  </Box>
-                </Box>
-              </Box>
+              <ProductCard
+                title={packsTitle}
+                onClick={navigateToProductsSection}
+              />
 
               <Box
                 borderRadius="12px"
