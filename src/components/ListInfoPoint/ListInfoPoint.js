@@ -1,12 +1,12 @@
 import React from "react";
 import listInfoPointIconSrc from "@/assets/vectors/list_info_point.svg";
-import { Box } from "@mui/system";
+import { Box, BoxProps } from "@mui/system";
 
 /**
- * @function ListInfoPoint
  * @extends {Box}
+ * @property {BoxProps['display']} [displayPoint]
  */
-const ListInfoPoint = ({ children, ...boxProps }) => {
+const ListInfoPoint = ({ children, displayPoint, ...boxProps }) => {
   return (
     <Box
       width="auto"
@@ -17,7 +17,7 @@ const ListInfoPoint = ({ children, ...boxProps }) => {
       alignItems="center"
       {...boxProps}
     >
-      <Box height="30.04px" width="30.04px">
+      <Box height="30.04px" width="30.04px" display={displayPoint}>
         <img src={listInfoPointIconSrc} alt="list info point icon" />
       </Box>
 

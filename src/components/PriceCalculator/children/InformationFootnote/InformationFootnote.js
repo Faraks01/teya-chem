@@ -11,15 +11,19 @@ const SUBPOINTS = [
 
 const InformationFootnote = () => {
   return (
-    <Stack gap="10px">
-      <ListInfoPoint pl={0} gap="11px">
+    <Stack alignItems={{ xs: "center", md: "flex-start" }} gap="10px">
+      <ListInfoPoint
+        pl={0}
+        gap={{ xs: "6px", md: "11px" }}
+        displayPoint={{ xs: "none", md: "block" }}
+      >
         Действительная экономия топлива может отличатся от заявленной и зависит
         от множества факторов таких как:
       </ListInfoPoint>
 
       {SUBPOINTS.map((item, index) => (
         <Box
-          ml="41px"
+          ml={{ xs: 0, md: "41px" }}
           key={`subpoint__${index}`}
           component="span"
           fontWeight={500}

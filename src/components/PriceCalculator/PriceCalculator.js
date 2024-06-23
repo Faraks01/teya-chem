@@ -90,7 +90,7 @@ const PriceCalculator = () => {
           display="flex"
           flexDirection="column"
           maxWidth={1285}
-          height={{ xs: "calc(100% - 70px)", md: 630 }}
+          height={{ xs: "calc(100% - 70px)", md: "fit-content" }}
           width={{ xs: "calc(100% - 40px)", md: "100%" }}
           borderRadius="22px"
           backgroundColor="colors.white"
@@ -485,7 +485,7 @@ const PriceCalculator = () => {
             </Box>
           </Stack>
 
-          <Box ml={{ xs: 0, md: "41px" }} mt="20px">
+          <Box ml={{ xs: 0, md: "41px" }} p={{ xs: "0 10px", md: 0 }} mt="20px">
             <InformationFootnote />
           </Box>
         </Box>
