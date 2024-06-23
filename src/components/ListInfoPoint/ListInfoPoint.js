@@ -3,10 +3,10 @@ import listInfoPointIconSrc from "@/assets/vectors/list_info_point.svg";
 import { Box } from "@mui/system";
 
 /**
- * @function AdditionalDescriptionPoint
+ * @function ListInfoPoint
  * @extends {Box}
  */
-const AdditionalDescriptionPoint = ({ children, ...boxProps }) => {
+const ListInfoPoint = ({ children, ...boxProps }) => {
   return (
     <Box
       width="auto"
@@ -34,4 +34,4 @@ const AdditionalDescriptionPoint = ({ children, ...boxProps }) => {
   );
 };
 
-export default AdditionalDescriptionPoint;
+export default ListInfoPoint;

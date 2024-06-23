@@ -8,7 +8,7 @@ import React, {
   useState,
 } from "react";
 import { Box, Stack } from "@mui/system";
-import { Select, TextInput } from "@/components";
+import { ListInfoPoint, Select, TextInput } from "@/components";
 import { FUEL_BRANDS } from "@/constants";
 import wavesSeparatorVector from "@/assets/vectors/waves_separator.svg";
 import { navigateToAnchor } from "@/utils";
@@ -16,6 +16,7 @@ import { ProductCard, StyledBackdrop, StyledModal } from "./children";
 import { BUY_ON_THIS_SITE_SECTION_ID } from "@/sections";
 import { useCalculatedValues } from "./hooks";
 import plural from "plural-ru";
+import InformationFootnote from "./children/InformationFootnote";
 
 export const PriceCalculatorContext = createContext({
   dialogOpen: false,
@@ -483,6 +484,10 @@ const PriceCalculator = () => {
               </Box>
             </Box>
           </Stack>
+
+          <Box ml={{ xs: 0, md: "41px" }} mt="20px">
+            <InformationFootnote />
+          </Box>
         </Box>
       </StyledModal>
     </Box>
