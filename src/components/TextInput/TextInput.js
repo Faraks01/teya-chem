@@ -17,9 +17,14 @@ const TextInput = (props) => {
   const preventNonNumericalInput = (e) => {
     if (type === "number") {
       const charCode = typeof e.which == "undefined" ? e.keyCode : e.which;
+      const isNumpadNumber = charCode >= 96 && charCode <= 105;
+      const isBackspace = e.keyCode === 8;
       const charStr = String.fromCharCode(charCode);
 
-      if (!charStr.match(/^[0-9]+$/) && e.keyCode !== 8) {
+      const isCorrectChar =
+        charStr.match(/^[0-9]+$/) !== null || isBackspace || isNumpadNumber;
+
+      if (!isCorrectChar) {
         e.preventDefault();
       }
     }

@@ -8,7 +8,7 @@ export const FUEL_BRANDS = {
 
 export const PRODUCT_VARIANTS = {
   COMMON: {
-    volume: 250,
+    volume: 400,
     price: 500,
   },
 
@@ -18,7 +18,7 @@ export const PRODUCT_VARIANTS = {
   },
 };
 
-export const COST_REDUCTION = 15;
+export const CONSUMPTION_REDUCTION = 7;
 
 export const API_URL =
   process.env.NODE_ENV === "development" ? "http://localhost:8000" : "/api";

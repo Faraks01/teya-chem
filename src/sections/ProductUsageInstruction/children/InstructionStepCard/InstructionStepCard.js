@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/system";
-import { AdditionalDescriptionPoint } from "./children";
+import { ListInfoPoint } from "@/components";
 import Grid from "@mui/system/Unstable_Grid";
 
 const InstructionStepCard = ({
@@ -66,7 +66,7 @@ const InstructionStepCard = ({
       <Grid width="100%" mt="21px" rowSpacing="21px" container>
         {additionalDescription.map((elem, index) => (
           <Grid key={`AdditionalDescriptionPoint__${index}`} xs={12}>
-            <AdditionalDescriptionPoint>{elem}</AdditionalDescriptionPoint>
+            <ListInfoPoint>{elem}</ListInfoPoint>
           </Grid>
         ))}
       </Grid>
