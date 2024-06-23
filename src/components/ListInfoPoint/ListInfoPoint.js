@@ -1,10 +1,10 @@
 import React from "react";
 import listInfoPointIconSrc from "@/assets/vectors/list_info_point.svg";
-import { Box, BoxProps } from "@mui/system";
+import { Box } from "@mui/system";
 
 /**
- * @extends {Box}
- * @property {BoxProps['display']} [displayPoint]
+ * @extends {typeof Box}
+ * @property {"none"|"block"} [displayPoint]
  */
 const ListInfoPoint = ({ children, displayPoint, ...boxProps }) => {
   return (
