@@ -319,7 +319,7 @@ const PriceCalculator = () => {
                 fontSize={22}
                 color="colors.nero"
               >
-                Ваша экономия:
+                Ваша возможная экономия:
               </Box>
 
               <Stack
