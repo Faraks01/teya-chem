@@ -51,13 +51,13 @@ const PriceCalculator = () => {
     full_charge_price,
     average_consumption,
     amount_of_common_product_packs,
-    amount_of_large_product_packs,
     average_mileage_per_month,
     mileage_per_hundred_kilometers_discount,
     fuel_brand,
     full_charge_discount,
     per_month_during_product_usage_discount,
     per_product_discount,
+    product_dosage,
   } = values;
 
   useEffect(() => {
@@ -66,21 +66,16 @@ const PriceCalculator = () => {
     }
   }, [dialogOpen, resetForm]);
 
-  const isLargeProductBottle =
-    amount_of_large_product_packs > 0 &&
-    amount_of_large_product_packs < amount_of_common_product_packs;
-
-  const packsTitle = useMemo(() => {
-    const pack_amount = isLargeProductBottle
-      ? amount_of_large_product_packs
-      : amount_of_common_product_packs;
-
-    return plural(pack_amount, "%d флакон", "%d флакона", "%d флаконов");
-  }, [
-    amount_of_large_product_packs,
-    amount_of_common_product_packs,
-    isLargeProductBottle,
-  ]);
+  const packsTitle = useMemo(
+    () =>
+      plural(
+        amount_of_common_product_packs,
+        "%d флакон",
+        "%d флакона",
+        "%d флаконов",
+      ),
+    [amount_of_common_product_packs],
+  );
 
   return (
     <Box>
@@ -131,7 +126,7 @@ const PriceCalculator = () => {
               placeholder="Объем бака (л)"
               type="number"
               min={0}
-              max={99999999}
+              max={999}
               onChange={handleInputChange("tank_volume")}
               value={tank_volume}
             />
@@ -293,8 +288,7 @@ const PriceCalculator = () => {
                   color="colors.blurple"
                   textAlign="center"
                 >
-                  {isLargeProductBottle && "x2 мл"}
-                  {!isLargeProductBottle && "x1 мл"}
+                  {product_dosage} мл
                 </Box>
 
                 <Box

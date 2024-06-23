@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useFormik } from "formik";
 import {
   CONSUMPTION_REDUCTION,
@@ -26,7 +26,6 @@ export const useCalculatedValues = () => {
       per_product_discount: 0,
       per_month_during_product_usage_discount: 0,
       amount_of_common_product_packs: 1,
-      amount_of_large_product_packs: 0,
     },
     onSubmit: () => null,
   });
@@ -39,7 +38,6 @@ export const useCalculatedValues = () => {
     full_charge_discount,
     average_consumption,
     amount_of_common_product_packs,
-    amount_of_large_product_packs,
     average_mileage_per_month,
     mileage_per_hundred_kilometers_discount,
     per_product_discount,
@@ -60,17 +58,6 @@ export const useCalculatedValues = () => {
 
       setFieldValue(
         "amount_of_common_product_packs",
-        Math.ceil(tank_volume / productVolume),
-      );
-    }
-  }, [tank_volume, setFieldValue]);
-
-  useEffect(() => {
-    if (tank_volume !== undefined) {
-      const productVolume = PRODUCT_VARIANTS["LARGE"]["volume"];
-
-      setFieldValue(
-        "amount_of_large_product_packs",
         Math.ceil(tank_volume / productVolume),
       );
     }
@@ -138,6 +125,12 @@ export const useCalculatedValues = () => {
     setFieldValue,
   ]);
 
+  const product_dosage = useMemo(() => {
+    if (isNaN(tank_volume)) return "—";
+    if (tank_volume <= 0) return "—";
+    return `${tank_volume} - ${tank_volume * 2}`;
+  }, [tank_volume]);
+
   const handleInputChange = (field) => (evt) => {
     const { value } = evt.target;
 
@@ -161,9 +154,9 @@ export const useCalculatedValues = () => {
       fuel_price,
       full_charge_price: formatNumber(full_charge_price),
       full_charge_discount: formatNumber(full_charge_discount),
+      product_dosage,
       average_consumption,
       amount_of_common_product_packs,
-      amount_of_large_product_packs,
       average_mileage_per_month,
       mileage_per_hundred_kilometers_discount: formatNumber(
         mileage_per_hundred_kilometers_discount,
