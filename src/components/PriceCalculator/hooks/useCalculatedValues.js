@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import { useFormik } from "formik";
-import { COST_REDUCTION, FUEL_BRANDS, PRODUCT_VARIANTS } from "@/constants";
+import {
+  CONSUMPTION_REDUCTION,
+  FUEL_BRANDS,
+  PRODUCT_VARIANTS,
+} from "@/constants";
 import { formatNumber } from "@/utils";
 
 export const useCalculatedValues = () => {
@@ -74,7 +78,7 @@ export const useCalculatedValues = () => {
 
       setFieldValue(
         "full_charge_discount",
-        (full_charge_price * COST_REDUCTION) / 100 -
+        (full_charge_price * CONSUMPTION_REDUCTION) / 100 -
           (tank_volume * productHalfDiscount) / productVolume,
       );
     }
@@ -87,7 +91,7 @@ export const useCalculatedValues = () => {
 
       setFieldValue(
         "mileage_per_hundred_kilometers_discount",
-        (average_consumption * fuel_price * COST_REDUCTION) / 100 -
+        (average_consumption * fuel_price * CONSUMPTION_REDUCTION) / 100 -
           (average_consumption * productHalfDiscount) / productVolume,
       );
     }
@@ -104,7 +108,7 @@ export const useCalculatedValues = () => {
         "per_product_discount",
         ((amount_of_common_product_packs *
           productHalfDiscount *
-          COST_REDUCTION) /
+          CONSUMPTION_REDUCTION) /
           100) *
           fuel_price -
           amount_of_common_product_packs * productHalfDiscount,
