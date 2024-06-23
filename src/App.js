@@ -17,8 +17,12 @@ import {
   Footer,
 } from "@/sections";
 import { PriceCalculator, DialogMenu } from "@/components";
+import { useQRCodeTransition } from "@/hooks";
+import { PRODUCT_USAGE_INSTRUCTION_ID } from "@/sections";
 
 function App() {
+  useQRCodeTransition(PRODUCT_USAGE_INSTRUCTION_ID);
+
   return (
     <Stack bgcolor="inherit" alignItems="stretch">
       <Stack

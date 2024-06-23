@@ -5,6 +5,8 @@ import { PriceCalculatorContext } from "@/components";
 import { stepCardsData } from "./data/local/stepCardsData";
 import { InstructionStepCard } from "./children";
 
+export const PRODUCT_USAGE_INSTRUCTION_ID = "product-usage-instruction";
+
 const ProductUsageInstruction = () => {
   const { changeDialogState } = useContext(PriceCalculatorContext);
 
@@ -12,6 +14,7 @@ const ProductUsageInstruction = () => {
 
   return (
     <Box
+      id={PRODUCT_USAGE_INSTRUCTION_ID}
       pt={{ xs: "85px", md: "122px" }}
       component="section"
       display="flex"
